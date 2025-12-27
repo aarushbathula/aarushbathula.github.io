@@ -3,23 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name</title>
+    <title>Aarush Bathula | Economics @ Warwick</title>
     <style>
-        /* Theme setup - runs before paint */
+        /* Theme variables */
         :root {
             --bg: #FFFFFF;
-            --text: #000000;
+            --text: #111111;
             --link: #0000EE;
             --visited: #551A8B;
-            --accent: #333333;
+            --accent: #555555;
+            --code-bg: #F4F4F4;
         }
 
-        [data-theme="dark"] {
-            --bg: #0A0A0A;
-            --text: #E0E0E0;
-            --link: #6B9BFF;
+        body.dark-mode {
+            --bg: #111111;
+            --text: #EEEEEE;
+            --link: #88CCFF;
             --visited: #B8A0FF;
-            --accent: #CCCCCC;
+            --accent: #AAAAAA;
+            --code-bg: #222222;
         }
 
         /* Base styles */
@@ -30,266 +32,511 @@
         }
 
         body {
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 16px;
-            line-height: 1.6;
+            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.5;
             background: var(--bg);
             color: var(--text);
             max-width: 680px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
 
         /* Typography */
         h1 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             margin-bottom: 8px;
         }
 
         h2 {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: bold;
             margin-top: 40px;
             margin-bottom: 16px;
-            text-transform: uppercase;
+            border-bottom: 2px solid var(--text);
+            padding-bottom: 5px;
+        }
+
+        h3 {
+            font-size: 14px;
+            font-weight: normal;
+            color: var(--accent);
+            margin-top: 24px;
+            margin-bottom: 12px;
         }
 
         p {
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         /* Links */
         a {
             color: var(--link);
-            text-decoration: underline;
+            text-decoration: none;
+            border-bottom: 1px solid var(--link);
         }
 
         a:visited {
             color: var(--visited);
+            border-bottom-color: var(--visited);
         }
 
-        /* Header */
+        a:hover {
+            background: var(--link);
+            color: var(--bg);
+        }
+
+        /* Header and Navigation */
         header {
             margin-bottom: 40px;
-            position: relative;
         }
 
-        .theme-toggle {
-            position: absolute;
-            top: 0;
-            right: 0;
-            cursor: pointer;
-            user-select: none;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
-        .subtitle {
-            color: var(--accent);
-            margin-bottom: 8px;
+        nav b {
+            font-size: 16px;
         }
 
-        .contact {
-            margin-top: 16px;
+        .nav-links a {
+            margin-left: 10px;
+            border: none;
         }
 
-        /* Sections */
-        section {
-            margin-bottom: 40px;
-        }
-
-        /* Lists */
-        ul {
-            list-style: none;
+        .nav-links a:first-child {
             margin-left: 0;
         }
 
-        li {
+        #theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text);
+            font-size: 18px;
+            font-family: inherit;
+            padding: 0;
+            margin-left: 15px;
+        }
+
+        .bio {
+            color: var(--text);
             margin-bottom: 12px;
+        }
+
+        .contacts {
+            color: var(--accent);
+        }
+
+        .contacts a {
+            border: none;
+        }
+
+        /* Projects section */
+        .category {
+            margin-bottom: 30px;
+        }
+
+        .item-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .item-list li {
+            margin-bottom: 25px;
+        }
+
+        .date {
+            color: var(--accent);
+            display: inline-block;
+            min-width: 50px;
+            margin-right: 8px;
         }
 
         .project-title {
             font-weight: bold;
         }
 
-        .project-links {
-            margin-left: 16px;
+        .stack {
+            font-size: 0.85em;
             color: var(--accent);
+            margin-left: 8px;
+        }
+
+        .desc {
+            margin: 5px 0 5px 58px;
+            color: var(--text);
+            opacity: 0.9;
+        }
+
+        .project-links {
+            margin-left: 58px;
+            font-size: 0.9em;
+            color: var(--accent);
+        }
+
+        .project-links a {
+            border: none;
+            margin-right: 4px;
+        }
+
+        /* Notes section */
+        .note-item {
+            margin-bottom: 16px;
+        }
+
+        .note-title {
+            font-weight: bold;
+        }
+
+        .note-meta {
+            color: var(--accent);
+            font-size: 0.9em;
+            margin-left: 16px;
+        }
+
+        .note-links {
+            margin-left: 16px;
+            font-size: 0.9em;
+        }
+
+        .note-links a {
+            border: none;
         }
 
         /* Horizontal rule */
         hr {
             border: none;
-            border-top: 1px solid var(--text);
-            margin: 40px 0;
+            border-top: 1px dashed var(--accent);
+            margin: 30px 0;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 12px;
         }
 
         /* Print styles */
         @media print {
             body {
                 max-width: 100%;
-                font-size: 12pt;
+                font-size: 11pt;
+                color: #000;
+                background: #fff;
             }
             
-            .theme-toggle {
+            #theme-toggle {
                 display: none;
             }
             
             a {
                 color: #000;
-                text-decoration: none;
+                border-bottom: none;
             }
             
-            a::after {
+            a[href^="http"]::after {
                 content: " (" attr(href) ")";
-                font-size: 10pt;
+                font-size: 9pt;
             }
         }
 
         /* Mobile responsive */
         @media (max-width: 640px) {
             body {
+                margin: 20px auto;
                 padding: 16px;
-                font-size: 14px;
+                font-size: 13px;
+            }
+
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            #theme-toggle {
+                margin-left: 0;
+                align-self: flex-end;
             }
             
             h1 {
-                font-size: 20px;
+                font-size: 18px;
             }
             
             h2 {
-                font-size: 16px;
+                font-size: 15px;
+            }
+
+            .date {
+                display: block;
+                width: 100%;
+                margin-bottom: 4px;
+            }
+
+            .desc,
+            .project-links {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .nav-links a {
+                margin-left: 0;
             }
         }
     </style>
-    <script>
-        // Prevent flash of unstyled content
-        (function() {
-            const theme = localStorage.getItem('theme') || 
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', theme);
-        })();
-    </script>
 </head>
 <body>
     <header>
-        <span class="theme-toggle" onclick="toggleTheme()" id="theme-toggle">[dark]</span>
-        <h1>Your Name</h1>
-        <p class="subtitle">Economics & Computational Mathematics<br>University of Warwick, Final Year</p>
-        <div class="contact">
-            <a href="mailto:your.email@warwick.ac.uk">your.email@warwick.ac.uk</a> | 
-            <a href="https://github.com/yourusername">GitHub</a> | 
-            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
-        </div>
+        <nav>
+            <div>
+                <b>Your Name</b>
+                <button id="theme-toggle" aria-label="Toggle dark mode">●</button>
+            </div>
+            <div class="nav-links">
+                <a href="#projects">Projects</a>
+                <a href="#notes">Notes</a>
+                <a href="#writing">Writing</a>
+                <a href="cv.pdf">CV</a>
+            </div>
+        </nav>
+        <p class="bio">
+            Third-year Economics undergraduate at the University of Warwick.<br>
+            Academic Interests: Econometrics, Computational Mathematics, Causal Inference, and Housing Policy.
+        </p>
+        <p class="contacts">
+            <a href="mailto:aarush.bathula@warwick.ac.uk">Email</a> // 
+            <a href="https://github.com/aarushbathula">GitHub</a> // 
+            <a href="https://linkedin.com/in/aarushbathula">LinkedIn</a>
+        </p>
     </header>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        
-        <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 16px; font-weight: bold;">Econometrics & Causal Inference</h3>
-        <ul>
-            <li>
-                <span class="project-title">Time series analysis of UK inflation dynamics</span><br>
-                <span style="margin-left: 16px;">ARIMA modeling and structural break analysis of post-Brexit inflation patterns</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/uk-inflation">repo</a>] [<a href="/projects/uk-inflation.pdf">paper</a>]</span>
-            </li>
-            <li>
-                <span class="project-title">Causal inference in labor economics: RDD approach</span><br>
-                <span style="margin-left: 16px;">Regression discontinuity design estimating minimum wage effects on employment</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/rdd-minwage">repo</a>] [<a href="/projects/rdd-minwage.pdf">writeup</a>]</span>
-            </li>
-            <li>
-                <span class="project-title">Panel data methods: Fixed effects vs random effects comparison</span><br>
-                <span style="margin-left: 16px;">Monte Carlo simulations and empirical application to firm-level productivity</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/panel-methods">repo</a>]</span>
-            </li>
-        </ul>
+    <main>
+        <section id="projects">
+            <h2>## Projects</h2>
+            
+            <div class="category">
+                <h3>01. Econometrics & Causal Inference</h3>
+                <ul class="item-list">
+                    <li>
+                        <span class="date">2025</span>
+                        <span class="project-title">Sibling sex-effects on academic self-perception</span>
+                        <span class="stack">[Stata]</span><br>
+                        <p class="desc">Exploiting random assignment of sibling sex from Angrist and Evans (1998) in Belgium.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">code</a>] 
+                            [<a href="projects/uk-inflation.html">paper</a>]
+                        </div>
+                    </li>
+                    <li>
+                        <span class="date">2025</span>
+                        <span class="project-title">Causal Inference in Spanish Political Representation Quotas</span>
+                        <span class="stack">[Stata]</span><br>
+                        <p class="desc">Regression discontinuity design and instrumental variables estimating quota effects on female political equity.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/rdd-minwage">code</a>] 
+                            [<a href="projects/rdd-minwage.html">paper</a>]
+                        </div>
+                    </li>
+                    <li>
+                        <span class="date">2024</span>
+                        <span class="project-title">Labour market skill-matching of immigrants in the UK</span>
+                        <span class="stack">[Stata]</span><br>
+                        <p class="desc">Placeholder.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/panel-methods">code</a>]
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-        <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 16px; font-weight: bold;">Trading & Quantitative Finance</h3>
-        <ul>
-            <li>
-                <span class="project-title">Algorithmic trading competition: Momentum strategies</span><br>
-                <span style="margin-left: 16px;">Python implementation of cross-sectional momentum with risk management</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/momentum-trading">repo</a>] [<a href="/projects/trading-comp.pdf">report</a>]</span>
-            </li>
-            <li>
-                <span class="project-title">Options pricing: Monte Carlo methods</span><br>
-                <span style="margin-left: 16px;">Efficient simulation of European and exotic options with variance reduction</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/options-mc">repo</a>]</span>
-            </li>
-        </ul>
+            <div class="category">
+                <h3>02. Quantitative Trading</h3>
+                <ul class="item-list">
+                    <li>
+                        <span class="date">2024</span>
+                        <span class="project-title">Algorithmic Trading: IMC Prosperity 3</span>
+                        <span class="stack">[Python] [NumPy] [Pandas]</span><br>
+                        <p class="desc">Placeholder.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/momentum-trading">code</a>] 
+                            [<a href="projects/trading-competition.html">report</a>]
+                        </div>
+                    </li>
+                    <li>
+                        <span class="date">2023</span>
+                        <span class="project-title">High-Frequency Order Book Simulation</span>
+                        <span class="stack">[C++] [Python]</span><br>
+                        <p class="desc">Limit order book matching engine optimized for microsecond latency with realistic market dynamics.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/orderbook-sim">code</a>]
+                        </div>
+                    </li>
+                    <li>
+                        <span class="date">2023</span>
+                        <span class="project-title">Options Pricing: Monte Carlo Methods</span>
+                        <span class="stack">[Python] [QuantLib]</span><br>
+                        <p class="desc">Efficient simulation of European and exotic options with variance reduction techniques.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/options-mc">code</a>]
+                        </div>
+                    </li>
+                </ul>
+            </div>
 
-        <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 16px; font-weight: bold;">Data Science & Computation</h3>
-        <ul>
-            <li>
-                <span class="project-title">Machine learning for economic forecasting</span><br>
-                <span style="margin-left: 16px;">XGBoost and LSTM networks for GDP growth prediction</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/ml-forecast">repo</a>] [<a href="/projects/ml-forecast.pdf">paper</a>]</span>
-            </li>
-            <li>
-                <span class="project-title">Network analysis of international trade</span><br>
-                <span style="margin-left: 16px;">Graph theory approach to bilateral trade relationships and clustering</span><br>
-                <span class="project-links">[<a href="https://github.com/yourusername/trade-networks">repo</a>]</span>
-            </li>
-        </ul>
-    </section>
+            <div class="category">
+                <h3>03. Data Science & Computation</h3>
+                <ul class="item-list">
+                    <li>
+                        <span class="date">2024</span>
+                        <span class="project-title">Machine Learning for Economic Forecasting</span>
+                        <span class="stack">[Python] [XGBoost] [LSTM]</span><br>
+                        <p class="desc">Ensemble methods and deep learning for GDP growth prediction with feature importance analysis.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/ml-forecast">code</a>] 
+                            [<a href="projects/ml-forecast.html">paper</a>]
+                        </div>
+                    </li>
+                    <li>
+                        <span class="date">2023</span>
+                        <span class="project-title">Network Analysis of International Trade</span>
+                        <span class="stack">[Python] [NetworkX]</span><br>
+                        <p class="desc">Graph theory approach to bilateral trade relationships with community detection and centrality measures.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/trade-networks">code</a>]
+                        </div>
+                    </li>
+                    <li>
+                        <span class="date">2023</span>
+                        <span class="project-title">Computational General Equilibrium Model</span>
+                        <span class="stack">[Julia] [JuMP]</span><br>
+                        <p class="desc">Multi-sector CGE model with policy counterfactuals solved via nonlinear optimization.</p>
+                        <div class="project-links">
+                            [<a href="https://github.com/yourusername/cge-model">code</a>]
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
 
-    <hr>
+        <hr>
 
-    <section id="notes">
-        <h2>Notes</h2>
-        <p>Typed lecture notes from courses at Warwick. Use at your own risk.</p>
-        <ul>
-            <li>Econometrics I [<a href="/notes/ec226.html">web</a>] [<a href="/notes/pdf/ec226.pdf">pdf</a>]</li>
-            <li>Econometrics II [<a href="/notes/ec227.html">web</a>] [<a href="/notes/pdf/ec227.pdf">pdf</a>]</li>
-            <li>Time Series Analysis [<a href="/notes/ec333.html">web</a>] [<a href="/notes/pdf/ec333.pdf">pdf</a>]</li>
-            <li>Microeconomic Theory [<a href="/notes/ec301.html">web</a>] [<a href="/notes/pdf/ec301.pdf">pdf</a>]</li>
-            <li>Computational Methods in Economics [<a href="/notes/ec349.html">web</a>] [<a href="/notes/pdf/ec349.pdf">pdf</a>]</li>
-        </ul>
-    </section>
+        <section id="notes">
+            <h2>## Notes</h2>
+            <p>Typed lecture notes from courses at Warwick. Use at your own risk.</p>
+            <ul class="item-list">
+                <li class="note-item">
+                    <span class="note-title">EC226: Econometrics I</span><br>
+                    <span class="note-meta">Prof. Smith, Autumn 2023 | OLS, Hypothesis Testing, Heteroskedasticity, IV</span><br>
+                    <span class="note-links">
+                        [<a href="notes/econometrics/ec226.html">web</a>] 
+                        [<a href="notes/econometrics/ec226.pdf">pdf</a>]
+                    </span>
+                </li>
+                <li class="note-item">
+                    <span class="note-title">EC227: Econometrics II</span><br>
+                    <span class="note-meta">Prof. Jones, Spring 2024 | Panel Data, GMM, Maximum Likelihood, Binary Choice</span><br>
+                    <span class="note-links">
+                        [<a href="notes/econometrics/ec227.html">web</a>] 
+                        [<a href="notes/econometrics/ec227.pdf">pdf</a>]
+                    </span>
+                </li>
+                <li class="note-item">
+                    <span class="note-title">EC333: Time Series Analysis</span><br>
+                    <span class="note-meta">Prof. Brown, Autumn 2024 | ARIMA, VAR, Cointegration, ARCH/GARCH</span><br>
+                    <span class="note-links">
+                        [<a href="notes/time-series/ec333.html">web</a>] 
+                        [<a href="notes/time-series/ec333.pdf">pdf</a>]
+                    </span>
+                </li>
+                <li class="note-item">
+                    <span class="note-title">EC301: Microeconomic Theory</span><br>
+                    <span class="note-meta">Prof. Davis, Spring 2024 | Consumer Theory, Producer Theory, General Equilibrium</span><br>
+                    <span class="note-links">
+                        [<a href="notes/micro/ec301.html">web</a>] 
+                        [<a href="notes/micro/ec301.pdf">pdf</a>]
+                    </span>
+                </li>
+                <li class="note-item">
+                    <span class="note-title">EC349: Computational Methods in Economics</span><br>
+                    <span class="note-meta">Prof. Wilson, Autumn 2023 | Numerical Optimization, Dynamic Programming, Simulation</span><br>
+                    <span class="note-links">
+                        [<a href="notes/computation/ec349.html">web</a>] 
+                        [<a href="notes/computation/ec349.pdf">pdf</a>]
+                    </span>
+                </li>
+            </ul>
+        </section>
 
-    <hr>
+        <hr>
 
-    <section id="writing">
-        <h2>Writing</h2>
-        <p>Occasional posts on economics, statistics, and computation.</p>
-        <ul>
-            <li><a href="https://yoursubstack.substack.com">Substack: Your Substack Name</a></li>
-        </ul>
-        <p style="margin-top: 16px; color: var(--accent);">Recent posts:</p>
-        <ul style="margin-top: 8px;">
-            <li><a href="https://yoursubstack.substack.com/p/post-1">Understanding the Lucas Critique in modern policy</a></li>
-            <li><a href="https://yoursubstack.substack.com/p/post-2">Bayesian methods in econometric practice</a></li>
-            <li><a href="https://yoursubstack.substack.com/p/post-3">Why causal inference matters for ML in economics</a></li>
-        </ul>
-    </section>
+        <section id="writing">
+            <h2>## Writing</h2>
+            <p>Occasional posts on economics, statistics, and computation.</p>
+            <p style="margin-top: 16px;">
+                <a href="https://yoursubstack.substack.com">Substack: Your Name's Economics Blog</a>
+            </p>
+            <p style="margin-top: 16px; color: var(--accent);">Recent posts:</p>
+            <ul class="item-list" style="margin-top: 8px;">
+                <li><a href="https://yoursubstack.substack.com/p/lucas-critique">Understanding the Lucas Critique in modern policy evaluation</a></li>
+                <li><a href="https://yoursubstack.substack.com/p/bayesian-econometrics">Bayesian methods in econometric practice: When and why</a></li>
+                <li><a href="https://yoursubstack.substack.com/p/causal-ml">Why causal inference matters for machine learning in economics</a></li>
+            </ul>
+        </section>
 
-    <hr>
+        <hr>
 
-    <section id="cv">
-        <h2>CV</h2>
-        <p><a href="/cv.pdf">Download CV (PDF)</a></p>
-    </section>
+        <section id="cv">
+            <h2>## CV</h2>
+            <p><a href="cv.pdf">Download CV (PDF)</a></p>
+        </section>
+    </main>
 
-    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--accent); color: var(--accent); font-size: 14px;">
-        <p>Last updated: December 2024</p>
+    <footer>
+        <p>Last updated: December 2025</p>
     </footer>
 
     <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const toggle = document.getElementById('theme-toggle');
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            toggle.textContent = newTheme === 'dark' ? '[light]' : '[dark]';
+        // Dark mode toggle with localStorage persistence
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark-mode' || (!savedTheme && prefersDark)) {
+            body.classList.add('dark-mode');
+            toggle.textContent = '○';
+        } else {
+            toggle.textContent = '●';
         }
-
-        // Set initial toggle text
-        document.addEventListener('DOMContentLoaded', function() {
-            const theme = document.documentElement.getAttribute('data-theme');
-            document.getElementById('theme-toggle').textContent = theme === 'dark' ? '[light]' : '[dark]';
+        
+        // Toggle theme on click
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark-mode');
+                toggle.textContent = '○';
+            } else {
+                localStorage.setItem('theme', 'light-mode');
+                toggle.textContent = '●';
+            }
         });
     </script>
 </body>
