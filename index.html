@@ -2,152 +2,295 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Aarush Bathula – Economics & Econometrics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name</title>
     <style>
-        /* BASE STYLES */
+        /* Theme setup - runs before paint */
         :root {
-            --bg-color: #ffffff;
-            --text-color: #222222;
-            --link-color: #0033dd; /* Classic academic blue */
-            --link-hover: #b30000; /* Dark red for hover interaction */
-            --meta-color: #666666;
-            --spacing: 1.6rem;
+            --bg: #FFFFFF;
+            --text: #000000;
+            --link: #0000EE;
+            --visited: #551A8B;
+            --accent: #333333;
+        }
+
+        [data-theme="dark"] {
+            --bg: #0A0A0A;
+            --text: #E0E0E0;
+            --link: #6B9BFF;
+            --visited: #B8A0FF;
+            --accent: #CCCCCC;
+        }
+
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-            font-family: Georgia, "Times New Roman", Times, serif;
-            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 16px;
             line-height: 1.6;
-            background-color: var(--bg-color);
+            background: var(--bg);
+            color: var(--text);
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        /* TYPOGRAPHY */
+        /* Typography */
         h1 {
-            font-weight: normal;
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
         }
 
         h2 {
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #ddd; /* subtle divider */
-            padding-bottom: 0.3rem;
-            color: #000;
-        }
-
-        h3 {
-            font-size: 1.1rem;
+            font-size: 18px;
             font-weight: bold;
-            margin-top: 1.5rem;
-            margin-bottom: 0.25rem;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
         }
 
-        /* LINKS */
+        p {
+            margin-bottom: 16px;
+        }
+
+        /* Links */
         a {
-            color: var(--link-color);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s;
+            color: var(--link);
+            text-decoration: underline;
         }
 
-        a:hover {
-            color: var(--link-hover);
-            border-bottom: 1px solid var(--link-hover);
-            text-decoration: none;
+        a:visited {
+            color: var(--visited);
         }
 
-        /* HEADER / META INFO */
-        .header-section {
-            margin-bottom: 3rem;
+        /* Header */
+        header {
+            margin-bottom: 40px;
+            position: relative;
         }
 
-        .meta {
-            font-family: "Courier New", Courier, monospace; /* Monospace for data vibe */
-            font-size: 0.9rem;
-            color: var(--meta-color);
-            margin-bottom: 1rem;
+        .theme-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            cursor: pointer;
+            user-select: none;
         }
 
-        .contact-links {
-            font-size: 1rem;
+        .subtitle {
+            color: var(--accent);
+            margin-bottom: 8px;
         }
 
-        .contact-links span {
-            margin: 0 0.4rem;
-            color: #ccc;
+        .contact {
+            margin-top: 16px;
         }
 
-        /* LISTS & PROJECTS */
+        /* Sections */
+        section {
+            margin-bottom: 40px;
+        }
+
+        /* Lists */
         ul {
-            list-style-type: disc; 
-            padding-left: 1.5rem;
-            margin-top: 0.5rem;
+            list-style: none;
+            margin-left: 0;
         }
 
         li {
-            margin-bottom: 0.4rem;
+            margin-bottom: 12px;
         }
 
-        /* TAGS (Minimalist) */
-        .tag-container {
-            font-size: 0.8rem;
-            color: #555;
-            margin-bottom: 0.5rem;
-            font-style: italic;
+        .project-title {
+            font-weight: bold;
         }
-        
-        /* FOOTER */
-        .footer {
-            margin-top: 4rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-            font-size: 0.9rem;
-            color: #777;
+
+        .project-links {
+            margin-left: 16px;
+            color: var(--accent);
         }
-        
-        /* UTILITY FOR PDF LINKS */
-        a[href$=".pdf"]::after {
-            content: " [PDF]";
-            font-size: 0.75em;
-            color: #777;
-            font-weight: normal;
+
+        /* Horizontal rule */
+        hr {
+            border: none;
+            border-top: 1px solid var(--text);
+            margin: 40px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                max-width: 100%;
+                font-size: 12pt;
+            }
+            
+            .theme-toggle {
+                display: none;
+            }
+            
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+            
+            a::after {
+                content: " (" attr(href) ")";
+                font-size: 10pt;
+            }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 640px) {
+            body {
+                padding: 16px;
+                font-size: 14px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            h2 {
+                font-size: 16px;
+            }
         }
     </style>
+    <script>
+        // Prevent flash of unstyled content
+        (function() {
+            const theme = localStorage.getItem('theme') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+        })();
+    </script>
 </head>
 <body>
-
-    <header class="header-section">
-        <h1>Aarush Bathula</h1>
-        <div class="meta">
-            BSc Economics, University of Warwick<br>
-            2023 -- 2026
-        </div>
-        
-        <div class="contact-links">
-            <a href="cv/AarushBathula_Academic_CV.pdf">CV</a>
-            <span>•</span>
-            <a href="mailto:aarush.bathula@warwick.ac.uk">Email</a>
-            <span>•</span>
-            <a href="https://github.com/aarushbathula" target="_blank">GitHub</a>
-            <span>•</span>
-            <a href="https://www.linkedin.com/in/aarushbathula" target="_blank">LinkedIn</a>
+    <header>
+        <span class="theme-toggle" onclick="toggleTheme()" id="theme-toggle">[dark]</span>
+        <h1>Your Name</h1>
+        <p class="subtitle">Economics & Computational Mathematics<br>University of Warwick, Final Year</p>
+        <div class="contact">
+            <a href="mailto:your.email@warwick.ac.uk">your.email@warwick.ac.uk</a> | 
+            <a href="https://github.com/yourusername">GitHub</a> | 
+            <a href="https://linkedin.com/in/yourprofile">LinkedIn</a>
         </div>
     </header>
 
-    <footer class="footer">
-        <p>
-            I’m interested in macro-housing, endogenous growth, and applied microeconometrics.<br>
-            This page is open source. Typo reports welcome via email.
-        </p>
+    <section id="projects">
+        <h2>Projects</h2>
+        
+        <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 16px; font-weight: bold;">Econometrics & Causal Inference</h3>
+        <ul>
+            <li>
+                <span class="project-title">Time series analysis of UK inflation dynamics</span><br>
+                <span style="margin-left: 16px;">ARIMA modeling and structural break analysis of post-Brexit inflation patterns</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/uk-inflation">repo</a>] [<a href="/projects/uk-inflation.pdf">paper</a>]</span>
+            </li>
+            <li>
+                <span class="project-title">Causal inference in labor economics: RDD approach</span><br>
+                <span style="margin-left: 16px;">Regression discontinuity design estimating minimum wage effects on employment</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/rdd-minwage">repo</a>] [<a href="/projects/rdd-minwage.pdf">writeup</a>]</span>
+            </li>
+            <li>
+                <span class="project-title">Panel data methods: Fixed effects vs random effects comparison</span><br>
+                <span style="margin-left: 16px;">Monte Carlo simulations and empirical application to firm-level productivity</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/panel-methods">repo</a>]</span>
+            </li>
+        </ul>
+
+        <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 16px; font-weight: bold;">Trading & Quantitative Finance</h3>
+        <ul>
+            <li>
+                <span class="project-title">Algorithmic trading competition: Momentum strategies</span><br>
+                <span style="margin-left: 16px;">Python implementation of cross-sectional momentum with risk management</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/momentum-trading">repo</a>] [<a href="/projects/trading-comp.pdf">report</a>]</span>
+            </li>
+            <li>
+                <span class="project-title">Options pricing: Monte Carlo methods</span><br>
+                <span style="margin-left: 16px;">Efficient simulation of European and exotic options with variance reduction</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/options-mc">repo</a>]</span>
+            </li>
+        </ul>
+
+        <h3 style="margin-top: 24px; margin-bottom: 12px; font-size: 16px; font-weight: bold;">Data Science & Computation</h3>
+        <ul>
+            <li>
+                <span class="project-title">Machine learning for economic forecasting</span><br>
+                <span style="margin-left: 16px;">XGBoost and LSTM networks for GDP growth prediction</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/ml-forecast">repo</a>] [<a href="/projects/ml-forecast.pdf">paper</a>]</span>
+            </li>
+            <li>
+                <span class="project-title">Network analysis of international trade</span><br>
+                <span style="margin-left: 16px;">Graph theory approach to bilateral trade relationships and clustering</span><br>
+                <span class="project-links">[<a href="https://github.com/yourusername/trade-networks">repo</a>]</span>
+            </li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section id="notes">
+        <h2>Notes</h2>
+        <p>Typed lecture notes from courses at Warwick. Use at your own risk.</p>
+        <ul>
+            <li>Econometrics I [<a href="/notes/ec226.html">web</a>] [<a href="/notes/pdf/ec226.pdf">pdf</a>]</li>
+            <li>Econometrics II [<a href="/notes/ec227.html">web</a>] [<a href="/notes/pdf/ec227.pdf">pdf</a>]</li>
+            <li>Time Series Analysis [<a href="/notes/ec333.html">web</a>] [<a href="/notes/pdf/ec333.pdf">pdf</a>]</li>
+            <li>Microeconomic Theory [<a href="/notes/ec301.html">web</a>] [<a href="/notes/pdf/ec301.pdf">pdf</a>]</li>
+            <li>Computational Methods in Economics [<a href="/notes/ec349.html">web</a>] [<a href="/notes/pdf/ec349.pdf">pdf</a>]</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section id="writing">
+        <h2>Writing</h2>
+        <p>Occasional posts on economics, statistics, and computation.</p>
+        <ul>
+            <li><a href="https://yoursubstack.substack.com">Substack: Your Substack Name</a></li>
+        </ul>
+        <p style="margin-top: 16px; color: var(--accent);">Recent posts:</p>
+        <ul style="margin-top: 8px;">
+            <li><a href="https://yoursubstack.substack.com/p/post-1">Understanding the Lucas Critique in modern policy</a></li>
+            <li><a href="https://yoursubstack.substack.com/p/post-2">Bayesian methods in econometric practice</a></li>
+            <li><a href="https://yoursubstack.substack.com/p/post-3">Why causal inference matters for ML in economics</a></li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <section id="cv">
+        <h2>CV</h2>
+        <p><a href="/cv.pdf">Download CV (PDF)</a></p>
+    </section>
+
+    <footer style="margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--accent); color: var(--accent); font-size: 14px;">
+        <p>Last updated: December 2024</p>
     </footer>
 
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const toggle = document.getElementById('theme-toggle');
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            toggle.textContent = newTheme === 'dark' ? '[light]' : '[dark]';
+        }
+
+        // Set initial toggle text
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = document.documentElement.getAttribute('data-theme');
+            document.getElementById('theme-toggle').textContent = theme === 'dark' ? '[light]' : '[dark]';
+        });
+    </script>
 </body>
 </html>
