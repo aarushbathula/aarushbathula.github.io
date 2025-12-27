@@ -44,26 +44,28 @@
 
         /* Typography */
         h1 {
-            font-size: 20px;
+            font-size: 28px;
             font-weight: bold;
             margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
 
         h2 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             margin-top: 40px;
             margin-bottom: 16px;
-            border-bottom: 2px solid var(--text);
-            padding-bottom: 5px;
+            letter-spacing: -0.3px;
         }
 
         h3 {
             font-size: 14px;
-            font-weight: normal;
+            font-weight: 500;
             color: var(--accent);
             margin-top: 24px;
             margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         p {
@@ -103,9 +105,19 @@
             font-size: 16px;
         }
 
+        .nav-links {
+            font-size: 14px;
+        }
+
         .nav-links a {
-            margin-left: 10px;
+            margin-left: 12px;
             border: none;
+            transition: opacity 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+            background: transparent;
         }
 
         .nav-links a:first-child {
@@ -119,8 +131,13 @@
             color: var(--text);
             font-size: 18px;
             font-family: inherit;
-            padding: 0;
+            padding: 4px;
             margin-left: 15px;
+            transition: transform 0.2s ease;
+        }
+
+        #theme-toggle:hover {
+            transform: scale(1.1);
         }
 
         .bio {
@@ -168,9 +185,10 @@
         }
 
         .desc {
-            margin: 5px 0 5px 58px;
+            margin: 6px 0 6px 58px;
             color: var(--text);
-            opacity: 0.9;
+            opacity: 0.85;
+            font-style: italic;
         }
 
         .project-links {
@@ -211,8 +229,9 @@
         /* Horizontal rule */
         hr {
             border: none;
-            border-top: 1px dashed var(--accent);
-            margin: 30px 0;
+            border-top: 1px solid var(--accent);
+            margin: 40px 0;
+            opacity: 0.3;
         }
 
         /* Footer */
@@ -222,6 +241,35 @@
             border-top: 1px solid var(--accent);
             color: var(--accent);
             font-size: 12px;
+            opacity: 0.7;
+        }
+
+        footer a {
+            color: var(--accent);
+        }
+
+        /* Selection color */
+        ::selection {
+            background: var(--link);
+            color: var(--bg);
+        }
+
+        /* Focus states for accessibility */
+        a:focus,
+        button:focus {
+            outline: 2px solid var(--link);
+            outline-offset: 2px;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
         }
 
         /* Print styles */
@@ -268,11 +316,11 @@
             }
             
             h1 {
-                font-size: 18px;
+                font-size: 24px;
             }
             
             h2 {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .date {
@@ -327,10 +375,10 @@
 
     <main>
         <section id="projects">
-            <h2>## Projects</h2>
+            <h2>Projects</h2>
             
             <div class="category">
-                <h3>01. Econometrics & Causal Inference</h3>
+                <h3>Econometrics & Causal Inference</h3>
                 <ul class="item-list">
                     <li>
                         <span class="date">2025</span>
@@ -339,7 +387,7 @@
                         <p class="desc">Exploiting random assignment of sibling sex from Angrist and Evans (1998) in Belgium.</p>
                         <div class="project-links">
                             [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">code</a>] 
-                            [<a href="projects/uk-inflation.html">paper</a>]
+                            [<a href="projects/sibling-sex-effects.html">paper</a>]
                         </div>
                     </li>
                     <li>
@@ -348,58 +396,40 @@
                         <span class="stack">[Stata]</span><br>
                         <p class="desc">Regression discontinuity design and instrumental variables estimating quota effects on female political equity.</p>
                         <div class="project-links">
-                            [<a href="https://github.com/yourusername/rdd-minwage">code</a>] 
-                            [<a href="projects/rdd-minwage.html">paper</a>]
+                            [<a href="https://github.com/aarushbathula/spanish-quotas">code</a>] 
+                            [<a href="projects/spanish-quotas.html">paper</a>]
                         </div>
                     </li>
                     <li>
                         <span class="date">2024</span>
                         <span class="project-title">Labour market skill-matching of immigrants in the UK</span>
                         <span class="stack">[Stata]</span><br>
-                        <p class="desc">Placeholder.</p>
+                        <p class="desc">Analysis of occupational downgrading and skill mismatch among UK immigrants.</p>
                         <div class="project-links">
-                            [<a href="https://github.com/yourusername/panel-methods">code</a>]
+                            [<a href="https://github.com/aarushbathula/uk-immigrant-matching">code</a>]
                         </div>
                     </li>
                 </ul>
             </div>
 
             <div class="category">
-                <h3>02. Quantitative Trading</h3>
+                <h3>Quantitative Trading</h3>
                 <ul class="item-list">
                     <li>
                         <span class="date">2024</span>
                         <span class="project-title">Algorithmic Trading: IMC Prosperity 3</span>
                         <span class="stack">[Python] [NumPy] [Pandas]</span><br>
-                        <p class="desc">Placeholder.</p>
+                        <p class="desc">Market-making and statistical arbitrage strategies for IMC trading competition.</p>
                         <div class="project-links">
-                            [<a href="https://github.com/yourusername/momentum-trading">code</a>] 
-                            [<a href="projects/trading-competition.html">report</a>]
-                        </div>
-                    </li>
-                    <li>
-                        <span class="date">2023</span>
-                        <span class="project-title">High-Frequency Order Book Simulation</span>
-                        <span class="stack">[C++] [Python]</span><br>
-                        <p class="desc">Limit order book matching engine optimized for microsecond latency with realistic market dynamics.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/yourusername/orderbook-sim">code</a>]
-                        </div>
-                    </li>
-                    <li>
-                        <span class="date">2023</span>
-                        <span class="project-title">Options Pricing: Monte Carlo Methods</span>
-                        <span class="stack">[Python] [QuantLib]</span><br>
-                        <p class="desc">Efficient simulation of European and exotic options with variance reduction techniques.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/yourusername/options-mc">code</a>]
+                            [<a href="https://github.com/aarushbathula/imc-prosperity-3">code</a>] 
+                            [<a href="projects/imc-prosperity.html">report</a>]
                         </div>
                     </li>
                 </ul>
             </div>
 
             <div class="category">
-                <h3>03. Data Science & Computation</h3>
+                <h3>Data Science & Computation</h3>
                 <ul class="item-list">
                     <li>
                         <span class="date">2024</span>
@@ -407,26 +437,8 @@
                         <span class="stack">[Python] [XGBoost] [LSTM]</span><br>
                         <p class="desc">Ensemble methods and deep learning for GDP growth prediction with feature importance analysis.</p>
                         <div class="project-links">
-                            [<a href="https://github.com/yourusername/ml-forecast">code</a>] 
+                            [<a href="https://github.com/aarushbathula/ml-forecast">code</a>] 
                             [<a href="projects/ml-forecast.html">paper</a>]
-                        </div>
-                    </li>
-                    <li>
-                        <span class="date">2023</span>
-                        <span class="project-title">Network Analysis of International Trade</span>
-                        <span class="stack">[Python] [NetworkX]</span><br>
-                        <p class="desc">Graph theory approach to bilateral trade relationships with community detection and centrality measures.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/yourusername/trade-networks">code</a>]
-                        </div>
-                    </li>
-                    <li>
-                        <span class="date">2023</span>
-                        <span class="project-title">Computational General Equilibrium Model</span>
-                        <span class="stack">[Julia] [JuMP]</span><br>
-                        <p class="desc">Multi-sector CGE model with policy counterfactuals solved via nonlinear optimization.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/yourusername/cge-model">code</a>]
                         </div>
                     </li>
                 </ul>
@@ -436,12 +448,12 @@
         <hr>
 
         <section id="notes">
-            <h2>## Notes</h2>
+            <h2>Notes</h2>
             <p>Typed lecture notes from courses at Warwick. Use at your own risk.</p>
             <ul class="item-list">
                 <li class="note-item">
                     <span class="note-title">EC226: Econometrics I</span><br>
-                    <span class="note-meta">Prof. Smith, Autumn 2023 | OLS, Hypothesis Testing, Heteroskedasticity, IV</span><br>
+                    <span class="note-meta">Autumn 2023 | OLS, Hypothesis Testing, Heteroskedasticity, IV</span><br>
                     <span class="note-links">
                         [<a href="notes/econometrics/ec226.html">web</a>] 
                         [<a href="notes/econometrics/ec226.pdf">pdf</a>]
@@ -449,7 +461,7 @@
                 </li>
                 <li class="note-item">
                     <span class="note-title">EC227: Econometrics II</span><br>
-                    <span class="note-meta">Prof. Jones, Spring 2024 | Panel Data, GMM, Maximum Likelihood, Binary Choice</span><br>
+                    <span class="note-meta">Spring 2024 | Panel Data, GMM, Maximum Likelihood, Binary Choice</span><br>
                     <span class="note-links">
                         [<a href="notes/econometrics/ec227.html">web</a>] 
                         [<a href="notes/econometrics/ec227.pdf">pdf</a>]
@@ -457,7 +469,7 @@
                 </li>
                 <li class="note-item">
                     <span class="note-title">EC333: Time Series Analysis</span><br>
-                    <span class="note-meta">Prof. Brown, Autumn 2024 | ARIMA, VAR, Cointegration, ARCH/GARCH</span><br>
+                    <span class="note-meta">Autumn 2024 | ARIMA, VAR, Cointegration, ARCH/GARCH</span><br>
                     <span class="note-links">
                         [<a href="notes/time-series/ec333.html">web</a>] 
                         [<a href="notes/time-series/ec333.pdf">pdf</a>]
@@ -465,7 +477,7 @@
                 </li>
                 <li class="note-item">
                     <span class="note-title">EC301: Microeconomic Theory</span><br>
-                    <span class="note-meta">Prof. Davis, Spring 2024 | Consumer Theory, Producer Theory, General Equilibrium</span><br>
+                    <span class="note-meta">Spring 2024 | Consumer Theory, Producer Theory, General Equilibrium</span><br>
                     <span class="note-links">
                         [<a href="notes/micro/ec301.html">web</a>] 
                         [<a href="notes/micro/ec301.pdf">pdf</a>]
@@ -473,7 +485,7 @@
                 </li>
                 <li class="note-item">
                     <span class="note-title">EC349: Computational Methods in Economics</span><br>
-                    <span class="note-meta">Prof. Wilson, Autumn 2023 | Numerical Optimization, Dynamic Programming, Simulation</span><br>
+                    <span class="note-meta">Autumn 2023 | Numerical Optimization, Dynamic Programming, Simulation</span><br>
                     <span class="note-links">
                         [<a href="notes/computation/ec349.html">web</a>] 
                         [<a href="notes/computation/ec349.pdf">pdf</a>]
@@ -485,29 +497,32 @@
         <hr>
 
         <section id="writing">
-            <h2>## Writing</h2>
+            <h2>Writing</h2>
             <p>Occasional posts on economics, statistics, and computation.</p>
             <p style="margin-top: 16px;">
-                <a href="https://yoursubstack.substack.com">Substack: Your Name's Economics Blog</a>
+                <a href="https://aarushbathula.substack.com">Substack: Economics & Policy</a>
             </p>
             <p style="margin-top: 16px; color: var(--accent);">Recent posts:</p>
             <ul class="item-list" style="margin-top: 8px;">
-                <li><a href="https://yoursubstack.substack.com/p/lucas-critique">Understanding the Lucas Critique in modern policy evaluation</a></li>
-                <li><a href="https://yoursubstack.substack.com/p/bayesian-econometrics">Bayesian methods in econometric practice: When and why</a></li>
-                <li><a href="https://yoursubstack.substack.com/p/causal-ml">Why causal inference matters for machine learning in economics</a></li>
+                <li><a href="https://aarushbathula.substack.com/p/lucas-critique">Understanding the Lucas Critique in modern policy evaluation</a></li>
+                <li><a href="https://aarushbathula.substack.com/p/bayesian-econometrics">Bayesian methods in econometric practice: When and why</a></li>
+                <li><a href="https://aarushbathula.substack.com/p/causal-ml">Why causal inference matters for machine learning in economics</a></li>
             </ul>
         </section>
 
         <hr>
 
         <section id="cv">
-            <h2>## CV</h2>
+            <h2>CV</h2>
             <p><a href="cv.pdf">Download CV (PDF)</a></p>
         </section>
     </main>
 
     <footer>
         <p>Last updated: December 2025</p>
+        <p style="margin-top: 8px; font-size: 11px;">
+            <a href="https://github.com/aarushbathula/aarushbathula.github.io">View source</a>
+        </p>
     </footer>
 
     <script>
