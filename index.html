@@ -32,40 +32,43 @@
         }
 
         body {
-            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-            font-size: 14px;
-            line-height: 1.5;
+            font-family: 'Computer Modern Serif', 'CMU Serif', 'Iowan Old Style', 'Palatino Linotype', 'URW Palladio L', P052, serif;
+            font-size: 15px;
+            line-height: 1.65;
             background: var(--bg);
             color: var(--text);
-            max-width: 680px;
-            margin: 40px auto;
-            padding: 0 20px;
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 0 24px;
         }
 
         /* Typography */
         h1 {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 8px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 10px;
             letter-spacing: -0.5px;
         }
 
         h2 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-top: 40px;
-            margin-bottom: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 48px;
+            margin-bottom: 20px;
             letter-spacing: -0.3px;
         }
 
         h3 {
-            font-size: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-size: 15px;
             font-weight: 500;
             color: var(--accent);
-            margin-top: 24px;
-            margin-bottom: 12px;
+            margin-top: 28px;
+            margin-bottom: 14px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         p {
@@ -168,38 +171,41 @@
         }
 
         .date {
+            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
             color: var(--accent);
             display: inline-block;
-            min-width: 50px;
-            margin-right: 8px;
+            min-width: 55px;
+            margin-right: 10px;
+            font-size: 13px;
         }
 
         .project-title {
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .stack {
-            font-size: 0.85em;
+            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+            font-size: 12px;
             color: var(--accent);
             margin-left: 8px;
         }
 
         .desc {
-            margin: 6px 0 6px 58px;
+            margin: 8px 0 8px 65px;
             color: var(--text);
             opacity: 0.85;
-            font-style: italic;
         }
 
         .project-links {
-            margin-left: 58px;
-            font-size: 0.9em;
+            margin-left: 65px;
+            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+            font-size: 12px;
             color: var(--accent);
         }
 
         .project-links a {
             border: none;
-            margin-right: 4px;
+            margin-right: 6px;
         }
 
         /* Notes section */
@@ -208,18 +214,19 @@
         }
 
         .note-title {
-            font-weight: bold;
+            font-weight: 600;
         }
 
         .note-meta {
             color: var(--accent);
-            font-size: 0.9em;
+            font-size: 14px;
             margin-left: 16px;
         }
 
         .note-links {
             margin-left: 16px;
-            font-size: 0.9em;
+            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+            font-size: 12px;
         }
 
         .note-links a {
@@ -299,9 +306,9 @@
         /* Mobile responsive */
         @media (max-width: 640px) {
             body {
-                margin: 20px auto;
-                padding: 16px;
-                font-size: 13px;
+                margin: 30px auto;
+                padding: 20px;
+                font-size: 14px;
             }
 
             nav {
@@ -316,17 +323,17 @@
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 26px;
             }
             
             h2 {
-                font-size: 16px;
+                font-size: 18px;
             }
 
             .date {
                 display: block;
                 width: 100%;
-                margin-bottom: 4px;
+                margin-bottom: 6px;
             }
 
             .desc,
