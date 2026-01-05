@@ -402,7 +402,7 @@
     <div class="intro">
       <p class="bio">Third-year Economics undergraduate at the University of Warwick.</p>
       <p class="bio">
-        Research interests: Housing Policy, Endogenous Growth Theory, Advanced Causal Inference, and Computational Methods in Economics.
+        Research interests: computational modelling of dynamic systems; numerical optimisation and simulation; applied statistics for policy evaluation; housing and urban economics; growth and misallocation.
       </p>
       <p class="contacts">
         <a href="mailto:aarush.bathula@warwick.ac.uk">Email</a> //
@@ -422,18 +422,16 @@
 
       <div class="research-statement">
         <p>
-          The inaccessibility of housing for younger generations motivates my research on how housing markets constrain economic growth.
-          My dissertation develops a micro-founded growth model incorporating housing frictions and spatial allocation, combining dynamic optimisation with numerical solution in Dynare/MATLAB.
+          The inaccessibility of housing motivates my research on how resource constraints interact with dynamic systems to shape long-run economic outcomes. My dissertation develops a micro-founded growth model with housing as a binding capital constraint, extending the Solow–Swan framework to study spatial misallocation. The model is solved numerically using fixed-point iteration, steady-state calibration, and simulation, implemented in MATLAB and Dynare.
         </p>
         <p>
-          My broader agenda integrates economic theory, computational methods, and causal inference. Empirically, I use transparent identification strategies (IV/RDD/limited dependent variables)
-          and aim to produce replication-ready workflows.
+         More broadly, my work sits at the intersection of applied mathematics, statistical inference, and economic modelling. Empirically, I use transparent identification strategies—instrumental variables, regression discontinuity, and limited dependent variable models implemented using maximum likelihood and modern computational workflows. My goal is to develop research that is methodologically rigorous, computationally explicit, and reproducible, translating complex economic questions into formally solvable and statistically testable frameworks.
         </p>
       </div>
 
       <div class="awards">
         <div class="award-item">
-          <div class="award-title">Academic Recognition</div>
+          <div class="award-title">Academic Honours and Performance</div>
           <div class="award-detail">Ranked 1st/558 in EC124 Statistical Techniques (88%)</div>
           <div class="award-detail">Ranked 1st/90 in EC338 Microeconometrics (78%)</div>
           <div class="award-detail">Top 5% in EC226 Econometrics (78%)</div>
@@ -462,24 +460,27 @@
             <span class="title">Rethinking Endogenous Growth Models: Housing Frictions and Spatial Misallocation</span>
             <span class="stack">MATLAB · Dynare</span>
           </div>
-          <p class="desc">
-            Developing a micro-founded model of long-run growth that incorporates housing frictions and spatial allocation mechanisms,
-            designed for numerical solution and calibration.
-          </p>
+        <p class="desc">
+  Developing a discrete-time growth model where housing capital \(H_t\) acts as a binding constraint on effective labour.
+</p>
+<p class="desc">
+  Production:
+  $$Y_t = K_t^{\alpha} H_t^{\beta} (A_{\text{eff},t} L_t)^{1-\alpha-\beta}$$
+</p>
+<p class="desc">
+  I solve the equilibrium numerically (fixed-point iteration and calibration) to analyse how housing supply inelasticity amplifies misallocation and slows convergence.
+</p>
           <p class="desc"><strong>Supervisor:</strong> Dr. Arthur Galichère</p>
 
           <details class="abstract-toggle">
             <summary>Abstract</summary>
             <div class="abstract-content">
-              I model housing-market frictions as a constraint on spatial allocation and growth. The framework includes an explicit matching block
-              (rendered with KaTeX), and is solved numerically to produce steady states and impulse responses. Replace this abstract once your calibration
-              and quantitative results are final.
+              I construct a two-capital growth model in which housing enters production as a congestion-limiting constraint. The equilibrium is characterised implicitly and solved numerically using fixed-point iteration. Simulated impulse responses illustrate how housing supply inelasticity amplifies spatial misallocation and slows convergence.
             </div>
           </details>
 
           <div class="links">
-            [<a href="research/housing-frictions/full-model.pdf">pdf</a>]
-            [<a href="https://github.com/REPLACE_ME">replication package</a>]
+            [<a href="research/housing-frictions/full-model.pdf">Download paper</a>]
           </div>
         </li>
       </ul>
@@ -494,12 +495,11 @@
           </div>
           <p class="result">Grade: 78% | Ranked 1st/90 students</p>
           <p class="desc">
-            Applied ordered response models to HBSC survey data using quasi-random variation in sibling sex composition.
-            Emphasised robustness, heterogeneity, and minimum detectable effects to interpret null findings.
+            Exploits the quasi-random assignment of sibling sex composition (Angrist–Evans design) to address endogeneity in family structure. Estimation is conducted using ordered response models via maximum likelihood, with extensive robustness and power analysis.
           </p>
           <div class="links">
-            [<a href="research/sibling-gender/paper.pdf">paper</a>]
-            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">replication package</a>]
+            [<a href="research/sibling-gender/paper.pdf">Download paper</a>]
+            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">Data & code appendix</a>]
           </div>
         </li>
 
@@ -511,12 +511,11 @@
           </div>
           <p class="result">Grade: 78% | Top 5% of cohort</p>
           <p class="desc">
-            Estimated occupational skill placement models on UK Census microdata, then related country-level marginal effects
-            to origin GDP per capita and migration distance via a two-stage approach. Extensive diagnostics and robustness checks.
+           Leverages UK Census microdata (N ≈ 1,000,000) to estimate country-of-origin effects on occupational skill placement. Combines discrete-choice models with a second-stage regression linking estimated effects to origin-country characteristics.
           </p>
           <div class="links">
-            [<a href="research/migrant-matching/paper.pdf">paper</a>]
-            [<a href="https://github.com/aarushbathula/uk-immigrant-matching">replication package</a>]
+            [<a href="research/migrant-matching/paper.pdf">Download paper</a>]
+            [<a href="https://github.com/aarushbathula/ec226-migration-skills-uk">Data & code appendix</a>]
           </div>
         </li>
 
@@ -528,12 +527,11 @@
           </div>
           <p class="result">Grade: 88% | Ranked 1st/558 students</p>
           <p class="desc">
-            Analysed HSE 2019 data to estimate BMI differences between medication users and non-users, with diagnostic checks and
-            nonparametric tests where appropriate. Explicitly documented limitations from small subgroup sizes.
+            Analyses Health Survey for England microdata (N = 4,358) to estimate associations between prescribed psychotropic medication and BMI. Implements parametric and non-parametric statistical tests, with explicit diagnostic checks and discussion of identification limitations.
           </p>
           <div class="links">
-            [<a href="research/mental-health-bmi/paper.pdf">paper</a>]
-            [<a href="https://github.com/aarushbathula/mental-health-bmi">replication package</a>]
+            [<a href="research/mental-health-bmi/paper.pdf">Download paper</a>]
+            [<a href="https://github.com/aarushbathula/mental-health-bmi">Data & code appendix</a>]
           </div>
         </li>
       </ul>
@@ -548,11 +546,10 @@
           </div>
           <p class="result">Grade: 72%</p>
           <p class="desc">
-            Theory-driven analysis of catch-up dynamics using endogenous growth mechanisms, emphasising absorptive capacity constraints
-            (human capital, institutions, innovation capacity) and limits to imported technology in the absence of domestic reform.
+           Develops a theoretical growth framework to study technology diffusion and convergence under absorptive capacity constraints. The analysis formalises how institutional quality and human capital shape the effectiveness of external knowledge inflows.
           </p>
           <div class="links">
-            [<a href="research/growth-theory/paper.pdf">paper</a>]
+            [<a href="research/growth-theory/paper.pdf">Download paper</a>]
           </div>
         </li>
       </ul>
@@ -580,21 +577,20 @@
         <div class="skill-category">
           <h4>Econometric Methods</h4>
           <ul>
-            <li>OLS, IV, Panel Data</li>
-            <li>RDD, Diff-in-Diff</li>
+            <li>Causal inference (IV, RDD, DiD)</li>
             <li>Limited Dependent Variables</li>
-            <li>Time Series (ARIMA)</li>
-            <li>Maximum Likelihood, GMM</li>
+            <li>Time Series</li>
+            <li>Maximum Likelihood</li>
           </ul>
         </div>
 
         <div class="skill-category">
           <h4>Computational Methods</h4>
           <ul>
-            <li>Numerical Optimization</li>
+            <li>Numerical Optimisation</li>
             <li>Dynamic Programming</li>
-            <li>Simulation (basic)</li>
-            <li>Model Calibration</li>
+            <li>Fixed-point algorithms</li>
+            <li>Simulation and calibration of dynamic models</li>
           </ul>
         </div>
 
@@ -635,16 +631,15 @@
       <h2>Research Interests & Future Goals</h2>
 
       <p style="margin-bottom: 20px;">
-        My research aims to bridge economic theory and computational methods. I follow frontier research in macroeconomics through the
-        <a href="https://ifs.org.uk/">Institute for Fiscal Studies</a> and engage with contemporary economic thinking through
+      My research aims to bridge applied mathematics, statistical inference, and economic modelling. I am particularly interested in problems where equilibrium conditions must be solved numerically and where identification relies on careful statistical design rather than parametric assumptions.
+      </p>
+      <p>
+        I follow frontier research in macroeconomics through the <a href="https://ifs.org.uk/">Institute for Fiscal Studies</a> and engage with contemporary economic thinking through
         <a href="https://gregmankiw.blogspot.com/">Greg Mankiw's blog</a>.
       </p>
 
       <p>
-        I aim to build fluency as a hybrid researcher combining computational mathematics with economic analysis—mastering numerical methods
-        (optimisation algorithms, dynamic programming, simulation) alongside structural modelling and policy evaluation. My goal is to develop
-        models that are both theoretically sound and computationally tractable, translating complex economic problems into solvable frameworks
-        that inform evidence-based policy design.
+       Going forward, I aim to deepen my training in computational mathematics and applied statistics, focusing on numerical optimisation, simulation, and algorithmic approaches to model solution and estimation. My goal is to work on problems where mathematical structure and computation are central to understanding real-world systems.
       </p>
     </section>
 
@@ -658,26 +653,29 @@
 
       <div class="references">
         <div class="reference-item">
-          <div class="reference-name">Dr. Sascha O. Becker</div>
+            <div class="reference-name">
+    <a href="https://profiles.warwick.ac.uk/ecsjag-sascha-becker">Dr. Sascha O. Becker</a> </div>
           <div class="reference-title">
             Professor of Economics, University of Warwick<br />
-            Dissertation Supervisor (Growth Theory)
+            Module Lecturer - EC243: Economic Growth: Causes and Consequences
           </div>
         </div>
 
         <div class="reference-item">
-          <div class="reference-name">Dr. Arthur Galichère</div>
+          <div class="reference-name">
+            <a href="https://profiles.warwick.ac.uk/u2073529-arthur-galichere">Dr. Arthur Galichère</a></div>
           <div class="reference-title">
             Assistant Professor of Economics, University of Warwick<br />
-            Dissertation Supervisor (Applied Econometrics)
+            Supervisor - EC331: Research in Applied Economics (Dissertation)
           </div>
         </div>
 
         <div class="reference-item">
-          <div class="reference-name">Dr. Claudia Rei</div>
+          <div class="reference-name">
+            <a href="https://profiles.warwick.ac.uk/u1674969-claudia-rei">Dr. Claudia Rei</a></div>
           <div class="reference-title">
             Associate Professor of Economics, University of Warwick<br />
-            Module Supervisor (Economic Growth)
+            Personal Tutor and Module Lecturer - EC104: The World Economy: History & Theory 
           </div>
         </div>
       </div>
@@ -685,7 +683,7 @@
   </main>
 
   <footer>
-    <p>Last updated January 2026</p>
+    <p>Last updated 5 January 2026</p>
     <p style="margin-top: 12px;">
       <a href="https://github.com/aarushbathula/aarushbathula.github.io">View source</a>
     </p>
