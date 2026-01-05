@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aarush Bathula | Economics @ Warwick</title>
 
-  <!-- Inter for headers (keeps your original “serif body + crisp UI” look) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- KaTeX (math support, lightweight) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
@@ -267,7 +265,6 @@
 
     .links a:hover { text-decoration: underline; }
 
-    /* Abstract toggle (kept subtle, optional depth) */
     details.abstract-toggle { margin: 10px 0 12px; }
     details.abstract-toggle summary {
       cursor: pointer;
@@ -388,7 +385,6 @@
       <div class="site-title">Aarush Bathula</div>
       <div class="nav-controls">
         <div class="nav-links">
-          <a href="#research">Research</a>
           <a href="#projects">Research Projects</a>
           <a href="#skills">Skills</a>
           <a href="#interests">Interests</a>
@@ -400,15 +396,16 @@
     </nav>
 
     <div class="intro">
+      <h1>Aarush Bathula</h1>
       <p class="bio">Third-year Economics undergraduate at the University of Warwick.</p>
       <p class="bio">
         Research interests: computational modelling of dynamic systems; numerical optimisation and simulation; applied statistics for policy evaluation; housing and urban economics; growth and misallocation.
       </p>
       <p class="contacts">
-        <a href="mailto:aarush.bathula@warwick.ac.uk">Email</a> //
-        <a href="https://github.com/aarushbathula">GitHub</a> //
-        <a href="https://linkedin.com/in/aarushbathula">LinkedIn</a> //
-        <a href="https://orcid.org/0009-0004-4728-4300">ORCID</a>
+        <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a> //
+        <a href="https://github.com/aarushbathula" target="_blank" rel="noopener noreferrer">GitHub</a> //
+        <a href="https://linkedin.com/in/aarushbathula" target="_blank" rel="noopener noreferrer">LinkedIn</a> //
+        <a href="https://orcid.org/0009-0004-4728-4300" target="_blank" rel="noopener noreferrer">ORCID</a>
       </p>
     </div>
   </header>
@@ -454,35 +451,40 @@
 
       <h3>Ongoing Research</h3>
       <ul>
-        <li class="project-item">
-          <div>
-            <span class="date">2025</span>
-            <span class="title">Rethinking Endogenous Growth Models: Housing Frictions and Spatial Misallocation</span>
-            <span class="stack">MATLAB · Dynare</span>
-          </div>
-        <p class="desc">
-  Developing a discrete-time growth model where housing capital \(H_t\) acts as a binding constraint on effective labour.
-</p>
-<p class="desc">
-  Production:
-  $$Y_t = K_t^{\alpha} H_t^{\beta} (A_{\text{eff},t} L_t)^{1-\alpha-\beta}$$
-</p>
-<p class="desc">
-  I solve the equilibrium numerically (fixed-point iteration and calibration) to analyse how housing supply inelasticity amplifies misallocation and slows convergence.
-</p>
-          <p class="desc"><strong>Supervisor:</strong> Dr. Arthur Galichère</p>
+       <li class="project-item">
+  <div>
+    <span class="date">2025</span>
+    <span class="title">Rethinking Endogenous Growth Models: Housing Frictions and Spatial Misallocation</span>
+    <span class="stack">MATLAB · Dynare</span>
+  </div>
 
-          <details class="abstract-toggle">
-            <summary>Abstract</summary>
-            <div class="abstract-content">
-              I construct a two-capital growth model in which housing enters production as a congestion-limiting constraint. The equilibrium is characterised implicitly and solved numerically using fixed-point iteration. Simulated impulse responses illustrate how housing supply inelasticity amplifies spatial misallocation and slows convergence.
-            </div>
-          </details>
+  <p class="desc">
+    Developing a discrete-time growth model where housing capital \(H_t\) acts as a binding constraint on effective labour.
+  </p>
 
-          <div class="links">
-            [<a href="research/housing-frictions/full-model.pdf">Download paper</a>]
-          </div>
-        </li>
+  <p class="desc">
+    Production:
+    $$Y_t = K_t^{\alpha} H_t^{\beta} (A_{\text{eff},t} L_t)^{1-\alpha-\beta}$$
+  </p>
+
+  <p class="desc">
+    I solve the equilibrium numerically (fixed-point iteration and calibration) to analyse how housing supply inelasticity amplifies misallocation and slows convergence.
+  </p>
+
+  <p class="desc"><strong>Supervisor:</strong> Dr. Arthur Galichère</p>
+
+  <details class="abstract-toggle">
+    <summary>Abstract</summary>
+    <div class="abstract-content">
+      I construct a two-capital growth model in which housing enters production as a congestion-limiting constraint. The equilibrium is characterised implicitly and solved numerically using fixed-point iteration. Simulated impulse responses illustrate how housing supply inelasticity amplifies spatial misallocation and slows convergence.
+    </div>
+  </details>
+
+  <div class="links">
+    [<a href="research/housing-frictions/full-model.pdf">Download brief</a>]
+  </div>
+</li>
+
       </ul>
 
       <h3>Econometrics & Causal Inference</h3>
@@ -499,7 +501,7 @@
           </p>
           <div class="links">
             [<a href="research/sibling-gender/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">Data & code appendix</a>]
+            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
           </div>
         </li>
 
@@ -515,7 +517,7 @@
           </p>
           <div class="links">
             [<a href="research/migrant-matching/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/ec226-migration-skills-uk">Data & code appendix</a>]
+            [<a href="https://github.com/aarushbathula/ec226-migration-skills-uk" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
           </div>
         </li>
 
@@ -531,7 +533,7 @@
           </p>
           <div class="links">
             [<a href="research/mental-health-bmi/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/mental-health-bmi">Data & code appendix</a>]
+            [<a href="https://github.com/aarushbathula/mental-health-bmi" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
           </div>
         </li>
       </ul>
@@ -634,8 +636,8 @@
       My research aims to bridge applied mathematics, statistical inference, and economic modelling. I am particularly interested in problems where equilibrium conditions must be solved numerically and where identification relies on careful statistical design rather than parametric assumptions.
       </p>
       <p>
-        I follow frontier research in macroeconomics through the <a href="https://ifs.org.uk/">Institute for Fiscal Studies</a> and engage with contemporary economic thinking through
-        <a href="https://gregmankiw.blogspot.com/">Greg Mankiw's blog</a>.
+        I follow frontier research in macroeconomics through the <a href="https://ifs.org.uk/" target="_blank" rel="noopener noreferrer">Institute for Fiscal Studies</a> and engage with contemporary economic thinking through
+        <a href="https://gregmankiw.blogspot.com/" target="_blank" rel="noopener noreferrer">Greg Mankiw's blog</a>.
       </p>
 
       <p>
@@ -654,7 +656,7 @@
       <div class="references">
         <div class="reference-item">
             <div class="reference-name">
-    <a href="https://profiles.warwick.ac.uk/ecsjag-sascha-becker">Dr. Sascha O. Becker</a> </div>
+    <a href="https://profiles.warwick.ac.uk/ecsjag-sascha-becker" target="_blank" rel="noopener noreferrer">Dr. Sascha O. Becker</a> </div>
           <div class="reference-title">
             Professor of Economics, University of Warwick<br />
             Module Lecturer - EC243: Economic Growth: Causes and Consequences
@@ -663,7 +665,7 @@
 
         <div class="reference-item">
           <div class="reference-name">
-            <a href="https://profiles.warwick.ac.uk/u2073529-arthur-galichere">Dr. Arthur Galichère</a></div>
+            <a href="https://profiles.warwick.ac.uk/u2073529-arthur-galichere" target="_blank" rel="noopener noreferrer">Dr. Arthur Galichère</a></div>
           <div class="reference-title">
             Assistant Professor of Economics, University of Warwick<br />
             Supervisor - EC331: Research in Applied Economics (Dissertation)
@@ -672,7 +674,7 @@
 
         <div class="reference-item">
           <div class="reference-name">
-            <a href="https://profiles.warwick.ac.uk/u1674969-claudia-rei">Dr. Claudia Rei</a></div>
+            <a href="https://profiles.warwick.ac.uk/u1674969-claudia-rei" target="_blank" rel="noopener noreferrer">Dr. Claudia Rei</a></div>
           <div class="reference-title">
             Associate Professor of Economics, University of Warwick<br />
             Personal Tutor and Module Lecturer - EC104: The World Economy: History & Theory 
@@ -685,7 +687,7 @@
   <footer>
     <p>Last updated 5 January 2026</p>
     <p style="margin-top: 12px;">
-      <a href="https://github.com/aarushbathula/aarushbathula.github.io">View source</a>
+      <a href="https://github.com/aarushbathula/aarushbathula.github.io" target="_blank" rel="noopener noreferrer">View source</a>
     </p>
   </footer>
 
@@ -715,7 +717,6 @@
       }
     });
 
-    // KaTeX auto-render (math support without changing your visual style)
     document.addEventListener("DOMContentLoaded", function () {
       if (typeof renderMathInElement === "function") {
         renderMathInElement(document.body, {
