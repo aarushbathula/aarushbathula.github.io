@@ -5,26 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aarush Bathula | Economics @ Warwick</title>
     <style>
-        /* Theme variables */
         :root {
-            --bg: #FFFFFF;
-            --text: #111111;
-            --link: #0000EE;
-            --visited: #551A8B;
-            --accent: #555555;
-            --code-bg: #F4F4F4;
+            --bg: #FAFAFA;
+            --text: #1A1A1A;
+            --text-secondary: #666666;
+            --link: #0066CC;
+            --link-hover: #004499;
+            --border: #E0E0E0;
+            --accent: #FF6B35;
+            --code-bg: #F5F5F5;
         }
 
         body.dark-mode {
-            --bg: #111111;
-            --text: #EEEEEE;
-            --link: #88CCFF;
-            --visited: #B8A0FF;
-            --accent: #AAAAAA;
-            --code-bg: #222222;
+            --bg: #0F0F0F;
+            --text: #E8E8E8;
+            --text-secondary: #999999;
+            --link: #6BA4E7;
+            --link-hover: #8AB8EC;
+            --border: #2A2A2A;
+            --accent: #FF8866;
+            --code-bg: #1A1A1A;
         }
 
-        /* Base styles */
         * {
             margin: 0;
             padding: 0;
@@ -32,512 +34,664 @@
         }
 
         body {
-            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
-            font-size: 16px;
-            line-height: 1.6;
+            font-family: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+            font-size: 17px;
+            line-height: 1.75;
             background: var(--bg);
             color: var(--text);
-            max-width: 700px;
-            margin: 50px auto;
-            padding: 0 24px;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 60px 30px 80px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        /* Typography */
         h1 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 32px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            letter-spacing: -0.5px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -0.8px;
+            margin-bottom: 16px;
+            line-height: 1.2;
         }
 
         h2 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 24px;
             font-weight: 600;
-            margin-top: 48px;
-            margin-bottom: 20px;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
+            margin-top: 64px;
+            margin-bottom: 24px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border);
         }
 
         h3 {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--accent);
-            margin-top: 28px;
-            margin-bottom: 14px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-        }
-
-        p {
-            margin-bottom: 12px;
-        }
-
-        /* Links */
-        a {
-            color: var(--link);
-            text-decoration: none;
-            border-bottom: 1px solid var(--link);
-        }
-
-        a:visited {
-            color: var(--visited);
-            border-bottom-color: var(--visited);
-        }
-
-        a:hover {
-            background: var(--link);
-            color: var(--bg);
-        }
-
-        /* Header and Navigation */
-        header {
-            margin-bottom: 40px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            letter-spacing: 1.2px;
+            margin-top: 40px;
             margin-bottom: 20px;
         }
 
-        nav b {
+        a {
+            color: var(--link);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--link);
+            color: var(--link-hover);
+        }
+
+        header {
+            margin-bottom: 48px;
+        }
+
+        .site-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .site-title {
             font-size: 16px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .nav-links {
+            display: flex;
+            gap: 16px;
             font-size: 14px;
         }
 
         .nav-links a {
-            margin-left: 12px;
+            color: var(--text-secondary);
             border: none;
-            transition: opacity 0.15s ease;
         }
 
         .nav-links a:hover {
-            opacity: 0.7;
-            background: transparent;
-        }
-
-        .nav-links a:first-child {
-            margin-left: 0;
+            color: var(--link);
         }
 
         #theme-toggle {
             background: none;
             border: none;
             cursor: pointer;
+            font-size: 20px;
+            padding: 4px 8px;
             color: var(--text);
-            font-size: 18px;
-            font-family: inherit;
-            padding: 4px;
-            margin-left: 15px;
             transition: transform 0.2s ease;
         }
 
         #theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
+        }
+
+        .intro {
+            margin-bottom: 20px;
+        }
+
+        .intro p {
+            margin-bottom: 16px;
         }
 
         .bio {
-            color: var(--text);
-            margin-bottom: 12px;
+            font-size: 19px;
+            line-height: 1.6;
+            margin-bottom: 24px;
         }
 
         .contacts {
-            color: var(--accent);
+            color: var(--text-secondary);
+            font-size: 15px;
         }
 
         .contacts a {
-            border: none;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--text-secondary);
         }
 
-        /* Projects section */
-        .category {
-            margin-bottom: 30px;
+        .contacts a:hover {
+            color: var(--link);
+            border-bottom-color: var(--link);
         }
 
-        .item-list {
+        .research-statement {
+            background: var(--code-bg);
+            padding: 24px;
+            border-radius: 8px;
+            margin-top: 32px;
+            line-height: 1.7;
+        }
+
+        .research-statement p {
+            margin-bottom: 16px;
+        }
+
+        .research-statement p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-intro {
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 28px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin: 24px 0;
+        }
+
+        .skill-category {
+            background: var(--code-bg);
+            padding: 16px;
+            border-radius: 6px;
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+        }
+
+        .skill-category h4 {
+            font-family: 'SF Mono', Monaco, Consolas, monospace;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .skill-category ul {
             list-style: none;
             padding: 0;
         }
 
-        .item-list li {
-            margin-bottom: 25px;
+        .skill-category li {
+            font-size: 15px;
+            margin-bottom: 6px;
+            color: var(--text);
+        }
+
+        .awards {
+            background: var(--code-bg);
+            padding: 20px;
+            border-radius: 6px;
+            margin: 24px 0;
+        }
+
+        .award-item {
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .award-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .award-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .award-detail {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-item,
+        .note-item {
+            margin-bottom: 36px;
+            padding-left: 20px;
+            border-left: 3px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        .project-item:hover,
+        .note-item:hover {
+            border-left-color: var(--accent);
         }
 
         .date {
-            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-            color: var(--accent);
-            display: inline-block;
-            min-width: 55px;
-            margin-right: 10px;
+            font-family: 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
             font-size: 13px;
+            color: var(--text-secondary);
+            display: inline-block;
+            min-width: 60px;
+            margin-right: 12px;
         }
 
-        .project-title {
+        .title {
             font-weight: 600;
+            font-size: 18px;
+            margin-bottom: 8px;
         }
 
         .stack {
-            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-            font-size: 12px;
-            color: var(--accent);
-            margin-left: 8px;
+            font-family: 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
+            font-size: 11px;
+            color: var(--text-secondary);
+            margin-left: 10px;
+            padding: 2px 8px;
+            background: var(--code-bg);
+            border-radius: 3px;
         }
 
         .desc {
-            margin: 8px 0 8px 65px;
-            color: var(--text);
-            opacity: 0.85;
+            color: var(--text-secondary);
+            margin: 10px 0 12px 0;
+            line-height: 1.6;
         }
 
-        .project-links {
-            margin-left: 65px;
-            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-            font-size: 12px;
+        .result {
             color: var(--accent);
-        }
-
-        .project-links a {
-            border: none;
-            margin-right: 6px;
-        }
-
-        /* Notes section */
-        .note-item {
-            margin-bottom: 16px;
-        }
-
-        .note-title {
             font-weight: 600;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .links {
+            font-family: 'SF Mono', Monaco, Consolas, 'Courier New', monospace;
+            font-size: 12px;
+        }
+
+        .links a {
+            color: var(--link);
+            margin-right: 12px;
+            border: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
         }
 
         .note-meta {
-            color: var(--accent);
+            color: var(--text-secondary);
             font-size: 14px;
-            margin-left: 16px;
+            margin: 6px 0;
         }
 
-        .note-links {
-            margin-left: 16px;
-            font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-            font-size: 12px;
+        .references {
+            margin-top: 24px;
         }
 
-        .note-links a {
-            border: none;
+        .reference-item {
+            margin-bottom: 12px;
+            padding: 16px;
+            background: var(--code-bg);
+            border-radius: 6px;
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease;
         }
 
-        /* Horizontal rule */
+        .reference-item:hover {
+            border-color: var(--accent);
+        }
+
+        .reference-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .reference-title {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
         hr {
             border: none;
-            border-top: 1px solid var(--accent);
-            margin: 40px 0;
-            opacity: 0.3;
+            border-top: 1px solid var(--border);
+            margin: 64px 0;
         }
 
-        /* Footer */
         footer {
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid var(--accent);
-            color: var(--accent);
-            font-size: 12px;
-            opacity: 0.7;
+            margin-top: 80px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 13px;
+            text-align: center;
         }
 
         footer a {
-            color: var(--accent);
+            color: var(--text-secondary);
         }
 
-        /* Selection color */
         ::selection {
-            background: var(--link);
-            color: var(--bg);
+            background: var(--accent);
+            color: white;
         }
 
-        /* Focus states for accessibility */
-        a:focus,
-        button:focus {
-            outline: 2px solid var(--link);
-            outline-offset: 2px;
-        }
-
-        /* Smooth scroll */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-        }
-
-        /* Print styles */
-        @media print {
-            body {
-                max-width: 100%;
-                font-size: 11pt;
-                color: #000;
-                background: #fff;
-            }
-            
-            #theme-toggle {
-                display: none;
-            }
-            
-            a {
-                color: #000;
-                border-bottom: none;
-            }
-            
-            a[href^="http"]::after {
-                content: " (" attr(href) ")";
-                font-size: 9pt;
-            }
-        }
-
-        /* Mobile responsive */
         @media (max-width: 640px) {
             body {
-                margin: 30px auto;
-                padding: 20px;
-                font-size: 14px;
+                font-size: 16px;
+                padding: 40px 20px 60px;
             }
 
-            nav {
+            h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 22px;
+                margin-top: 48px;
+            }
+
+            .site-nav {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 16px;
             }
 
-            #theme-toggle {
-                margin-left: 0;
-                align-self: flex-end;
+            .nav-controls {
+                width: 100%;
+                justify-content: space-between;
             }
-            
-            h1 {
-                font-size: 26px;
-            }
-            
-            h2 {
-                font-size: 18px;
+
+            .skills-grid {
+                grid-template-columns: 1fr;
             }
 
             .date {
                 display: block;
-                width: 100%;
-                margin-bottom: 6px;
+                margin-bottom: 8px;
             }
 
-            .desc,
-            .project-links {
-                margin-left: 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-links {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
-            }
-
-            .nav-links a {
-                margin-left: 0;
+            .project-item,
+            .note-item {
+                padding-left: 12px;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <nav>
-            <div>
-                <b>Aarush Bathula</b>
-                <button id="theme-toggle" aria-label="Toggle dark mode">●</button>
-            </div>
-            <div class="nav-links">
-                <a href="#projects">Projects</a>
-                <a href="#notes">Notes</a>
-                <a href="#writing">Writing</a>
-                <a href="cv.pdf">CV</a>
+        <nav class="site-nav">
+            <div class="site-title">Aarush Bathula</div>
+            <div class="nav-controls">
+                <div class="nav-links">
+                    <a href="#research">Research</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#skills">Skills</a>
+                    <a href="cv.pdf">CV</a>
+                </div>
+                <button id="theme-toggle" aria-label="Toggle theme">●</button>
             </div>
         </nav>
-        <p class="bio">
-            Third-year Economics undergraduate at the University of Warwick.<br>
-            Academic Interests: Econometrics, Computational Mathematics, Causal Inference, and Housing Policy.
-        </p>
-        <p class="contacts">
-            <a href="mailto:aarush.bathula@warwick.ac.uk">Email</a> // 
-            <a href="https://github.com/aarushbathula">GitHub</a> // 
-            <a href="https://linkedin.com/in/aarushbathula">LinkedIn</a>
-        </p>
+        
+        <div class="intro">
+            <p class="bio">
+                Third-year Economics undergraduate at the University of Warwick.
+            </p>
+            <p class="bio">
+                Research interests: Housing Policy, Endogenous Growth Theory, Advanced Causal Inference, and Computational Methods in Economics.
+            </p>
+            <p class="contacts">
+                <a href="mailto:aarush.bathula@warwick.ac.uk">Email</a> // 
+                <a href="https://github.com/aarushbathula">GitHub</a> // 
+                <a href="https://linkedin.com/in/aarushbathula">LinkedIn</a> //
+                <a href="https://orcid.org/0009-0004-4728-4300">ORCID</a>
+            </p>
+        </div>
     </header>
 
     <main>
+        <section id="research">
+            <h2>Research Statement</h2>
+            <div class="research-statement">
+                <p>The inaccessibility of housing for younger generations motivates my research on how housing markets constrain economic growth. My dissertation develops a micro-founded endogenous growth model incorporating housing frictions, augmenting the Solow-Swan framework to analyze spatial misallocation effects. Under Dr. Arthur Galichère's supervision, I employ numerical methods in MATLAB and Dynare to solve and calibrate theoretical models, combining dynamic optimization with empirical validation.</p>
+                
+                <p>My research integrates economic theory, computational methods, and causal inference. I apply advanced econometric techniques (instrumental variables, regression discontinuity, limited dependent variable models) to policy-relevant questions in housing, labor markets, and development. My empirical approach follows frontier research in applied microeconomics. I aim to contribute methodologically rigorous research at the intersection of computational economics, applied statistics, and policy evaluation.</p>
+            </div>
+
+            <div class="awards">
+                <div class="award-item">
+                    <div class="award-title">Academic Recognition</div>
+                    <div class="award-detail">Ranked 1st/558 in EC124 Statistical Techniques (88%)</div>
+                    <div class="award-detail">Ranked 1st/90 in EC338 Microeconometrics (78%)</div>
+                    <div class="award-detail">Top 5% in EC226 Econometrics (78%)</div>
+                </div>
+                <div class="award-item">
+                    <div class="award-title">Professional Performance</div>
+                    <div class="award-detail">Return offer from S&W Group - Restructuring and Recovery</div>
+                    <div class="award-detail">Ranked 1st/30 callers in Alumni Fundraising (£15K raised)</div>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+
         <section id="projects">
-            <h2>Projects</h2>
+            <h2>Research Projects</h2>
             
-            <div class="category">
-                <h3>Econometrics & Causal Inference</h3>
-                <ul class="item-list">
-                    <li>
+            <h3>Ongoing Research</h3>
+            <ul>
+                <li class="project-item">
+                    <div>
                         <span class="date">2025</span>
-                        <span class="project-title">Sibling sex-effects on academic self-perception</span>
-                        <span class="stack">[Stata]</span><br>
-                        <p class="desc">Exploiting random assignment of sibling sex from Angrist and Evans (1998) in Belgium.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">code</a>] 
-                            [<a href="projects/sibling-sex-effects.html">paper</a>]
-                        </div>
-                    </li>
-                    <li>
+                        <span class="title">Rethinking Endogenous Growth Models: Housing Frictions and Spatial Misallocation</span>
+                        <span class="stack">MATLAB · Dynare</span>
+                    </div>
+                    <p class="desc">Developing a micro-founded model of long-run growth that incorporates housing by augmenting the Solow-Swan framework. Analyzes how housing market frictions create spatial misallocation and constrain economic growth, with implications for urban policy and regional development.</p>
+                    <p class="desc"><strong>Methods:</strong> Dynamic optimization, steady-state analysis, impulse response functions, fixed point estimation.</p>
+                    <p class="desc"><strong>Supervisor:</strong> Dr. Arthur Galichère</p>
+                </li>
+            </ul>
+
+            <h3>Econometrics & Causal Inference</h3>
+            <ul>
+                <li class="project-item">
+                    <div>
                         <span class="date">2025</span>
-                        <span class="project-title">Causal Inference in Spanish Political Representation Quotas</span>
-                        <span class="stack">[Stata]</span><br>
-                        <p class="desc">Regression discontinuity design and instrumental variables estimating quota effects on female political equity.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/aarushbathula/spanish-quotas">code</a>] 
-                            [<a href="projects/spanish-quotas.html">paper</a>]
-                        </div>
-                    </li>
-                    <li>
+                        <span class="title">Sibling Gender Effects on Academic Self-Perception in Belgium</span>
+                        <span class="stack">Stata</span>
+                    </div>
+                    <p class="result">Grade: 78% | Ranked 1st/90 students</p>
+                    <p class="desc">Applied ordered probit models to HBSC survey data (2006, 2010, 2014) exploiting quasi-random assignment of sibling sex composition following Angrist & Evans (1998). Conducted extensive robustness checks including heterogeneity analysis by age, gender, and family affluence. Performed power calculations to assess minimum detectable effects.</p>
+                    <p class="desc"><strong>Key Finding:</strong> Found no statistically significant effect of sibling gender on academic performance (marginal effects < 1 percentage point, all p > 0.10), suggesting educational policy should focus on socioeconomic factors rather than family composition.</p>
+                    <p class="desc"><strong>Data:</strong> 12,884 observations | 4,481 in single-sibling sample</p>
+                    <div class="links">
+                        [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish">code</a>] 
+                        [<a href="projects/sibling-sex-effects.html">paper</a>]
+                    </div>
+                </li>
+                <li class="project-item">
+                    <div>
+                        <span class="date">2025</span>
+                        <span class="title">Country-of-Origin Effects on UK Immigrant Occupational Outcomes</span>
+                        <span class="stack">Stata</span>
+                    </div>
+                    <p class="result">Grade: 78% | Top 5% of 422 students</p>
+                    <p class="desc">Estimated ordered probit and multinomial logit models on 2021 UK Census microdata (993,034 observations) to analyze occupational skill-matching by migrant origin. Conducted two-stage analysis: (1) country-level marginal effects from probit models, (2) OLS regressions on log GDP per capita and migration distance. Performed extensive robustness checks including RESET tests, VIF analysis, and Huber-White standard errors.</p>
+                    <p class="desc"><strong>Key Findings:</strong> 1% increase in origin GDP per capita raises high-skill probability by 3.6pp (p<0.01); 1,000km distance increase raises high-skill probability by 10pp (p<0.01). Former British colonies show 18.3pp higher high-skill placement (p<0.05). Post-Brexit migrants from Western origins show significantly improved high-skill outcomes (US: +0.334 to +0.584).</p>
+                    <p class="desc"><strong>Methods:</strong> Ordered probit, multinomial logit, two-stage regression, heteroskedasticity-robust inference.</p>
+                    <div class="links">
+                        [<a href="https://github.com/aarushbathula/uk-immigrant-matching">code</a>]
+                        [<a href="projects/uk-immigrant-matching.html">paper</a>]
+                    </div>
+                </li>
+                <li class="project-item">
+                    <div>
                         <span class="date">2024</span>
-                        <span class="project-title">Labour market skill-matching of immigrants in the UK</span>
-                        <span class="stack">[Stata]</span><br>
-                        <p class="desc">Analysis of occupational downgrading and skill mismatch among UK immigrants.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/aarushbathula/uk-immigrant-matching">code</a>]
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                        <span class="title">Mental Health Medication and Body Mass Index</span>
+                        <span class="stack">R</span>
+                    </div>
+                    <p class="result">Grade: 88% | Ranked 1st/558 students</p>
+                    <p class="desc">Analyzed 4,358 observations from the 2019 Health Survey for England to estimate the relationship between prescribed mental health medications (antidepressants, antipsychotics, hypnotics) and BMI. Performed hypothesis testing using t-tests and non-parametric Mann-Whitney U tests. Conducted Shapiro-Wilk normality tests and diagnostic checks for heteroskedasticity.</p>
+                    <p class="desc"><strong>Key Finding:</strong> Mental health medication users show 0.4 higher mean BMI (p<0.01), with no significant gender differences or medication-type effects detected (limited by small sample sizes for antipsychotics n=14, hypnotics n=16).</p>
+                    <div class="links">
+                        [<a href="https://github.com/aarushbathula/mental-health-bmi">code</a>]
+                        [<a href="projects/mental-health-bmi.html">paper</a>]
+                    </div>
+                </li>
+            </ul>
 
-            <div class="category">
-                <h3>Quantitative Trading</h3>
-                <ul class="item-list">
-                    <li>
+            <h3>Economic Growth Theory</h3>
+            <ul>
+                <li class="project-item">
+                    <div>
+                        <span class="date">2025</span>
+                        <span class="title">Technology Transfer and Convergence in Sub-Saharan Africa</span>
+                        <span class="stack">Theory</span>
+                    </div>
+                    <p class="result">Grade: 72%</p>
+                    <p class="desc">Theoretical analysis of convergence prospects for Sub-Saharan African economies using endogenous growth frameworks. Modeled technology diffusion through FDI and international trade as mechanisms for knowledge spillovers. Applied Schumpeterian growth models with creative destruction to analyze sectoral catch-up dynamics and technology frontier effects. Examined how absorptive capacity constraints (human capital, infrastructure, institutional quality) determine the effectiveness of cross-country knowledge transfer.</p>
+                    <p class="desc"><strong>Key Argument:</strong> Conditional convergence requires SSA economies to develop sufficient absorptive capacity to translate technology spillovers into sustained productivity growth. Without domestic innovation effort and institutional reform, imported technology faces an asymptotic productivity limit, preventing permanent catch-up to frontier economies. The model shows that trade integration (African Continental Free Trade Area) combined with FDI attraction and human capital investment creates necessary but not sufficient conditions for convergence, which ultimately depends on eliminating extractive institutions and building innovation capacity.</p>
+                    <div class="links">
+                        [<a href="projects/ssa-convergence.html">paper</a>]
+                    </div>
+                </li>
+            </ul>
+
+            <h3>Quantitative Trading</h3>
+            <ul>
+                <li class="project-item">
+                    <div>
                         <span class="date">2024</span>
-                        <span class="project-title">Algorithmic Trading: IMC Prosperity 3</span>
-                        <span class="stack">[Python] [NumPy] [Pandas]</span><br>
-                        <p class="desc">Market-making and statistical arbitrage strategies for IMC trading competition.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/aarushbathula/imc-prosperity-3">code</a>] 
-                            [<a href="projects/imc-prosperity.html">report</a>]
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="category">
-                <h3>Data Science & Computation</h3>
-                <ul class="item-list">
-                    <li>
-                        <span class="date">2024</span>
-                        <span class="project-title">Machine Learning for Economic Forecasting</span>
-                        <span class="stack">[Python] [XGBoost] [LSTM]</span><br>
-                        <p class="desc">Ensemble methods and deep learning for GDP growth prediction with feature importance analysis.</p>
-                        <div class="project-links">
-                            [<a href="https://github.com/aarushbathula/ml-forecast">code</a>] 
-                            [<a href="projects/ml-forecast.html">paper</a>]
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="notes">
-            <h2>Notes</h2>
-            <p>Typed lecture notes from courses at Warwick. Use at your own risk.</p>
-            <ul class="item-list">
-                <li class="note-item">
-                    <span class="note-title">EC226: Econometrics I</span><br>
-                    <span class="note-meta">Autumn 2023 | OLS, Hypothesis Testing, Heteroskedasticity, IV</span><br>
-                    <span class="note-links">
-                        [<a href="notes/econometrics/ec226.html">web</a>] 
-                        [<a href="notes/econometrics/ec226.pdf">pdf</a>]
-                    </span>
-                </li>
-                <li class="note-item">
-                    <span class="note-title">EC227: Econometrics II</span><br>
-                    <span class="note-meta">Spring 2024 | Panel Data, GMM, Maximum Likelihood, Binary Choice</span><br>
-                    <span class="note-links">
-                        [<a href="notes/econometrics/ec227.html">web</a>] 
-                        [<a href="notes/econometrics/ec227.pdf">pdf</a>]
-                    </span>
-                </li>
-                <li class="note-item">
-                    <span class="note-title">EC333: Time Series Analysis</span><br>
-                    <span class="note-meta">Autumn 2024 | ARIMA, VAR, Cointegration, ARCH/GARCH</span><br>
-                    <span class="note-links">
-                        [<a href="notes/time-series/ec333.html">web</a>] 
-                        [<a href="notes/time-series/ec333.pdf">pdf</a>]
-                    </span>
-                </li>
-                <li class="note-item">
-                    <span class="note-title">EC301: Microeconomic Theory</span><br>
-                    <span class="note-meta">Spring 2024 | Consumer Theory, Producer Theory, General Equilibrium</span><br>
-                    <span class="note-links">
-                        [<a href="notes/micro/ec301.html">web</a>] 
-                        [<a href="notes/micro/ec301.pdf">pdf</a>]
-                    </span>
-                </li>
-                <li class="note-item">
-                    <span class="note-title">EC349: Computational Methods in Economics</span><br>
-                    <span class="note-meta">Autumn 2023 | Numerical Optimization, Dynamic Programming, Simulation</span><br>
-                    <span class="note-links">
-                        [<a href="notes/computation/ec349.html">web</a>] 
-                        [<a href="notes/computation/ec349.pdf">pdf</a>]
-                    </span>
+                        <span class="title">Algorithmic Trading: IMC Prosperity 3</span>
+                        <span class="stack">Python · NumPy · Pandas</span>
+                    </div>
+                    <p class="desc">Developed market-making and statistical arbitrage strategies for IMC Prosperity trading competition. Implemented algorithms for order book dynamics, volatility estimation, and cross-asset correlation trading.</p>
+                    <div class="links">
+                        [<a href="https://github.com/aarushbathula/imc-prosperity-3">code</a>] 
+                        [<a href="projects/imc-prosperity.html">report</a>]
+                    </div>
                 </li>
             </ul>
         </section>
 
         <hr>
 
-        <section id="writing">
-            <h2>Writing</h2>
-            <p>Occasional posts on economics, statistics, and computation.</p>
-            <p style="margin-top: 16px;">
-                <a href="https://aarushbathula.substack.com">Substack: Economics & Policy</a>
-            </p>
-            <p style="margin-top: 16px; color: var(--accent);">Recent posts:</p>
-            <ul class="item-list" style="margin-top: 8px;">
-                <li><a href="https://aarushbathula.substack.com/p/lucas-critique">Understanding the Lucas Critique in modern policy evaluation</a></li>
-                <li><a href="https://aarushbathula.substack.com/p/bayesian-econometrics">Bayesian methods in econometric practice: When and why</a></li>
-                <li><a href="https://aarushbathula.substack.com/p/causal-ml">Why causal inference matters for machine learning in economics</a></li>
-            </ul>
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Statistical Software</h4>
+                    <ul>
+                        <li>Stata (primary)</li>
+                        <li>R (proficient)</li>
+                        <li>Python (NumPy, Pandas, scikit-learn)</li>
+                        <li>MATLAB, Dynare</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Econometric Methods</h4>
+                    <ul>
+                        <li>OLS, IV, Panel Data</li>
+                        <li>RDD, Diff-in-Diff</li>
+                        <li>Limited Dependent Variables</li>
+                        <li>Time Series (ARIMA)</li>
+                        <li>Maximum Likelihood, GMM</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Computational Methods</h4>
+                    <ul>
+                        <li>Numerical Optimization</li>
+                        <li>Dynamic Programming</li>
+                        <li>Simulation (basic)</li>
+                        <li>Model Calibration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-category">
+                    <h4>Tools & Languages</h4>
+                    <ul>
+                        <li>LaTeX (extensive)</li>
+                        <li>Git/GitHub</li>
+                        <li>Jupyter Notebooks</li>
+                        <li>French (Limited Professional)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 40px;">Advanced Coursework</h3>
+            <p class="section-intro">Graduate-level and mathematically rigorous courses</p>
+            
+            <div class="skill-category" style="max-width: 100%;">
+                <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                    <li><strong>Econometrics:</strong> EC226 Econometrics, EC338 Microeconometrics*</li>
+                    <li><strong>Economic Theory:</strong> EC221 General Equilibrium*, EC243 Economic Growth</li>
+                    <li><strong>Mathematics:</strong> Mathematical Techniques, Mathematical Economics (MWG/Kreps)</li>
+                    <li><strong>Applied Economics:</strong> EC343 Applied Economics (3B), Labour Economics, International Trade</li>
+                    <li><strong>Data Science:</strong> EC349 Data Science for Economists (Tidyverse, data visualization, ML)</li>
+                    <li style="grid-column: 1 / -1; margin-top: 8px; color: var(--text-secondary); font-size: 14px;">* Graduate-level modules: EC221 (Arrow-Debreu equilibrium, welfare theorems), EC338 (treatment effects, panel methods, nonparametrics)</li>
+                </ul>
+            </div>
+        </section>
+     
+
+        <hr>
+
+        <section id="research-interests">
+            <h2>Research Interests & Future Goals</h2>
+            
+            <p style="margin-bottom: 20px;">My research aims to bridge economic theory and computational methods. I follow frontier research in macroeconomics through the <a href="https://ifs.org.uk/">Institute for Fiscal Studies </a> and engage with contemporary economic thinking through <a href="https://gregmankiw.blogspot.com/">Greg Mankiw's blog</a>. My work sits at the intersection of housing economics, urban policy, and macroeconomic growth, bringing rigorous computational methods and causal inference to questions of spatial inequality and development.</p>
+            
+            <p>Beyond my current dissertation, I aim to develop fluency as a hybrid researcher combining computational mathematics with economic analysis. This means mastering advanced numerical methods (optimization algorithms, dynamic programming, stochastic simulation) alongside structural economic modeling and policy evaluation. I seek to contribute methodologically at the frontier of computational economics, where mathematical rigor meets real-world policy questions. My goal is to build models that are both theoretically sound and computationally tractable, translating complex economic problems into solvable mathematical frameworks that inform evidence-based policy design.</p>
         </section>
 
         <hr>
 
-        <section id="cv">
-            <h2>CV</h2>
-            <p><a href="cv.pdf">Download CV (PDF)</a></p>
+        <section id="references">
+            <h2>Academic References</h2>
+            <div class="references">
+                <div class="reference-item">
+                    <div class="reference-name">Dr. Sascha O. Becker</div>
+                    <div class="reference-title">Professor of Economics, University of Warwick<br>Dissertation Supervisor (Growth Theory)</div>
+                </div>
+                <div class="reference-item">
+                    <div class="reference-name">Dr. Arthur Galichère</div>
+                    <div class="reference-title">Assistant Professor of Economics, University of Warwick<br>Dissertation Supervisor (Applied Econometrics)</div>
+                </div>
+                <div class="reference-item">
+                    <div class="reference-name">Dr. Claudia Rei</div>
+                    <div class="reference-title">Associate Professor of Economics, University of Warwick<br>Module Supervisor (Economic Growth)</div>
+                </div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>Last updated: December 2025</p>
-        <p style="margin-top: 8px; font-size: 11px;">
-            <a href="https://github.com/aarushbathula/aarushbathula.github.io">View source</a>
-        </p>
+        <p>Last updated January 2026</p>
+        <p style="margin-top: 12px;"><a href="https://github.com/aarushbathula/aarushbathula.github.io">View source</a></p>
     </footer>
 
     <script>
-        // Dark mode toggle with localStorage persistence
         const toggle = document.getElementById('theme-toggle');
         const body = document.body;
         
-        // Check for saved theme preference or default to system preference
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         
@@ -548,7 +702,6 @@
             toggle.textContent = '●';
         }
         
-        // Toggle theme on click
         toggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
             
