@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aarush Bathula | Economics @ Warwick</title>
+  <meta name="description" content="Aarush Bathula — Economics at Warwick. Research in computational economics, housing, growth, and causal inference, with papers, research projects, and technical background." />
+  <meta name="author" content="Aarush Bathula" />
+  <link rel="canonical" href="https://aarushbathula.github.io/" />
+  <meta name="theme-color" content="#fafafa" />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:title" content="Aarush Bathula | Economics @ Warwick" />
+  <meta property="og:description" content="Research in computational economics, housing, growth, and causal inference, with papers, projects, and technical background." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aarushbathula.github.io/" />
+  <meta property="og:site_name" content="Aarush Bathula" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Aarush Bathula | Economics @ Warwick" />
+  <meta name="twitter:description" content="Research in computational economics, housing, growth, and causal inference, with papers, projects, and technical background." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,6 +25,33 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (savedTheme === "dark-mode" || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add("dark-mode");
+      }
+    })();
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aarush Bathula",
+      "url": "https://aarushbathula.github.io/",
+      "jobTitle": "Economics student and researcher",
+      "affiliation": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Warwick"
+      },
+      "sameAs": [
+        "https://github.com/aarushbathula",
+        "https://linkedin.com/in/aarushbathula",
+        "https://orcid.org/0009-0004-4728-4300"
+      ]
+    }
+  </script>
 
   <style>
     :root {
@@ -22,10 +62,15 @@
       --link-hover: #004499;
       --border: #E0E0E0;
       --accent: #FF6B35;
+      --accent-soft: rgba(255, 107, 53, 0.14);
       --code-bg: #F5F5F5;
+      --card-bg: #FFFFFF;
+      --shadow: 0 1px 0 rgba(0,0,0,0.03);
+      --hero-grad-a: rgba(255, 107, 53, 0.14);
+      --hero-grad-b: rgba(0, 102, 204, 0.10);
     }
 
-    body.dark-mode {
+    .dark-mode {
       --bg: #0F0F0F;
       --text: #E8E8E8;
       --text-secondary: #999999;
@@ -33,10 +78,16 @@
       --link-hover: #8AB8EC;
       --border: #2A2A2A;
       --accent: #FF8866;
+      --accent-soft: rgba(255, 136, 102, 0.18);
       --code-bg: #1A1A1A;
+      --card-bg: #121212;
+      --shadow: 0 1px 0 rgba(255,255,255,0.03);
+      --hero-grad-a: rgba(255, 136, 102, 0.13);
+      --hero-grad-b: rgba(107, 164, 231, 0.12);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
@@ -48,6 +99,24 @@
       margin: 0 auto;
       padding: 60px 30px 80px;
       transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      background: var(--text);
+      color: var(--bg);
+      padding: 8px 12px;
+      border-radius: 999px;
+      transform: translateY(-180%);
+      transition: transform 0.2s ease;
+      z-index: 20;
+      border: none;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
     h1 {
@@ -93,6 +162,14 @@
       color: var(--link-hover);
     }
 
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent-soft);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
     header { margin-bottom: 48px; }
 
     .site-nav {
@@ -103,6 +180,15 @@
       padding-bottom: 16px;
       border-bottom: 1px solid var(--border);
       gap: 16px;
+      position: sticky;
+      top: 0;
+      background: rgba(250, 250, 250, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 10;
+    }
+
+    .dark-mode .site-nav {
+      background: rgba(15, 15, 15, 0.88);
     }
 
     .site-title {
@@ -137,22 +223,82 @@
 
     #theme-toggle {
       background: none;
-      border: none;
+      border: 1px solid var(--border);
       cursor: pointer;
-      font-size: 20px;
-      padding: 4px 8px;
+      font-size: 14px;
+      padding: 6px 10px;
       color: var(--text);
-      transition: transform 0.2s ease;
+      border-radius: 999px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    #theme-toggle:hover { transform: scale(1.15); }
+    #theme-toggle:hover {
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }
 
     .intro p { margin-bottom: 16px; }
+
+    .hero {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at top left, var(--hero-grad-a), transparent 35%),
+        radial-gradient(circle at right 20%, var(--hero-grad-b), transparent 32%),
+        var(--card-bg);
+      box-shadow: var(--shadow);
+    }
 
     .bio {
       font-size: 19px;
       line-height: 1.6;
       margin-bottom: 20px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 18px 0 20px;
+    }
+
+    .hero-chip,
+    .hero-actions a {
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      border-radius: 999px;
+    }
+
+    .hero-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-actions a {
+      padding: 8px 14px;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .hero-actions a:hover {
+      border-color: var(--accent);
+      color: var(--link);
     }
 
     .contacts {
@@ -171,21 +317,25 @@
     }
 
     .research-statement {
-      background: var(--code-bg);
+      background: linear-gradient(135deg, var(--code-bg), var(--card-bg));
       padding: 24px;
-      border-radius: 8px;
+      border-radius: 14px;
       margin-top: 28px;
       line-height: 1.7;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     .research-statement p { margin-bottom: 16px; }
     .research-statement p:last-child { margin-bottom: 0; }
 
     .awards {
-      background: var(--code-bg);
+      background: var(--card-bg);
       padding: 20px;
-      border-radius: 6px;
+      border-radius: 14px;
       margin: 24px 0;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     .award-item {
@@ -302,14 +452,18 @@
     }
 
     .skill-category {
-      background: var(--code-bg);
+      background: var(--card-bg);
       padding: 16px;
-      border-radius: 6px;
-      border: 2px solid transparent;
-      transition: border-color 0.2s ease;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      box-shadow: var(--shadow);
     }
 
-    .skill-category:hover { border-color: var(--accent); }
+    .skill-category:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
 
     .skill-category h4 {
       font-family: "SF Mono", Monaco, Consolas, monospace;
@@ -336,13 +490,17 @@
     .reference-item {
       margin-bottom: 12px;
       padding: 16px;
-      background: var(--code-bg);
-      border-radius: 6px;
-      border: 2px solid transparent;
-      transition: border-color 0.2s ease;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s ease, transform 0.2s ease;
+      box-shadow: var(--shadow);
     }
 
-    .reference-item:hover { border-color: var(--accent); }
+    .reference-item:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
 
     .reference-name { font-weight: 700; margin-bottom: 4px; }
     .reference-title { color: var(--text-secondary); font-size: 15px; }
@@ -366,20 +524,29 @@
 
     ::selection { background: var(--accent); color: white; }
 
+    section { scroll-margin-top: 88px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
     @media (max-width: 640px) {
       body { font-size: 16px; padding: 40px 20px 60px; }
       h1 { font-size: 30px; }
       h2 { font-size: 22px; margin-top: 48px; }
-      .site-nav { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .site-nav { flex-direction: column; align-items: flex-start; gap: 16px; position: static; backdrop-filter: none; }
       .nav-controls { width: 100%; justify-content: space-between; }
       .skills-grid { grid-template-columns: 1fr; }
       .date { display: block; margin-bottom: 8px; }
       .project-item { padding-left: 12px; }
+      .hero { padding: 22px; border-radius: 20px; }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header>
     <nav class="site-nav">
       <div class="site-title">Aarush Bathula</div>
@@ -396,21 +563,34 @@
     </nav>
 
     <div class="intro">
-      <h1>Aarush Bathula</h1>
-      <p class="bio">Third-year Economics undergraduate at the University of Warwick.</p>
-      <p class="bio">
-        Research interests: computational modelling of dynamic systems; numerical optimisation and simulation; applied statistics for policy evaluation; housing and urban economics; growth and misallocation.
-      </p>
-      <p class="contacts">
-        <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a> //
-        <a href="https://github.com/aarushbathula" target="_blank" rel="noopener noreferrer">GitHub</a> //
-        <a href="https://linkedin.com/in/aarushbathula" target="_blank" rel="noopener noreferrer">LinkedIn</a> //
-        <a href="https://orcid.org/0009-0004-4728-4300" target="_blank" rel="noopener noreferrer">ORCID</a>
-      </p>
+      <div class="hero">
+        <h1>Aarush Bathula</h1>
+        <p class="bio">Third-year Economics undergraduate at the University of Warwick.</p>
+        <p class="bio">
+          Research interests: computational modelling of dynamic systems; numerical optimisation and simulation; applied statistics for policy evaluation; housing and urban economics; growth and misallocation.
+        </p>
+        <div class="hero-meta" aria-label="Research summary">
+          <span class="hero-chip">Computational economics</span>
+          <span class="hero-chip">Housing and urban</span>
+          <span class="hero-chip">Growth and misallocation</span>
+          <span class="hero-chip">Causal inference</span>
+        </div>
+        <p class="contacts">
+          <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a> //
+          <a href="https://github.com/aarushbathula" target="_blank" rel="noopener noreferrer">GitHub</a> //
+          <a href="https://linkedin.com/in/aarushbathula" target="_blank" rel="noopener noreferrer">LinkedIn</a> //
+          <a href="https://orcid.org/0009-0004-4728-4300" target="_blank" rel="noopener noreferrer">ORCID</a>
+        </p>
+        <div class="hero-actions">
+          <a href="#projects">View research projects</a>
+          <a href="cv.pdf">Open CV</a>
+          <a href="#references">Academic references</a>
+        </div>
+      </div>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <!-- ======================= -->
     <!-- Research Statement -->
     <!-- ======================= -->
@@ -678,7 +858,7 @@
   </main>
 
   <footer>
-    <p>Last updated 5 January 2026</p>
+    <p>Last updated March 2026</p>
     <p style="margin-top: 12px;">
       <a href="https://github.com/aarushbathula/aarushbathula.github.io" target="_blank" rel="noopener noreferrer">View source</a>
     </p>
@@ -687,27 +867,26 @@
   <script>
     // Theme toggle
     const toggle = document.getElementById("theme-toggle");
-    const body = document.body;
+    const root = document.documentElement;
 
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
-    if (savedTheme === "dark-mode" || (!savedTheme && prefersDark)) {
-      body.classList.add("dark-mode");
-      toggle.textContent = "○";
-    } else {
-      toggle.textContent = "●";
+    function syncThemeUI() {
+      const isDark = root.classList.contains("dark-mode");
+      toggle.textContent = isDark ? "○" : "●";
+      toggle.setAttribute("aria-pressed", String(isDark));
+      toggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+      document.querySelector('meta[name="theme-color"]').setAttribute("content", isDark ? "#0f0f0f" : "#fafafa");
     }
 
+    syncThemeUI();
+
     toggle.addEventListener("click", () => {
-      body.classList.toggle("dark-mode");
-      if (body.classList.contains("dark-mode")) {
+      root.classList.toggle("dark-mode");
+      if (root.classList.contains("dark-mode")) {
         localStorage.setItem("theme", "dark-mode");
-        toggle.textContent = "○";
       } else {
         localStorage.setItem("theme", "light-mode");
-        toggle.textContent = "●";
       }
+      syncThemeUI();
     });
 
     document.addEventListener("DOMContentLoaded", function () {
