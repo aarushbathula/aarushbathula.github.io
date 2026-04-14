@@ -182,7 +182,8 @@ section {
 .entry-note,
 .reference-detail,
 .section-note,
-.compact-item-meta {
+.compact-item-meta,
+.compact-item-note {
   color: var(--text-secondary);
 }
 
@@ -295,6 +296,12 @@ details[open] summary::after { content: "  [-]"; }
   margin-top: -2px;
 }
 
+.compact-item-note {
+  font-size: 14px;
+  margin-top: -2px;
+  margin-bottom: 0;
+}
+
 .distinction-list {
   display: grid;
   gap: 10px;
@@ -302,15 +309,10 @@ details[open] summary::after { content: "  [-]"; }
   max-width: 42rem;
 }
 
-.prep-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 30px 38px;
-}
-
 .prep-block {
   display: grid;
   gap: 12px;
+  max-width: 42rem;
 }
 
 .prep-block ul {
@@ -344,7 +346,8 @@ details[open] summary::after { content: "  [-]"; }
 
 .section-note {
   font-size: 15px;
-  margin-top: -8px;
+  margin-top: -10px;
+  margin-bottom: 0;
 }
 
 footer {
@@ -375,11 +378,6 @@ footer a { color: var(--text-secondary); }
   .site-nav {
     justify-content: space-between;
     margin-bottom: 22px;
-  }
-
-  .prep-grid {
-    grid-template-columns: 1fr;
-    gap: 22px;
   }
 
   .entry-header {
