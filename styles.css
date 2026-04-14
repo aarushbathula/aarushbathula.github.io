@@ -1,11 +1,11 @@
 :root {
   --bg: #fcfcfb;
   --text: #1a1a1a;
-  --text-secondary: #666;
-  --link: #1f1f1f;
-  --link-hover: #000;
+  --text-secondary: #5f5d58;
+  --link: #123a63;
+  --link-hover: #0c2a48;
   --border: #e6e3de;
-  --rule: #d8d4cd;
+  --rule: #ddd8d0;
   --selection: #d9dbd3;
 }
 
@@ -13,11 +13,11 @@
 body.dark-mode {
   --bg: #101010;
   --text: #e8e6e3;
-  --text-secondary: #9c9a96;
-  --link: #f0efec;
-  --link-hover: #fff;
+  --text-secondary: #a5a19a;
+  --link: #9bb8d6;
+  --link-hover: #c1d3e6;
   --border: #2a2826;
-  --rule: #3a3733;
+  --rule: #37332f;
   --selection: #44443f;
 }
 
@@ -38,7 +38,7 @@ body {
 a {
   color: var(--link);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid color-mix(in srgb, var(--link) 28%, transparent);
   transition: color 0.2s ease, border-color 0.2s ease;
 }
 
@@ -47,44 +47,36 @@ a:hover {
   border-bottom-color: var(--link);
 }
 
-h1,
-h2,
-h3,
-.site-nav,
-details summary {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-}
-
 h1 {
-  font-size: 40px;
-  font-weight: 780;
-  letter-spacing: -0.04em;
-  line-height: 1.15;
-  margin-bottom: 10px;
+  font-size: 44px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  margin-bottom: 6px;
 }
 
 h2 {
-  font-size: 23px;
+  font-size: 27px;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
 }
 
 h3 {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text);
+  margin-bottom: 8px;
 }
 
 p { margin-bottom: 16px; }
 ul { list-style: none; }
 
 header {
-  margin-bottom: 54px;
-  padding-bottom: 22px;
+  margin-bottom: 64px;
+  padding-bottom: 26px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -92,9 +84,9 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 34px;
-  font-size: 13px;
+  gap: 10px;
+  margin-bottom: 40px;
+  font-size: 14px;
 }
 
 .nav-links {
@@ -104,14 +96,12 @@ header {
 }
 
 .nav-links a {
-  color: var(--text-secondary);
-  border: none;
+  color: var(--link);
+  border-bottom-color: color-mix(in srgb, var(--link) 22%, transparent);
 }
 
 .nav-links a:hover {
-  color: var(--text);
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
+  color: var(--link-hover);
 }
 
 #theme-toggle {
@@ -119,7 +109,7 @@ header {
   border: none;
   color: var(--text-secondary);
   cursor: pointer;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1;
   padding: 2px 4px;
 }
@@ -128,64 +118,64 @@ header {
 
 .intro {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
 .intro p:last-child { margin-bottom: 0; }
 
 .lede {
   max-width: 40rem;
-  font-size: 18px;
-  line-height: 1.72;
+  font-size: 20px;
+  line-height: 1.68;
 }
 
 .contacts {
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .contacts a {
-  color: var(--text-secondary);
-  border-bottom-color: var(--border);
+  color: var(--link);
+  border-bottom-color: color-mix(in srgb, var(--link) 22%, transparent);
 }
 
 .contacts a:hover {
-  color: var(--text);
-  border-bottom-color: var(--text-secondary);
+  color: var(--link-hover);
+  border-bottom-color: var(--link-hover);
 }
 
 main {
   display: grid;
-  gap: 58px;
+  gap: 68px;
 }
 
 section {
   display: grid;
-  gap: 22px;
+  gap: 24px;
 }
 
 .entry-list,
 .compact-list,
 .reference-list {
   display: grid;
-  gap: 18px;
+  gap: 24px;
 }
 
 .entry {
-  padding-left: 18px;
-  border-left: 1px solid var(--border);
+  padding-left: 20px;
+  border-left: 2px solid color-mix(in srgb, var(--link) 18%, var(--border));
 }
 
 .entry-header {
   display: grid;
-  gap: 5px;
-  margin-bottom: 10px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .entry-title {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 1.3;
+  font-size: 23px;
+  line-height: 1.22;
 }
 
 .entry-meta,
@@ -198,9 +188,9 @@ section {
 
 .entry-meta,
 .compact-item-meta {
-  font-family: "SF Mono", Monaco, Consolas, "Courier New", monospace;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
+  letter-spacing: 0.01em;
 }
 
 .entry p:last-child { margin-bottom: 0; }
@@ -210,29 +200,28 @@ section {
 }
 
 .entry-note {
-  font-size: 15px;
-  margin-top: -2px;
+  font-size: 16px;
+  margin-top: -4px;
 }
 
 .entry-links,
 .inline-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
-  font-family: "SF Mono", Monaco, Consolas, "Courier New", monospace;
-  font-size: 12px;
-  margin-top: 4px;
+  gap: 14px;
+  font-size: 14px;
+  margin-top: 2px;
 }
 
 .entry-links a,
 .inline-links a {
-  border: none;
+  border-bottom-width: 1px;
   margin-right: 0;
-  color: var(--text-secondary);
+  color: var(--link);
 }
 
 .entry-links a:hover,
-.inline-links a:hover { text-decoration: underline; }
+.inline-links a:hover { color: var(--link-hover); }
 
 details {
   margin-top: 10px;
@@ -240,8 +229,8 @@ details {
 
 details summary {
   cursor: pointer;
-  color: var(--text-secondary);
-  font-size: 13px;
+  color: var(--link);
+  font-size: 15px;
   font-weight: 600;
   list-style: none;
   user-select: none;
@@ -251,16 +240,16 @@ details summary::-webkit-details-marker { display: none; }
 details summary::after {
   content: "  [+]";
   color: var(--text-secondary);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 details[open] summary::after { content: "  [-]"; }
 
 .abstract {
-  margin-top: 10px;
-  padding-left: 14px;
-  border-left: 2px solid var(--border);
+  margin-top: 12px;
+  padding-left: 16px;
+  border-left: 2px solid color-mix(in srgb, var(--link) 16%, var(--border));
   color: var(--text-secondary);
   font-style: italic;
   font-size: 15px;
@@ -270,38 +259,45 @@ details[open] summary::after { content: "  [-]"; }
 
 .compact-list {
   gap: 0;
-  border-top: 1px solid var(--border);
+  border-top: none;
 }
 
 .compact-item {
   display: grid;
   gap: 9px;
-  padding: 18px 0 20px;
-  border-bottom: 1px solid var(--border);
+  padding: 18px 0 22px;
+  border-bottom: none;
+}
+
+.compact-item + .compact-item {
+  padding-top: 24px;
 }
 
 .compact-item-title {
   font-weight: 700;
-  font-size: 18px;
-  line-height: 1.32;
+  font-size: 21px;
+  line-height: 1.24;
 }
 
-.compact-item-title a { border-bottom: none; }
+.compact-item-title a {
+  border-bottom-color: color-mix(in srgb, var(--link) 26%, transparent);
+}
 
-.compact-item-title a:hover { text-decoration: underline; }
+.compact-item-title a:hover { color: var(--link-hover); }
 
 .compact-item p {
   max-width: 41rem;
   margin-bottom: 0;
+  color: var(--text);
 }
 
 .compact-item-meta {
-  margin-top: -1px;
+  margin-top: -2px;
 }
 
 .distinction-list {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   color: var(--text-secondary);
   max-width: 42rem;
 }
@@ -309,26 +305,26 @@ details[open] summary::after { content: "  [-]"; }
 .prep-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 26px 34px;
+  gap: 30px 38px;
 }
 
 .prep-block {
   display: grid;
-  gap: 10px;
+  gap: 12px;
 }
 
 .prep-block ul {
   display: grid;
-  gap: 7px;
+  gap: 8px;
 }
 
 .course-list {
   display: grid;
-  gap: 8px;
+  gap: 9px;
 }
 
 .reference-list {
-  gap: 18px;
+  gap: 22px;
 }
 
 .reference-item {
@@ -339,7 +335,7 @@ details[open] summary::after { content: "  [-]"; }
 
 .reference-name {
   font-weight: 700;
-  font-size: 17px;
+  font-size: 19px;
 }
 
 .reference-detail {
@@ -347,8 +343,8 @@ details[open] summary::after { content: "  [-]"; }
 }
 
 .section-note {
-  font-size: 14px;
-  margin-top: -6px;
+  font-size: 15px;
+  margin-top: -8px;
 }
 
 footer {
@@ -373,8 +369,8 @@ footer a { color: var(--text-secondary); }
     font-size: 16px;
   }
 
-  h1 { font-size: 33px; }
-  h2 { font-size: 21px; }
+  h1 { font-size: 35px; }
+  h2 { font-size: 23px; }
 
   .site-nav {
     justify-content: space-between;
@@ -397,5 +393,9 @@ footer a { color: var(--text-secondary); }
 
   .compact-item {
     padding: 16px 0 18px;
+  }
+
+  .compact-item + .compact-item {
+    padding-top: 20px;
   }
 }
