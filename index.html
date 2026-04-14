@@ -32,22 +32,18 @@
 <body>
   <header>
     <nav class="site-nav">
-      <div class="nav-controls">
-        <div class="nav-links">
-          <a href="#projects">Work</a>
-          <a href="#skills">Tools</a>
-          <a href="cv.pdf">CV</a>
-        </div>
-        <button id="theme-toggle" aria-label="Toggle theme">●</button>
+      <div class="nav-links">
+        <a href="#research">Research</a>
+        <a href="#preparation">Preparation</a>
+        <a href="#references">References</a>
+        <a href="cv.pdf">CV</a>
       </div>
+      <button id="theme-toggle" aria-label="Toggle theme">●</button>
     </nav>
 
     <div class="intro">
       <h1>Aarush Bathula</h1>
-      <p class="bio">Third-year Economics undergraduate at the University of Warwick.</p>
-      <p class="bio">
-        Interests: housing and urban economics, long-run growth, computational economics, and applied econometrics.
-      </p>
+      <p class="lede">I am a third-year Economics undergraduate at the <a href="https://warwick.ac.uk/fac/soc/economics/" target="_blank" rel="noopener noreferrer">University of Warwick</a>. My interests are in housing and urban economics, long-run growth, computational economics, and applied econometrics.</p>
       <p class="contacts">
         <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a> //
         <a href="https://github.com/aarushbathula" target="_blank" rel="noopener noreferrer">GitHub</a> //
@@ -58,151 +54,89 @@
   </header>
 
   <main>
-    <!-- ======================= -->
-    <!-- Research Projects -->
-    <!-- ======================= -->
-    <section id="projects">
+    <section id="research">
       <h2>Research</h2>
 
-      <h3>In Progress</h3>
-      <ul>
-       <li class="project-item">
-  <div>
-    <span class="date">2025</span>
-    <span class="title">Endogenous Growth Models: Housing Frictions and Spatial Misallocation</span>
-    <span class="stack">MATLAB · Dynare</span>
-  </div>
-
-  <p class="desc">
-    Developing a discrete-time model of housing frictions, urban search, and endogenous growth in which rural households, urban searchers, and housed urban residents interact through vacancy matching, rent bargaining, and housing investment.
-  </p>
-
-  <p class="desc"><strong>Supervisor:</strong> Dr. Arthur Galichère</p>
-
-  <details class="abstract-toggle">
-    <summary>Abstract</summary>
-    <div class="abstract-content">
-      I study a three-location economy with rural households, urban searchers, and housed urban residents. Housing access is mediated by search and matching frictions, landlords and tenants bargain over rents, and developers choose investment subject to construction and vacancy costs. Because frontier productivity growth rises with the housed urban share, the model links housing market frictions to spatial misallocation, under-urbanisation, and slower long-run growth.
-    </div>
-  </details>
-</li>
-
-      </ul>
-
-      <h3>Selected Papers</h3>
-      <ul>
-        <li class="project-item">
-          <div>
-            <span class="date">2025</span>
-            <span class="title">Sibling Gender Effects on Academic Self-Perception in Belgium</span>
-            <span class="stack">Stata</span>
+      <h3>Work In Progress</h3>
+      <div class="entry-list">
+        <article class="entry">
+          <div class="entry-header">
+            <span class="entry-title">Endogenous Growth Models: Housing Frictions and Spatial Misallocation</span>
+            <span class="entry-meta">2025-present · MATLAB · Dynare</span>
           </div>
-          <p class="result">Grade: 78% | Ranked 1st/90 students</p>
-          <p class="desc">
-            Uses quasi-random variation in sibling sex composition to study academic self-perception, with ordered response models, robustness checks, and power analysis to interpret null effects carefully.
-          </p>
-          <div class="links">
-            [<a href="research/sibling-gender/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
-          </div>
-        </li>
+          <p>Developing a discrete-time model of housing frictions, urban search, and endogenous growth in which rural households, urban searchers, and housed urban residents interact through vacancy matching, rent bargaining, and housing investment.</p>
+          <p class="entry-note">Supervisor: Dr. Arthur Galichère</p>
+          <details>
+            <summary>Abstract</summary>
+            <div class="abstract">
+              I study a three-location economy with rural households, urban searchers, and housed urban residents. Housing access is mediated by search and matching frictions, landlords and tenants bargain over rents, and developers choose investment subject to construction and vacancy costs. Because frontier productivity growth rises with the housed urban share, the model links housing market frictions to spatial misallocation, under-urbanisation, and slower long-run growth.
+            </div>
+          </details>
+        </article>
+      </div>
 
-        <li class="project-item">
-          <div>
-            <span class="date">2025</span>
-            <span class="title">Country-of-Origin Effects on UK Immigrant Occupational Outcomes</span>
-            <span class="stack">Stata</span>
-          </div>
-          <p class="result">Grade: 78% | Top 5% of cohort</p>
-          <p class="desc">
-           Uses UK Census microdata (N ≈ 1,000,000) to estimate country-of-origin effects on occupational skill placement, combining discrete-choice models with a second-stage analysis of origin-country characteristics.
-          </p>
-          <div class="links">
-            [<a href="research/migrant-matching/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/ec226-migration-skills-uk" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
-          </div>
-        </li>
+      <h3>Papers</h3>
+      <div class="compact-list">
+        <article class="compact-item">
+          <div class="compact-item-title"><a href="research/sibling-gender/paper.pdf">Sibling Gender Effects on Academic Self-Perception in Belgium</a></div>
+          <div class="compact-item-meta">2025 · Stata · 78% · Ranked 1st/90</div>
+          <p>Uses quasi-random variation in sibling sex composition to study academic self-perception, with ordered response models, robustness checks, and power analysis to interpret null effects carefully.</p>
+          <div class="inline-links"><a href="research/sibling-gender/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish" target="_blank" rel="noopener noreferrer">code</a></div>
+        </article>
 
-        <li class="project-item">
-          <div>
-            <span class="date">2025</span>
-            <span class="title">Spanish Local-Election Gender Quotas and Female Political Representation</span>
-            <span class="stack">Stata</span>
-          </div>
-          <p class="result">Grade: 74%</p>
-          <p class="desc">
-            Studies the effect of Spanish local-election gender quotas on female political representation using difference-in-differences, event-study, regression discontinuity, and instrumental-variables designs.
-          </p>
-          <div class="links">
-            [<a href="research/spain-reform/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/ec338-spain-reform" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
-          </div>
-        </li>
+        <article class="compact-item">
+          <div class="compact-item-title"><a href="research/migrant-matching/paper.pdf">Country-of-Origin Effects on UK Immigrant Occupational Outcomes</a></div>
+          <div class="compact-item-meta">2025 · Stata · 78% · Top 5% of cohort</div>
+          <p>Uses UK Census microdata to estimate country-of-origin effects on occupational skill placement, combining discrete-choice models with a second-stage analysis of origin-country characteristics.</p>
+          <div class="inline-links"><a href="research/migrant-matching/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec226-migration-skills-uk" target="_blank" rel="noopener noreferrer">code</a></div>
+        </article>
 
-        <li class="project-item">
-          <div>
-            <span class="date">2024</span>
-            <span class="title">Mental Health Medication and Body Mass Index</span>
-            <span class="stack">R</span>
-          </div>
-          <p class="result">Grade: 88% | Ranked 1st/558 students</p>
-          <p class="desc">
-            Analyses Health Survey for England microdata (N = 4,358) to estimate associations between prescribed psychotropic medication and BMI, with parametric and non-parametric tests, diagnostic checks, and explicit discussion of identification limits.
-          </p>
-          <div class="links">
-            [<a href="research/mental-health-bmi/paper.pdf">Download paper</a>]
-            [<a href="https://github.com/aarushbathula/ec124-meds-bmi" target="_blank" rel="noopener noreferrer">Data & code appendix</a>]
-          </div>
-        </li>
-      </ul>
+        <article class="compact-item">
+          <div class="compact-item-title"><a href="research/spain-reform/paper.pdf">Spanish Local-Election Gender Quotas and Female Political Representation</a></div>
+          <div class="compact-item-meta">2025 · Stata · 74%</div>
+          <p>Studies the effect of Spanish local-election gender quotas using difference-in-differences, event-study, regression discontinuity, and instrumental-variables designs.</p>
+          <div class="inline-links"><a href="research/spain-reform/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec338-spain-reform" target="_blank" rel="noopener noreferrer">code</a></div>
+        </article>
 
-      <h3>Theory</h3>
-      <ul>
-        <li class="project-item">
-          <div>
-            <span class="date">2025</span>
-            <span class="title">Technology Transfer and Convergence in Sub-Saharan Africa</span>
-            <span class="stack">Theory</span>
-          </div>
-          <p class="result">Grade: 72%</p>
-          <p class="desc">
-           Develops a growth-theoretic framework for technology diffusion and convergence under absorptive-capacity constraints, emphasising how institutions and human capital shape the gains from external knowledge inflows.
-          </p>
-          <div class="links">
-            [<a href="research/growth-theory/paper.pdf">Download paper</a>]
-          </div>
-        </li>
-      </ul>
+        <article class="compact-item">
+          <div class="compact-item-title"><a href="research/mental-health-bmi/paper.pdf">Mental Health Medication and Body Mass Index</a></div>
+          <div class="compact-item-meta">2024 · R · 88% · Ranked 1st/558</div>
+          <p>Analyses Health Survey for England microdata to estimate associations between prescribed psychotropic medication and BMI, with diagnostic checks and explicit discussion of identification limits.</p>
+          <div class="inline-links"><a href="research/mental-health-bmi/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec124-meds-bmi" target="_blank" rel="noopener noreferrer">code</a></div>
+        </article>
 
-      <div class="awards">
-        <div class="award-item">
-          <div class="award-title">Distinctions</div>
-          <div class="award-detail">Ranked 1st/558 in EC124 Statistical Techniques Project (88%)</div>
-          <div class="award-detail">Ranked 1st/90 in EC338 Microeconometrics Project 1 (78%)</div>
-          <div class="award-detail">Top 5% in EC226 Econometrics Project (78%)</div>
-        </div>
+        <article class="compact-item">
+          <div class="compact-item-title"><a href="research/growth-theory/paper.pdf">Technology Transfer and Convergence in Sub-Saharan Africa</a></div>
+          <div class="compact-item-meta">2025 · Theory · 72%</div>
+          <p>Develops a growth-theoretic framework for technology diffusion and convergence under absorptive-capacity constraints.</p>
+          <div class="inline-links"><a href="research/growth-theory/paper.pdf">pdf</a></div>
+        </article>
+      </div>
+
+      <h3>Distinctions</h3>
+      <div class="distinction-list">
+        <div>Ranked 1st/558 in EC124 Statistical Techniques Project (88%)</div>
+        <div>Ranked 1st/90 in EC338 Microeconometrics Project 1 (78%)</div>
+        <div>Top 5% in EC226 Econometrics Project (78%)</div>
       </div>
     </section>
 
-    <!-- ======================= -->
-    <!-- Technical Skills -->
-    <!-- ======================= -->
-    <section id="skills">
-      <h2>Tools</h2>
+    <section id="preparation">
+      <h2>Research Preparation</h2>
+      <p class="section-note">Graduate-level modules marked with an asterisk.</p>
 
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h4>Software</h4>
+      <div class="prep-grid">
+        <div class="prep-block">
+          <h3>Software And Workflow</h3>
           <ul>
-            <li>Stata (primary)</li>
-            <li>R</li>
-            <li>Python (NumPy, Pandas, scikit-learn)</li>
-            <li>MATLAB, Dynare</li>
+            <li>Stata, MATLAB, Dynare, R, Python</li>
+            <li>LaTeX, Quarto, Jupyter, Git/GitHub</li>
+            <li>Reproducible research workflows</li>
           </ul>
         </div>
 
-        <div class="skill-category">
-          <h4>Quantitative Methods</h4>
+        <div class="prep-block">
+          <h3>Methods</h3>
           <ul>
             <li>Numerical optimisation</li>
             <li>Dynamic programming</li>
@@ -211,62 +145,42 @@
           </ul>
         </div>
 
-        <div class="skill-category">
-          <h4>Research Tools</h4>
-          <ul>
-            <li>LaTeX</li>
-            <li>Git/GitHub</li>
-            <li>Jupyter Notebooks</li>
-            <li>French (Limited Professional)</li>
+        <div class="prep-block">
+          <h3>Coursework</h3>
+          <ul class="course-list">
+            <li>EC221 Mathematical Economics* (MWG/Kreps)</li>
+            <li>EC338 Microeconometrics*</li>
+            <li>EC343 Topics in Applied Economics* (discrimination, economics of education, peer effects, health economics)</li>
+            <li>EC243 Economic Growth</li>
+            <li>EC349 Data Science for Economists</li>
           </ul>
         </div>
       </div>
-
-      <h3>Coursework</h3>
-
-      <div class="skill-category" style="max-width: 100%;">
-        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
-          <li>EC338 Microeconometrics*</li>
-          <li>EC243 Economic Growth</li>
-          <li>EC221 Mathematical Economics* (MWG/Kreps)</li>
-          <li>EC349 Data Science for Economists</li>
-          <li style="grid-column: 1 / -1; margin-top: 8px; color: var(--text-secondary); font-size: 14px;">
-            * Graduate-level modules: EC221, EC338
-          </li>
-        </ul>
-      </div>
     </section>
 
-
-    <!-- ======================= -->
-    <!-- References -->
-    <!-- ======================= -->
     <section id="references">
       <h2>References</h2>
 
-      <div class="references">
+      <div class="reference-list">
         <div class="reference-item">
-            <div class="reference-name">
-    <a href="https://profiles.warwick.ac.uk/ecsjag-sascha-becker" target="_blank" rel="noopener noreferrer">Dr. Sascha O. Becker</a> </div>
-          <div class="reference-title">
+          <div class="reference-name"><a href="https://profiles.warwick.ac.uk/ecsjag-sascha-becker" target="_blank" rel="noopener noreferrer">Dr. Sascha O. Becker</a></div>
+          <div class="reference-detail">
             Professor of Economics, University of Warwick<br />
             Module Lecturer, EC243: Economic Growth: Causes and Consequences
           </div>
         </div>
 
         <div class="reference-item">
-          <div class="reference-name">
-            <a href="https://profiles.warwick.ac.uk/u2073529-arthur-galichere" target="_blank" rel="noopener noreferrer">Dr. Arthur Galichère</a></div>
-          <div class="reference-title">
+          <div class="reference-name"><a href="https://profiles.warwick.ac.uk/u2073529-arthur-galichere" target="_blank" rel="noopener noreferrer">Dr. Arthur Galichère</a></div>
+          <div class="reference-detail">
             Assistant Professor of Economics, University of Warwick<br />
             Dissertation Supervisor, EC331: Research in Applied Economics
           </div>
         </div>
 
         <div class="reference-item">
-          <div class="reference-name">
-            <a href="https://profiles.warwick.ac.uk/u1674969-claudia-rei" target="_blank" rel="noopener noreferrer">Dr. Claudia Rei</a></div>
-          <div class="reference-title">
+          <div class="reference-name"><a href="https://profiles.warwick.ac.uk/u1674969-claudia-rei" target="_blank" rel="noopener noreferrer">Dr. Claudia Rei</a></div>
+          <div class="reference-detail">
             Associate Professor of Economics, University of Warwick<br />
             Personal Tutor and Module Lecturer, EC104: The World Economy: History &amp; Theory
           </div>
