@@ -3,391 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aarush Bathula | Economics @ Warwick</title>
+  <title>Aarush Bathula | Economics</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <meta
+    name="description"
+    content="Aarush Bathula is an economics undergraduate at the University of Warwick interested in housing and urban economics, long-run growth, computational economics, and applied econometrics."
+  />
+  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="color-scheme" content="light dark" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Aarush Bathula | Economics" />
+  <meta
+    property="og:description"
+    content="Economics undergraduate at the University of Warwick with interests in housing and urban economics, long-run growth, computational economics, and applied econometrics."
+  />
+  <meta property="og:site_name" content="Aarush Bathula" />
+  <script>
+    const savedTheme = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-
-  <style>
-    :root {
-      --bg: #FAFAFA;
-      --text: #1A1A1A;
-      --text-secondary: #666666;
-      --link: #0066CC;
-      --link-hover: #004499;
-      --border: #E0E0E0;
-      --accent: #FF6B35;
-      --code-bg: #F5F5F5;
+    if (savedTheme === "dark-mode" || (!savedTheme && prefersDark)) {
+      document.documentElement.classList.add("dark-mode");
     }
-
-    body.dark-mode {
-      --bg: #0F0F0F;
-      --text: #E8E8E8;
-      --text-secondary: #999999;
-      --link: #6BA4E7;
-      --link-hover: #8AB8EC;
-      --border: #2A2A2A;
-      --accent: #FF8866;
-      --code-bg: #1A1A1A;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
-      font-size: 17px;
-      line-height: 1.75;
-      background: var(--bg);
-      color: var(--text);
-      max-width: 750px;
-      margin: 0 auto;
-      padding: 60px 30px 80px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    h1 {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 38px;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-      margin-top: 64px;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--border);
-    }
-
-    h3 {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      margin-top: 40px;
-      margin-bottom: 20px;
-    }
-
-    a {
-      color: var(--link);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: all 0.2s ease;
-    }
-
-    a:hover {
-      border-bottom-color: var(--link);
-      color: var(--link-hover);
-    }
-
-    header { margin-bottom: 48px; }
-
-    .site-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-      gap: 16px;
-    }
-
-    .site-title {
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 16px;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-    }
-
-    .nav-controls {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 16px;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav-links a {
-      color: var(--text-secondary);
-      border: none;
-    }
-
-    .nav-links a:hover { color: var(--link); }
-
-    #theme-toggle {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 20px;
-      padding: 4px 8px;
-      color: var(--text);
-      transition: transform 0.2s ease;
-    }
-
-    #theme-toggle:hover { transform: scale(1.15); }
-
-    .intro p { margin-bottom: 16px; }
-
-    .bio {
-      font-size: 19px;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .contacts {
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    .contacts a {
-      color: var(--text-secondary);
-      border-bottom: 1px solid var(--text-secondary);
-    }
-
-    .contacts a:hover {
-      color: var(--link);
-      border-bottom-color: var(--link);
-    }
-
-    .research-statement {
-      background: var(--code-bg);
-      padding: 24px;
-      border-radius: 8px;
-      margin-top: 28px;
-      line-height: 1.7;
-    }
-
-    .research-statement p { margin-bottom: 16px; }
-    .research-statement p:last-child { margin-bottom: 0; }
-
-    .awards {
-      background: var(--code-bg);
-      padding: 20px;
-      border-radius: 6px;
-      margin: 24px 0;
-    }
-
-    .award-item {
-      margin-bottom: 16px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .award-item:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-
-    .award-title { font-weight: 700; margin-bottom: 6px; }
-    .award-detail { color: var(--text-secondary); font-size: 15px; }
-
-    ul { list-style: none; padding: 0; }
-
-    .project-item {
-      margin-bottom: 36px;
-      padding-left: 20px;
-      border-left: 3px solid transparent;
-      transition: border-color 0.2s ease;
-    }
-
-    .project-item:hover { border-left-color: var(--accent); }
-
-    .date {
-      font-family: "SF Mono", Monaco, Consolas, "Courier New", monospace;
-      font-size: 13px;
-      color: var(--text-secondary);
-      display: inline-block;
-      min-width: 60px;
-      margin-right: 12px;
-    }
-
-    .title {
-      font-weight: 700;
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .stack {
-      font-family: "SF Mono", Monaco, Consolas, "Courier New", monospace;
-      font-size: 11px;
-      color: var(--text-secondary);
-      margin-left: 10px;
-      padding: 2px 8px;
-      background: var(--code-bg);
-      border-radius: 3px;
-    }
-
-    .desc {
-      color: var(--text-secondary);
-      margin: 10px 0 12px 0;
-      line-height: 1.6;
-    }
-
-    .result {
-      color: var(--accent);
-      font-weight: 700;
-      font-size: 14px;
-      margin: 8px 0;
-    }
-
-    .links {
-      font-family: "SF Mono", Monaco, Consolas, "Courier New", monospace;
-      font-size: 12px;
-    }
-
-    .links a {
-      color: var(--link);
-      margin-right: 12px;
-      border: none;
-    }
-
-    .links a:hover { text-decoration: underline; }
-
-    details.abstract-toggle { margin: 10px 0 12px; }
-    details.abstract-toggle summary {
-      cursor: pointer;
-      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--link);
-      list-style: none;
-      user-select: none;
-    }
-    details.abstract-toggle summary::-webkit-details-marker { display: none; }
-    details.abstract-toggle summary::after {
-      content: "  [+]";
-      font-size: 11px;
-      color: var(--text-secondary);
-      font-weight: 800;
-    }
-    details.abstract-toggle[open] summary::after { content: "  [-]"; }
-
-    .abstract-content {
-      margin-top: 10px;
-      padding-left: 12px;
-      border-left: 2px solid var(--border);
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.65;
-      font-style: italic;
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-      margin: 24px 0;
-    }
-
-    .skill-category {
-      background: var(--code-bg);
-      padding: 16px;
-      border-radius: 6px;
-      border: 2px solid transparent;
-      transition: border-color 0.2s ease;
-    }
-
-    .skill-category:hover { border-color: var(--accent); }
-
-    .skill-category h4 {
-      font-family: "SF Mono", Monaco, Consolas, monospace;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 10px;
-    }
-
-    .skill-category ul { list-style: none; padding: 0; }
-    .skill-category li { font-size: 15px; margin-bottom: 6px; color: var(--text); }
-    .skill-category li:last-child { margin-bottom: 0; }
-
-    .section-intro {
-      color: var(--text-secondary);
-      font-style: italic;
-      margin-bottom: 28px;
-    }
-
-    .references { margin-top: 24px; }
-
-    .reference-item {
-      margin-bottom: 12px;
-      padding: 16px;
-      background: var(--code-bg);
-      border-radius: 6px;
-      border: 2px solid transparent;
-      transition: border-color 0.2s ease;
-    }
-
-    .reference-item:hover { border-color: var(--accent); }
-
-    .reference-name { font-weight: 700; margin-bottom: 4px; }
-    .reference-title { color: var(--text-secondary); font-size: 15px; }
-
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 64px 0;
-    }
-
-    footer {
-      margin-top: 80px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      color: var(--text-secondary);
-      font-size: 13px;
-      text-align: center;
-    }
-
-    footer a { color: var(--text-secondary); }
-
-    ::selection { background: var(--accent); color: white; }
-
-    @media (max-width: 640px) {
-      body { font-size: 16px; padding: 40px 20px 60px; }
-      h1 { font-size: 30px; }
-      h2 { font-size: 22px; margin-top: 48px; }
-      .site-nav { flex-direction: column; align-items: flex-start; gap: 16px; }
-      .nav-controls { width: 100%; justify-content: space-between; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .date { display: block; margin-bottom: 8px; }
-      .project-item { padding-left: 12px; }
-    }
-  </style>
+  </script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header>
     <nav class="site-nav">
-      <div class="site-title">Aarush Bathula</div>
       <div class="nav-controls">
         <div class="nav-links">
-          <a href="#projects">Research</a>
-          <a href="#skills">Skills</a>
-          <a href="#references">References</a>
+          <a href="#projects">Work</a>
+          <a href="#skills">Tools</a>
           <a href="cv.pdf">CV</a>
         </div>
         <button id="theme-toggle" aria-label="Toggle theme">●</button>
@@ -416,7 +64,7 @@
     <section id="projects">
       <h2>Research</h2>
 
-      <h3>Current Project</h3>
+      <h3>In Progress</h3>
       <ul>
        <li class="project-item">
   <div>
@@ -441,7 +89,7 @@
 
       </ul>
 
-      <h3>Course Papers: Econometrics and Applied Micro</h3>
+      <h3>Selected Papers</h3>
       <ul>
         <li class="project-item">
           <div>
@@ -508,7 +156,7 @@
         </li>
       </ul>
 
-      <h3>Course Paper: Growth Theory</h3>
+      <h3>Theory</h3>
       <ul>
         <li class="project-item">
           <div>
@@ -525,31 +173,13 @@
           </div>
         </li>
       </ul>
-    </section>
-
-    <!-- ======================= -->
-    <!-- Research Statement -->
-    <!-- ======================= -->
-    <section id="research">
-      <h2>Research Statement</h2>
-
-      <div class="research-statement">
-        <p>
-          My dissertation studies how housing-market frictions shape spatial misallocation and long-run growth in a dynamic model with rural households, urban search, and housed urban residents. The model combines search and matching, Nash-bargained rents, housing investment, and growth through the urban population share, and is solved numerically in MATLAB and Dynare.
-        </p>
-      </div>
 
       <div class="awards">
         <div class="award-item">
-          <div class="award-title">Academic Distinctions</div>
+          <div class="award-title">Distinctions</div>
           <div class="award-detail">Ranked 1st/558 in EC124 Statistical Techniques Project (88%)</div>
           <div class="award-detail">Ranked 1st/90 in EC338 Microeconometrics Project 1 (78%)</div>
           <div class="award-detail">Top 5% in EC226 Econometrics Project (78%)</div>
-        </div>
-        <div class="award-item">
-          <div class="award-title">Professional Experience</div>
-          <div class="award-detail">Return offer from S&amp;W Group, Restructuring and Recovery</div>
-          <div class="award-detail">Ranked 1st/30 callers in the Student Fundraising Office at the University of Warwick (£15k raised)</div>
         </div>
       </div>
     </section>
@@ -558,7 +188,7 @@
     <!-- Technical Skills -->
     <!-- ======================= -->
     <section id="skills">
-      <h2>Technical</h2>
+      <h2>Tools</h2>
 
       <div class="skills-grid">
         <div class="skill-category">
@@ -592,7 +222,7 @@
         </div>
       </div>
 
-      <h3>Selected Coursework</h3>
+      <h3>Coursework</h3>
 
       <div class="skill-category" style="max-width: 100%;">
         <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
@@ -612,7 +242,7 @@
     <!-- References -->
     <!-- ======================= -->
     <section id="references">
-      <h2>Academic References</h2>
+      <h2>References</h2>
 
       <div class="references">
         <div class="reference-item">
@@ -657,9 +287,6 @@
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
 
-    const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-
     if (savedTheme === "dark-mode" || (!savedTheme && prefersDark)) {
       body.classList.add("dark-mode");
       toggle.textContent = "○";
@@ -678,19 +305,6 @@
       }
     });
 
-    document.addEventListener("DOMContentLoaded", function () {
-      if (typeof renderMathInElement === "function") {
-        renderMathInElement(document.body, {
-          delimiters: [
-            { left: "$$", right: "$$", display: true },
-            { left: "$", right: "$", display: false },
-            { left: "\\(", right: "\\)", display: false },
-            { left: "\\[", right: "\\]", display: true }
-          ],
-          throwOnError: false
-        });
-      }
-    });
   </script>
 </body>
 </html>
