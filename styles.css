@@ -202,8 +202,7 @@ section {
 .entry-note,
 .reference-detail,
 .section-note,
-.compact-item-meta,
-.compact-item-note {
+.compact-item-meta {
   color: var(--text-secondary);
 }
 
@@ -314,19 +313,6 @@ details[open] summary::after { content: "  [-]"; }
 
 .compact-item-meta {
   margin-top: -2px;
-}
-
-.compact-item-note {
-  font-size: 15px;
-  margin-top: -2px;
-  margin-bottom: 0;
-}
-
-.distinction-list {
-  display: grid;
-  gap: 10px;
-  color: var(--text-secondary);
-  max-width: 42rem;
 }
 
 .prep-block {
