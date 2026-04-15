@@ -152,10 +152,10 @@ header {
 }
 
 .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: baseline;
+  column-gap: 1.5rem;
   max-width: var(--page-width);
   margin-bottom: 2.35rem;
 }
@@ -163,10 +163,11 @@ header {
 .site-nav {
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: baseline;
   gap: 8px;
   font-size: 12px;
   letter-spacing: 0.03em;
+  justify-self: end;
 }
 
 .nav-links {
@@ -211,9 +212,13 @@ header {
 }
 
 .contacts {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
   color: var(--text-secondary);
   font-size: 12px;
   letter-spacing: 0.03em;
+  line-height: 1;
   margin-bottom: 0;
 }
 
@@ -529,7 +534,7 @@ footer a { color: var(--text-secondary); }
   h3 { font-size: 18px; }
 
   .top-bar {
-    flex-direction: column;
+    grid-template-columns: 1fr;
     align-items: flex-start;
     gap: 0.8rem;
     margin-bottom: 1.8rem;
@@ -537,6 +542,7 @@ footer a { color: var(--text-secondary); }
 
   .site-nav {
     justify-content: space-between;
+    justify-self: stretch;
     width: 100%;
     font-size: 11.5px;
   }
