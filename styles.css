@@ -315,22 +315,6 @@ details[open] summary::after { content: "  [-]"; }
   margin-top: -2px;
 }
 
-.prep-block {
-  display: grid;
-  gap: 12px;
-  max-width: 38rem;
-}
-
-.prep-block ul {
-  display: grid;
-  gap: 8px;
-}
-
-.course-list {
-  display: grid;
-  gap: 9px;
-}
-
 .reference-list {
   gap: 22px;
 }
