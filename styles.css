@@ -6,6 +6,7 @@
   --link-hover: #0c2a48;
   --border: #e6e3de;
   --rule: #ddd8d0;
+  --rule-strong: #d1cac0;
   --selection: #d9dbd3;
   --page-width: 43.5rem;
   --measure: 38rem;
@@ -13,6 +14,9 @@
   --section-inner-gap: 1.9rem;
   --item-gap: 0.6rem;
   --utility-letter-spacing: 0.08em;
+  --surface: color-mix(in srgb, var(--bg) 95%, var(--link) 5%);
+  --scroll-track: color-mix(in srgb, var(--rule) 76%, transparent);
+  --scroll-fill: color-mix(in srgb, var(--link) 62%, transparent);
 }
 
 html.dark-mode {
@@ -23,7 +27,11 @@ html.dark-mode {
   --link-hover: #cad8e6;
   --border: #2d2924;
   --rule: #413a33;
+  --rule-strong: #514a42;
   --selection: #49433d;
+  --surface: color-mix(in srgb, var(--bg) 90%, var(--link) 10%);
+  --scroll-track: color-mix(in srgb, var(--rule) 88%, transparent);
+  --scroll-fill: color-mix(in srgb, var(--link) 68%, transparent);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -46,19 +54,37 @@ body {
 
 .scroll-progress {
   position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 18px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.scroll-progress-track {
+  position: absolute;
   top: 14px;
   right: 12px;
   bottom: 14px;
   width: 1px;
-  background: color-mix(in srgb, var(--rule) 76%, transparent);
-  pointer-events: none;
-  z-index: 10;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--rule) 22%, transparent),
+    color-mix(in srgb, var(--rule-strong) 88%, transparent) 16%,
+    color-mix(in srgb, var(--rule-strong) 88%, transparent) 84%,
+    color-mix(in srgb, var(--rule) 22%, transparent)
+  );
 }
 
 .scroll-progress-bar {
   width: 100%;
   height: 100%;
-  background: color-mix(in srgb, var(--link) 62%, transparent);
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--link) 26%, transparent),
+    color-mix(in srgb, var(--link) 66%, transparent)
+  );
   transform: scaleY(0);
   transform-origin: top;
   transition: transform 0.14s ease-out, background-color 0.25s ease;
@@ -212,14 +238,31 @@ section {
 .entry {
   display: grid;
   gap: var(--item-gap);
-  padding-left: 18px;
-  border-left: 1px solid color-mix(in srgb, var(--link) 16%, var(--border));
+  position: relative;
+  max-width: var(--measure);
+  padding-left: 1.15rem;
+}
+
+.entry::before {
+  content: "";
+  position: absolute;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--rule) 18%, transparent),
+    color-mix(in srgb, var(--rule-strong) 84%, transparent) 18%,
+    color-mix(in srgb, var(--rule-strong) 84%, transparent) 82%,
+    color-mix(in srgb, var(--rule) 18%, transparent)
+  );
 }
 
 .entry-header {
   display: grid;
-  gap: 6px;
-  margin-bottom: 0.2rem;
+  gap: 0.35rem;
+  margin-bottom: 0.3rem;
 }
 
 .entry-title {
@@ -324,7 +367,9 @@ details[open] summary::after { content: "  [-]"; }
 
 .compact-item {
   display: grid;
-  gap: var(--item-gap);
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 1.8rem;
+  row-gap: var(--item-gap);
   padding: 1.35rem 0 1.8rem;
   border-bottom: none;
 }
@@ -356,6 +401,7 @@ details[open] summary::after { content: "  [-]"; }
 .compact-item-title a:hover { color: var(--link-hover); }
 
 .compact-item p {
+  grid-column: 1 / 2;
   max-width: var(--measure);
   margin-bottom: 0;
   color: var(--text);
@@ -363,6 +409,17 @@ details[open] summary::after { content: "  [-]"; }
 
 .compact-item-meta {
   margin-top: 0;
+}
+
+.compact-item .inline-links {
+  grid-column: 2 / 3;
+  grid-row: 1 / span 3;
+  justify-self: end;
+  align-self: start;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.45rem;
+  margin-top: 0.15rem;
 }
 
 .section-notes {
@@ -379,7 +436,8 @@ details[open] summary::after { content: "  [-]"; }
   display: grid;
   gap: 0.4rem;
   max-width: var(--measure);
-  padding: 1.25rem 0 0;
+  padding: 1.25rem 0 0 1rem;
+  border-left: 1px solid color-mix(in srgb, var(--text-secondary) 10%, var(--border));
 }
 
 .reference-item:first-child {
@@ -404,6 +462,8 @@ details[open] summary::after { content: "  [-]"; }
 
 .reference-detail {
   line-height: 1.65;
+  display: grid;
+  gap: 0.12rem;
 }
 
 .reference-detail span {
@@ -499,11 +559,22 @@ footer a { color: var(--text-secondary); }
   }
 
   .compact-item {
+    grid-template-columns: minmax(0, 1fr);
     padding: 1.1rem 0 1.45rem;
   }
 
   .compact-item + .compact-item {
     padding-top: 1.45rem;
+  }
+
+  .compact-item .inline-links {
+    grid-column: 1 / 2;
+    grid-row: auto;
+    justify-self: start;
+    align-self: start;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
   }
 
   .entry-links,
