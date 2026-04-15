@@ -9,8 +9,7 @@
   --selection: #d9dbd3;
 }
 
-.dark-mode body,
-body.dark-mode {
+html.dark-mode {
   --bg: #101010;
   --text: #e8e6e3;
   --text-secondary: #a5a19a;
