@@ -254,7 +254,7 @@ section {
   display: grid;
   gap: var(--item-gap);
   position: relative;
-  max-width: var(--measure);
+  max-width: var(--page-width);
   padding-left: 1.15rem;
 }
 
@@ -307,7 +307,7 @@ section {
 .entry p:last-child { margin-bottom: 0; }
 
 .entry p {
-  max-width: var(--measure);
+  max-width: var(--page-width);
 }
 
 .entry-note {
@@ -337,42 +337,6 @@ section {
 .inline-links a:hover {
   color: var(--link);
   border-bottom-color: color-mix(in srgb, var(--link) 40%, transparent);
-}
-
-details {
-  margin-top: 0.25rem;
-}
-
-details summary {
-  cursor: pointer;
-  color: var(--link);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  list-style: none;
-  user-select: none;
-}
-
-details summary::-webkit-details-marker { display: none; }
-
-details summary::after {
-  content: "  [+]";
-  color: var(--text-secondary);
-  font-size: 12px;
-  font-weight: 700;
-}
-
-details[open] summary::after { content: "  [-]"; }
-
-.abstract {
-  margin-top: 12px;
-  padding-left: 16px;
-  border-left: 1px solid color-mix(in srgb, var(--link) 14%, var(--border));
-  color: var(--text-secondary);
-  font-style: italic;
-  font-size: 15px;
-  line-height: 1.7;
-  max-width: var(--measure);
 }
 
 .compact-list {
