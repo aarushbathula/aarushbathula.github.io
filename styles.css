@@ -34,21 +34,43 @@ html.dark-mode {
   --scroll-fill: color-mix(in srgb, var(--link) 68%, transparent);
 }
 
+html.dark-mode .landing-field {
+  background:
+    radial-gradient(42rem 34rem at 54% 51%, rgba(20, 19, 17, 0.5), rgba(20, 19, 17, 0) 61%),
+    conic-gradient(from 228deg at 54% 51%, rgba(167, 191, 215, 0) 0deg, rgba(167, 191, 215, 0.26) 14deg, rgba(167, 191, 215, 0) 25deg, rgba(184, 151, 104, 0.24) 44deg, rgba(167, 191, 215, 0) 57deg, rgba(167, 191, 215, 0.18) 78deg, rgba(167, 191, 215, 0) 94deg, rgba(151, 103, 87, 0.22) 113deg, rgba(167, 191, 215, 0) 132deg, rgba(167, 191, 215, 0.2) 163deg, rgba(167, 191, 215, 0) 181deg, rgba(184, 151, 104, 0.22) 208deg, rgba(167, 191, 215, 0) 226deg, rgba(167, 191, 215, 0.2) 257deg, rgba(167, 191, 215, 0) 283deg, rgba(151, 103, 87, 0.19) 312deg, rgba(167, 191, 215, 0) 360deg),
+    linear-gradient(132deg, rgba(167, 191, 215, 0.16) 0 22%, rgba(20, 19, 17, 0.34) 22% 71%, rgba(106, 67, 58, 0.23) 71% 100%),
+    linear-gradient(145deg, #191816 0%, #24231f 48%, #332920 100%);
+  filter: saturate(0.78);
+}
+
+html.dark-mode .landing-field::before {
+  opacity: 0.13;
+  mix-blend-mode: screen;
+}
+
+html.dark-mode .landing-field::after {
+  background:
+    linear-gradient(132deg, rgba(103, 72, 61, 0.32) 0 22%, transparent 22% 72%, rgba(167, 191, 215, 0.13) 72% 100%),
+    radial-gradient(35rem 28rem at 56% 52%, rgba(20, 19, 17, 0.32), transparent 72%);
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
   font-family: Charter, "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  scroll-behavior: smooth;
 }
 
 body {
-  max-width: calc(var(--page-width) + 68px);
-  margin: 0 auto;
-  padding: 72px 34px 92px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
   background: var(--bg);
   color: var(--text);
   font-family: inherit;
   font-size: 17px;
   line-height: 1.76;
+  overflow-x: hidden;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -119,7 +141,7 @@ a:hover {
 h1 {
   font-size: 40px;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   line-height: 1.12;
   margin-bottom: 6px;
 }
@@ -127,7 +149,7 @@ h1 {
 h2 {
   font-size: 30px;
   font-weight: 700;
-  letter-spacing: -0.015em;
+  letter-spacing: 0;
   line-height: 1.14;
   margin-bottom: 10px;
 }
@@ -145,19 +167,59 @@ h3 {
 p { margin-bottom: 16px; }
 ul { list-style: none; }
 
-header {
+.landing {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
   margin-bottom: var(--section-gap);
-  padding-bottom: 2rem;
-  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  isolation: isolate;
 }
 
-.top-bar {
+.landing-field {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(42rem 34rem at 54% 51%, rgba(252, 252, 251, 0.74), rgba(252, 252, 251, 0) 61%),
+    conic-gradient(from 228deg at 54% 51%, rgba(12, 42, 72, 0) 0deg, rgba(18, 58, 99, 0.34) 14deg, rgba(12, 42, 72, 0) 25deg, rgba(214, 181, 119, 0.36) 44deg, rgba(12, 42, 72, 0) 57deg, rgba(18, 58, 99, 0.24) 78deg, rgba(12, 42, 72, 0) 94deg, rgba(205, 142, 114, 0.26) 113deg, rgba(12, 42, 72, 0) 132deg, rgba(18, 58, 99, 0.28) 163deg, rgba(12, 42, 72, 0) 181deg, rgba(214, 181, 119, 0.3) 208deg, rgba(12, 42, 72, 0) 226deg, rgba(18, 58, 99, 0.3) 257deg, rgba(12, 42, 72, 0) 283deg, rgba(205, 142, 114, 0.24) 312deg, rgba(12, 42, 72, 0) 360deg),
+    linear-gradient(132deg, rgba(18, 58, 99, 0.2) 0 22%, rgba(252, 252, 251, 0.38) 22% 71%, rgba(200, 111, 82, 0.21) 71% 100%),
+    linear-gradient(145deg, #eef1ed 0%, #d9dfd9 45%, #f0e2c5 100%);
+  filter: saturate(0.88);
+}
+
+.landing-field::before,
+.landing-field::after {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  pointer-events: none;
+}
+
+.landing-field::before {
+  background:
+    repeating-linear-gradient(0deg, rgba(26, 26, 26, 0.035) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(26, 26, 26, 0.025) 0 1px, transparent 1px 5px);
+  opacity: 0.18;
+  mix-blend-mode: multiply;
+}
+
+.landing-field::after {
+  background:
+    linear-gradient(132deg, rgba(211, 132, 97, 0.24) 0 22%, transparent 22% 72%, rgba(18, 58, 99, 0.16) 72% 100%),
+    radial-gradient(35rem 28rem at 56% 52%, rgba(252, 252, 251, 0.34), transparent 72%);
+}
+
+.landing-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: baseline;
-  column-gap: 1.5rem;
-  max-width: var(--page-width);
-  margin-bottom: 2.35rem;
+  grid-template-rows: 1fr auto;
+  width: min(calc(100% - 68px), calc(var(--page-width) + 68px));
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 54px 0 40px;
 }
 
 .site-nav {
@@ -186,13 +248,17 @@ header {
 }
 
 #theme-toggle {
-  background: none;
-  border: none;
+  width: 40px;
+  height: 30px;
+  background: rgba(252, 252, 251, 0.62);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 999px;
   color: var(--link);
   cursor: pointer;
   font-size: 17px;
   line-height: 1;
-  padding: 2px 4px;
+  padding: 0;
+  box-shadow: 0 8px 24px rgba(26, 26, 26, 0.08);
 }
 
 #theme-toggle:hover { color: var(--link-hover); }
@@ -203,6 +269,19 @@ header {
   max-width: var(--page-width);
 }
 
+.landing .intro {
+  align-self: center;
+  max-width: 25rem;
+  gap: 0.8rem;
+  transform: translateY(10vh);
+}
+
+.landing h1 {
+  font-size: 26px;
+  line-height: 1.08;
+  margin-bottom: 0;
+}
+
 .intro p:last-child { margin-bottom: 0; }
 
 .lede {
@@ -211,15 +290,69 @@ header {
   line-height: 1.8;
 }
 
+.landing .lede {
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.landing-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 0.8rem;
+}
+
+.landing-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 16px;
+  line-height: 1;
+  border: 1px solid color-mix(in srgb, var(--text) 23%, transparent);
+  box-shadow: 0 10px 28px rgba(26, 26, 26, 0.07);
+}
+
+.landing-button-primary {
+  color: var(--bg);
+  background: var(--text);
+  border-color: var(--text);
+}
+
+.landing-button-primary:hover {
+  color: var(--bg);
+  border-color: var(--link-hover);
+  background: var(--link-hover);
+}
+
+.landing-button-secondary {
+  color: var(--text);
+  background: rgba(252, 252, 251, 0.28);
+}
+
+.landing-button-secondary:hover {
+  color: var(--link-hover);
+  border-color: color-mix(in srgb, var(--link-hover) 42%, transparent);
+}
+
 .contacts {
   display: flex;
   align-items: baseline;
-  gap: 0.35rem;
+  flex-wrap: wrap;
+  gap: 0.9rem;
   color: var(--text-secondary);
   font-size: 12px;
   letter-spacing: 0.03em;
   line-height: 1;
   margin-bottom: 0;
+}
+
+.landing-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .contacts a {
@@ -233,6 +366,8 @@ header {
 }
 
 main {
+  width: min(calc(100% - 68px), calc(var(--page-width) + 68px));
+  margin: 0 auto;
   display: grid;
   gap: var(--section-gap);
 }
@@ -456,6 +591,9 @@ section {
 }
 
 footer {
+  width: min(calc(100% - 68px), calc(var(--page-width) + 68px));
+  margin-right: auto;
+  margin-left: auto;
   margin-top: var(--section-gap);
   padding-top: 24px;
   border-top: 1px solid var(--border);
@@ -474,7 +612,7 @@ footer a { color: var(--text-secondary); }
 
 @media (max-width: 640px) {
   body {
-    padding: 46px 22px 60px;
+    padding: 0;
     font-size: 15.5px;
     line-height: 1.72;
   }
@@ -497,11 +635,19 @@ footer a { color: var(--text-secondary); }
 
   h3 { font-size: 18px; }
 
-  .top-bar {
-    grid-template-columns: 1fr;
-    align-items: flex-start;
-    gap: 0.8rem;
-    margin-bottom: 1.8rem;
+  .landing {
+    min-height: 100svh;
+    margin-bottom: 4.25rem;
+  }
+
+  .landing-inner,
+  main,
+  footer {
+    width: min(calc(100% - 44px), var(--page-width));
+  }
+
+  .landing-inner {
+    padding: 32px 0 28px;
   }
 
   .site-nav {
@@ -519,9 +665,33 @@ footer a { color: var(--text-secondary); }
     gap: 0.9rem;
   }
 
+  .landing .intro {
+    max-width: 19rem;
+    transform: translateY(7vh);
+  }
+
+  .landing h1 {
+    font-size: 23px;
+  }
+
   .lede {
     font-size: 17px;
     line-height: 1.72;
+  }
+
+  .landing .lede {
+    font-size: 16px;
+    line-height: 1.34;
+  }
+
+  .landing-button {
+    min-height: 34px;
+    padding: 0 14px;
+    font-size: 15px;
+  }
+
+  .landing-footer {
+    align-items: flex-end;
   }
 
   main {

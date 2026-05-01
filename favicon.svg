@@ -1,17 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title>Aarush Bathula monogram favicon</title>
-  <rect x="6.5" y="6.5" width="51" height="51" rx="1.5" fill="#fcfcfb" stroke="#1a1a1a" stroke-width="1.15" />
-  <rect x="10.5" y="10.5" width="43" height="43" rx="0.75" fill="none" stroke="#1a1a1a" stroke-width="0.7" opacity="0.9" />
-  <text
-    x="50%"
-    y="51%"
-    text-anchor="middle"
-    dominant-baseline="middle"
-    font-family="Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif"
-    font-size="24"
-    letter-spacing="0.5"
-    fill="#1a1a1a"
-  >
-    AB
-  </text>
+  <title>Blue circle favicon</title>
+  <defs>
+    <radialGradient id="blue-aura" cx="34%" cy="28%" r="72%">
+      <stop offset="0%" stop-color="#2b5f8d" />
+      <stop offset="68%" stop-color="#123a63" />
+      <stop offset="100%" stop-color="#0c2a48" />
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#blue-aura)" />
 </svg>
