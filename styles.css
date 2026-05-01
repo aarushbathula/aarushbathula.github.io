@@ -334,15 +334,31 @@ ul { list-style: none; }
 .landing-copy::before {
   content: "";
   position: absolute;
-  inset: -0.65rem -0.8rem;
+  inset: -2.2rem -3.4rem;
   z-index: -1;
   pointer-events: none;
-  background: radial-gradient(ellipse at 38% 48%, color-mix(in srgb, var(--bg) 94%, transparent), color-mix(in srgb, var(--bg) 68%, transparent) 58%, transparent 78%);
+  background:
+    radial-gradient(
+      ellipse at 34% 48%,
+      color-mix(in srgb, var(--bg) 98%, transparent) 0%,
+      color-mix(in srgb, var(--bg) 90%, transparent) 36%,
+      color-mix(in srgb, var(--bg) 56%, transparent) 62%,
+      transparent 82%
+    );
+  filter: blur(0.5px);
 }
 
 .landing-copy > * {
   position: relative;
   z-index: 1;
+}
+
+.landing-copy h1,
+.landing-copy .lede,
+.landing-copy .contacts {
+  text-shadow:
+    0 1px 0 var(--bg),
+    0 0 16px color-mix(in srgb, var(--bg) 86%, transparent);
 }
 
 .landing h1 {
@@ -745,10 +761,6 @@ footer a { color: var(--text-secondary); }
   .landing .intro {
     max-width: 19rem;
     transform: translateY(7vh);
-  }
-
-  .landing-copy::before {
-    inset: -0.55rem -0.65rem;
   }
 
   .landing h1 {
