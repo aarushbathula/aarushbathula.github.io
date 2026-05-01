@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396" role="img" aria-labelledby="title">
+  <title>Aarush Bathula dark dotted LinkedIn banner</title>
+  <defs>
+    <pattern id="dotted-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <radialGradient id="dot" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="rgb(232, 228, 221)" stop-opacity="0.14" />
+        <stop offset="74%" stop-color="rgb(232, 228, 221)" stop-opacity="0.14" />
+        <stop offset="100%" stop-color="rgb(232, 228, 221)" stop-opacity="0" />
+      </radialGradient>
+      <circle cx="11" cy="11" r="1.35" fill="url(#dot)" />
+    </pattern>
+  </defs>
+  <rect width="1584" height="396" fill="#141311" />
+  <rect width="1584" height="396" fill="url(#dotted-grid)" />
+</svg>
