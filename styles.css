@@ -54,6 +54,10 @@ html.dark-mode .landing-field::after {
     radial-gradient(35rem 28rem at 56% 52%, rgba(20, 19, 17, 0.32), transparent 72%);
 }
 
+html.dark-mode .landing {
+  background: linear-gradient(145deg, #191816 0%, #24231f 48%, #332920 100%);
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 html {
@@ -169,17 +173,19 @@ ul { list-style: none; }
 
 .landing {
   position: relative;
+  width: 100%;
   min-height: 100vh;
   min-height: 100svh;
   margin-bottom: var(--section-gap);
   overflow: hidden;
   isolation: isolate;
+  background: linear-gradient(145deg, #eef1ed 0%, #d9dfd9 45%, #f0e2c5 100%);
 }
 
 .landing-field {
   position: absolute;
   inset: 0;
-  z-index: -2;
+  z-index: 0;
   background:
     radial-gradient(42rem 34rem at 54% 51%, rgba(252, 252, 251, 0.74), rgba(252, 252, 251, 0) 61%),
     conic-gradient(from 228deg at 54% 51%, rgba(12, 42, 72, 0) 0deg, rgba(18, 58, 99, 0.34) 14deg, rgba(12, 42, 72, 0) 25deg, rgba(214, 181, 119, 0.36) 44deg, rgba(12, 42, 72, 0) 57deg, rgba(18, 58, 99, 0.24) 78deg, rgba(12, 42, 72, 0) 94deg, rgba(205, 142, 114, 0.26) 113deg, rgba(12, 42, 72, 0) 132deg, rgba(18, 58, 99, 0.28) 163deg, rgba(12, 42, 72, 0) 181deg, rgba(214, 181, 119, 0.3) 208deg, rgba(12, 42, 72, 0) 226deg, rgba(18, 58, 99, 0.3) 257deg, rgba(12, 42, 72, 0) 283deg, rgba(205, 142, 114, 0.24) 312deg, rgba(12, 42, 72, 0) 360deg),
@@ -212,7 +218,7 @@ ul { list-style: none; }
 
 .landing-inner {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: grid;
   grid-template-rows: 1fr auto;
   width: min(calc(100% - 68px), calc(var(--page-width) + 68px));
