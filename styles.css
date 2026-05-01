@@ -216,13 +216,18 @@ ul { list-style: none; }
 .landing-ripple {
   position: absolute;
   z-index: 1;
-  width: 24px;
-  height: 24px;
-  border: 1px solid color-mix(in srgb, var(--link) 38%, transparent);
+  width: 26rem;
+  height: 26rem;
   border-radius: 999px;
+  background-image: radial-gradient(circle, var(--dot-active) 2.2px, transparent 2.6px);
+  background-position: center;
+  background-size: 22px 22px;
+  opacity: 0;
   pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.4);
-  animation: landing-ripple 760ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  transform: translate(-50%, -50%) scale(0.08);
+  mask-image: radial-gradient(circle, transparent 0 43%, #000 50%, transparent 59%);
+  -webkit-mask-image: radial-gradient(circle, transparent 0 43%, #000 50%, transparent 59%);
+  animation: landing-ripple 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .landing-inner {
@@ -239,18 +244,21 @@ ul { list-style: none; }
 
 @keyframes landing-ripple {
   0% {
-    opacity: 0.42;
-    box-shadow: 0 0 0 0 color-mix(in srgb, var(--link) 14%, transparent);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.08);
+  }
+
+  14% {
+    opacity: 0.18;
   }
 
   70% {
-    opacity: 0.2;
+    opacity: 0.12;
   }
 
   100% {
     opacity: 0;
-    transform: translate(-50%, -50%) scale(9);
-    box-shadow: 0 0 0 16px transparent;
+    transform: translate(-50%, -50%) scale(1.08);
   }
 }
 
