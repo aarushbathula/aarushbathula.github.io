@@ -26,7 +26,7 @@
       document.documentElement.classList.add("dark-mode");
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260501-dotgrid" />
+  <link rel="stylesheet" href="styles.css?v=20260501-ripple" />
 </head>
 
 <body>
@@ -208,22 +208,47 @@
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
 
-    if (landing && window.matchMedia("(pointer: fine)").matches) {
-      let pendingPointerFrame = null;
+    if (landing && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const pointer = { currentX: 54, currentY: 51, targetX: 54, targetY: 51 };
+      let pointerFrame = null;
 
-      landing.addEventListener("pointermove", (event) => {
-        if (pendingPointerFrame) {
-          cancelAnimationFrame(pendingPointerFrame);
+      function setPointerTarget(event) {
+        const rect = landing.getBoundingClientRect();
+        pointer.targetX = Math.min(Math.max(((event.clientX - rect.left) / rect.width) * 100, 0), 100);
+        pointer.targetY = Math.min(Math.max(((event.clientY - rect.top) / rect.height) * 100, 0), 100);
+
+        if (!pointerFrame) {
+          pointerFrame = requestAnimationFrame(updatePointerGlow);
         }
+      }
 
-        pendingPointerFrame = requestAnimationFrame(() => {
-          const rect = landing.getBoundingClientRect();
-          const x = ((event.clientX - rect.left) / rect.width) * 100;
-          const y = ((event.clientY - rect.top) / rect.height) * 100;
+      function updatePointerGlow() {
+        pointer.currentX += (pointer.targetX - pointer.currentX) * 0.16;
+        pointer.currentY += (pointer.targetY - pointer.currentY) * 0.16;
 
-          landing.style.setProperty("--cursor-x", `${Math.min(Math.max(x, 0), 100)}%`);
-          landing.style.setProperty("--cursor-y", `${Math.min(Math.max(y, 0), 100)}%`);
-        });
+        landing.style.setProperty("--cursor-x", `${pointer.currentX}%`);
+        landing.style.setProperty("--cursor-y", `${pointer.currentY}%`);
+
+        if (Math.abs(pointer.targetX - pointer.currentX) > 0.03 || Math.abs(pointer.targetY - pointer.currentY) > 0.03) {
+          pointerFrame = requestAnimationFrame(updatePointerGlow);
+        } else {
+          pointerFrame = null;
+        }
+      }
+
+      landing.addEventListener("pointermove", setPointerTarget);
+
+      landing.addEventListener("pointerdown", (event) => {
+        setPointerTarget(event);
+
+        const rect = landing.getBoundingClientRect();
+        const ripple = document.createElement("span");
+        ripple.className = "landing-ripple";
+        ripple.style.left = `${event.clientX - rect.left}px`;
+        ripple.style.top = `${event.clientY - rect.top}px`;
+
+        landing.appendChild(ripple);
+        ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
       });
     }
 
