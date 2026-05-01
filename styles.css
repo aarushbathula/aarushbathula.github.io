@@ -37,8 +37,8 @@ html.dark-mode {
 html.dark-mode .landing {
   --landing-bg: #141311;
   --dot-base: rgba(232, 228, 221, 0.14);
-  --dot-active: rgba(167, 191, 215, 0.58);
-  --halo: rgba(167, 191, 215, 0.13);
+  --dot-active: rgb(167 191 215 / calc(0.58 * var(--dot-strength)));
+  --halo: rgb(167 191 215 / calc(0.13 * var(--dot-strength)));
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -157,10 +157,11 @@ ul { list-style: none; }
 .landing {
   --cursor-x: 54%;
   --cursor-y: 51%;
+  --dot-strength: 1;
   --landing-bg: var(--bg);
   --dot-base: rgba(18, 58, 99, 0.14);
-  --dot-active: rgba(18, 58, 99, 0.72);
-  --halo: rgba(18, 58, 99, 0.09);
+  --dot-active: rgb(18 58 99 / calc(0.72 * var(--dot-strength)));
+  --halo: rgb(18 58 99 / calc(0.09 * var(--dot-strength)));
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -171,16 +172,6 @@ ul { list-style: none; }
   background: var(--landing-bg);
 }
 
-.landing:has(.landing-copy:hover) {
-  --dot-active: rgba(18, 58, 99, 0.2);
-  --halo: rgba(18, 58, 99, 0.025);
-}
-
-html.dark-mode .landing:has(.landing-copy:hover) {
-  --dot-active: rgba(167, 191, 215, 0.2);
-  --halo: rgba(167, 191, 215, 0.035);
-}
-
 .landing::after {
   content: "";
   position: absolute;
@@ -188,7 +179,7 @@ html.dark-mode .landing:has(.landing-copy:hover) {
   bottom: -1px;
   left: 0;
   z-index: 1;
-  height: 30vh;
+  height: 22vh;
   pointer-events: none;
   background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 0%, transparent) 28%, var(--bg) 100%);
 }
@@ -223,23 +214,6 @@ html.dark-mode .landing:has(.landing-copy:hover) {
   -webkit-mask-image: radial-gradient(18rem 18rem at var(--cursor-x) var(--cursor-y), #000 0%, rgba(0, 0, 0, 0.88) 34%, transparent 72%);
 }
 
-.landing-ripple {
-  position: absolute;
-  z-index: 1;
-  width: 26rem;
-  height: 26rem;
-  border-radius: 999px;
-  background-image: radial-gradient(circle, var(--dot-active) 2.2px, transparent 2.6px);
-  background-position: center;
-  background-size: 22px 22px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.08);
-  mask-image: radial-gradient(circle, transparent 0 43%, #000 50%, transparent 59%);
-  -webkit-mask-image: radial-gradient(circle, transparent 0 43%, #000 50%, transparent 59%);
-  animation: landing-ripple 900ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
 .landing-inner {
   position: relative;
   z-index: 2;
@@ -252,34 +226,9 @@ html.dark-mode .landing:has(.landing-copy:hover) {
   padding: 54px 0 40px;
 }
 
-@keyframes landing-ripple {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.08);
-  }
-
-  14% {
-    opacity: 0.18;
-  }
-
-  70% {
-    opacity: 0.12;
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.08);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .landing-ripple {
-    animation: none;
-    display: none;
   }
 }
 
@@ -406,7 +355,7 @@ html.dark-mode .landing:has(.landing-copy:hover) {
 
 .landing-button-secondary {
   color: var(--text);
-  background: rgba(252, 252, 251, 0.28);
+  background: color-mix(in srgb, var(--bg) 94%, var(--link) 6%);
 }
 
 .landing-button-secondary:hover {
@@ -447,7 +396,7 @@ html.dark-mode .landing:has(.landing-copy:hover) {
 main {
   width: min(calc(100% - 68px), calc(var(--page-width) + 68px));
   margin: 0 auto;
-  padding-top: var(--section-gap);
+  padding-top: 4.25rem;
   display: grid;
   gap: var(--section-gap);
 }
@@ -721,8 +670,7 @@ footer a { color: var(--text-secondary); }
     --dot-base: rgba(18, 58, 99, 0.1);
   }
 
-  .landing-field::after,
-  .landing-ripple {
+  .landing-field::after {
     display: none;
   }
 

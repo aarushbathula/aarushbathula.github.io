@@ -213,13 +213,34 @@
       window.matchMedia("(pointer: fine)").matches &&
       !window.matchMedia("(prefers-reduced-motion: reduce)").matches
     ) {
-      const pointer = { currentX: 54, currentY: 51, targetX: 54, targetY: 51 };
+      const copyBlocks = Array.from(landing.querySelectorAll(".landing-copy"));
+      const pointer = { currentX: 54, currentY: 51, targetX: 54, targetY: 51, currentStrength: 1, targetStrength: 1 };
       let pointerFrame = null;
+
+      function getDistanceFromCopy(clientX, clientY) {
+        return copyBlocks.reduce((nearestDistance, copyBlock) => {
+          const rect = copyBlock.getBoundingClientRect();
+          const dx = Math.max(rect.left - clientX, 0, clientX - rect.right);
+          const dy = Math.max(rect.top - clientY, 0, clientY - rect.bottom);
+
+          return Math.min(nearestDistance, Math.hypot(dx, dy));
+        }, Infinity);
+      }
+
+      function getDotStrength(distance) {
+        const quietDistance = 18;
+        const fullDistance = 170;
+        const progress = Math.min(Math.max((distance - quietDistance) / (fullDistance - quietDistance), 0), 1);
+        const easedProgress = progress * progress * (3 - 2 * progress);
+
+        return 0.28 + easedProgress * 0.72;
+      }
 
       function setPointerTarget(event) {
         const rect = landing.getBoundingClientRect();
         pointer.targetX = Math.min(Math.max(((event.clientX - rect.left) / rect.width) * 100, 0), 100);
         pointer.targetY = Math.min(Math.max(((event.clientY - rect.top) / rect.height) * 100, 0), 100);
+        pointer.targetStrength = getDotStrength(getDistanceFromCopy(event.clientX, event.clientY));
 
         if (!pointerFrame) {
           pointerFrame = requestAnimationFrame(updatePointerGlow);
@@ -232,8 +253,14 @@
 
         landing.style.setProperty("--cursor-x", `${pointer.currentX}%`);
         landing.style.setProperty("--cursor-y", `${pointer.currentY}%`);
+        pointer.currentStrength += (pointer.targetStrength - pointer.currentStrength) * 0.22;
+        landing.style.setProperty("--dot-strength", pointer.currentStrength.toFixed(3));
 
-        if (Math.abs(pointer.targetX - pointer.currentX) > 0.03 || Math.abs(pointer.targetY - pointer.currentY) > 0.03) {
+        if (
+          Math.abs(pointer.targetX - pointer.currentX) > 0.03 ||
+          Math.abs(pointer.targetY - pointer.currentY) > 0.03 ||
+          Math.abs(pointer.targetStrength - pointer.currentStrength) > 0.003
+        ) {
           pointerFrame = requestAnimationFrame(updatePointerGlow);
         } else {
           pointerFrame = null;
@@ -241,19 +268,6 @@
       }
 
       landing.addEventListener("pointermove", setPointerTarget);
-
-      landing.addEventListener("pointerdown", (event) => {
-        setPointerTarget(event);
-
-        const rect = landing.getBoundingClientRect();
-        const ripple = document.createElement("span");
-        ripple.className = "landing-ripple";
-        ripple.style.left = `${event.clientX - rect.left}px`;
-        ripple.style.top = `${event.clientY - rect.top}px`;
-
-        landing.appendChild(ripple);
-        ripple.addEventListener("animationend", () => ripple.remove(), { once: true });
-      });
     }
 
   </script>
