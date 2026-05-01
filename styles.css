@@ -34,29 +34,11 @@ html.dark-mode {
   --scroll-fill: color-mix(in srgb, var(--link) 68%, transparent);
 }
 
-html.dark-mode .landing-field {
-  background:
-    radial-gradient(30rem 24rem at var(--cursor-x) var(--cursor-y), rgba(167, 191, 215, 0.18), rgba(103, 72, 61, 0.14) 38%, rgba(20, 19, 17, 0) 68%),
-    radial-gradient(42rem 34rem at 54% 51%, rgba(20, 19, 17, 0.5), rgba(20, 19, 17, 0) 61%),
-    conic-gradient(from 228deg at 54% 51%, rgba(167, 191, 215, 0) 0deg, rgba(167, 191, 215, 0.26) 14deg, rgba(167, 191, 215, 0) 25deg, rgba(184, 151, 104, 0.24) 44deg, rgba(167, 191, 215, 0) 57deg, rgba(167, 191, 215, 0.18) 78deg, rgba(167, 191, 215, 0) 94deg, rgba(151, 103, 87, 0.22) 113deg, rgba(167, 191, 215, 0) 132deg, rgba(167, 191, 215, 0.2) 163deg, rgba(167, 191, 215, 0) 181deg, rgba(184, 151, 104, 0.22) 208deg, rgba(167, 191, 215, 0) 226deg, rgba(167, 191, 215, 0.2) 257deg, rgba(167, 191, 215, 0) 283deg, rgba(151, 103, 87, 0.19) 312deg, rgba(167, 191, 215, 0) 360deg),
-    linear-gradient(132deg, rgba(167, 191, 215, 0.16) 0 22%, rgba(20, 19, 17, 0.34) 22% 71%, rgba(106, 67, 58, 0.23) 71% 100%),
-    linear-gradient(145deg, #191816 0%, #24231f 48%, #332920 100%);
-  filter: saturate(0.78);
-}
-
-html.dark-mode .landing-field::before {
-  opacity: 0.13;
-  mix-blend-mode: screen;
-}
-
-html.dark-mode .landing-field::after {
-  background:
-    linear-gradient(132deg, rgba(103, 72, 61, 0.32) 0 22%, transparent 22% 72%, rgba(167, 191, 215, 0.13) 72% 100%),
-    radial-gradient(35rem 28rem at 56% 52%, rgba(20, 19, 17, 0.32), transparent 72%);
-}
-
 html.dark-mode .landing {
-  background: linear-gradient(145deg, #191816 0%, #24231f 48%, #332920 100%);
+  --landing-bg: #141311;
+  --dot-base: rgba(232, 228, 221, 0.14);
+  --dot-active: rgba(167, 191, 215, 0.58);
+  --halo: rgba(167, 191, 215, 0.13);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -175,50 +157,60 @@ ul { list-style: none; }
 .landing {
   --cursor-x: 54%;
   --cursor-y: 51%;
+  --landing-bg: var(--bg);
+  --dot-base: rgba(18, 58, 99, 0.14);
+  --dot-active: rgba(18, 58, 99, 0.72);
+  --halo: rgba(18, 58, 99, 0.09);
   position: relative;
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  margin-bottom: var(--section-gap);
+  margin-bottom: 0;
   overflow: hidden;
   isolation: isolate;
-  background: linear-gradient(145deg, #eef1ed 0%, #d9dfd9 45%, #f0e2c5 100%);
+  background: var(--landing-bg);
+}
+
+.landing::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  z-index: 1;
+  height: 30vh;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg) 0%, transparent) 28%, var(--bg) 100%);
 }
 
 .landing-field {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(30rem 24rem at var(--cursor-x) var(--cursor-y), rgba(252, 252, 251, 0.58), rgba(18, 58, 99, 0.16) 38%, rgba(252, 252, 251, 0) 68%),
-    radial-gradient(42rem 34rem at 54% 51%, rgba(252, 252, 251, 0.68), rgba(252, 252, 251, 0) 61%),
-    conic-gradient(from 228deg at 54% 51%, rgba(12, 42, 72, 0) 0deg, rgba(18, 58, 99, 0.34) 14deg, rgba(12, 42, 72, 0) 25deg, rgba(214, 181, 119, 0.36) 44deg, rgba(12, 42, 72, 0) 57deg, rgba(18, 58, 99, 0.24) 78deg, rgba(12, 42, 72, 0) 94deg, rgba(205, 142, 114, 0.26) 113deg, rgba(12, 42, 72, 0) 132deg, rgba(18, 58, 99, 0.28) 163deg, rgba(12, 42, 72, 0) 181deg, rgba(214, 181, 119, 0.3) 208deg, rgba(12, 42, 72, 0) 226deg, rgba(18, 58, 99, 0.3) 257deg, rgba(12, 42, 72, 0) 283deg, rgba(205, 142, 114, 0.24) 312deg, rgba(12, 42, 72, 0) 360deg),
-    linear-gradient(132deg, rgba(18, 58, 99, 0.2) 0 22%, rgba(252, 252, 251, 0.38) 22% 71%, rgba(200, 111, 82, 0.21) 71% 100%),
-    linear-gradient(145deg, #eef1ed 0%, #d9dfd9 45%, #f0e2c5 100%);
-  filter: saturate(0.88);
-  transition: filter 0.25s ease;
 }
 
 .landing-field::before,
 .landing-field::after {
   content: "";
   position: absolute;
-  inset: -8%;
+  inset: 0;
   pointer-events: none;
 }
 
 .landing-field::before {
-  background:
-    repeating-linear-gradient(0deg, rgba(26, 26, 26, 0.035) 0 1px, transparent 1px 4px),
-    repeating-linear-gradient(90deg, rgba(26, 26, 26, 0.025) 0 1px, transparent 1px 5px);
-  opacity: 0.18;
-  mix-blend-mode: multiply;
+  background-image: radial-gradient(circle, var(--dot-base) 1px, transparent 1.35px);
+  background-position: center;
+  background-size: 22px 22px;
 }
 
 .landing-field::after {
-  background:
-    linear-gradient(132deg, rgba(211, 132, 97, 0.24) 0 22%, transparent 22% 72%, rgba(18, 58, 99, 0.16) 72% 100%),
-    radial-gradient(35rem 28rem at 56% 52%, rgba(252, 252, 251, 0.34), transparent 72%);
+  background-image:
+    radial-gradient(34rem 34rem at var(--cursor-x) var(--cursor-y), var(--halo), transparent 68%),
+    radial-gradient(circle, var(--dot-active) 2.2px, transparent 2.6px);
+  background-position: 0 0, center;
+  background-size: auto, 22px 22px;
+  mask-image: radial-gradient(18rem 18rem at var(--cursor-x) var(--cursor-y), #000 0%, rgba(0, 0, 0, 0.88) 34%, transparent 72%);
+  -webkit-mask-image: radial-gradient(18rem 18rem at var(--cursor-x) var(--cursor-y), #000 0%, rgba(0, 0, 0, 0.88) 34%, transparent 72%);
 }
 
 .landing-inner {
@@ -379,6 +371,7 @@ ul { list-style: none; }
 main {
   width: min(calc(100% - 68px), calc(var(--page-width) + 68px));
   margin: 0 auto;
+  padding-top: var(--section-gap);
   display: grid;
   gap: var(--section-gap);
 }
@@ -648,7 +641,7 @@ footer a { color: var(--text-secondary); }
 
   .landing {
     min-height: 100svh;
-    margin-bottom: 4.25rem;
+    margin-bottom: 0;
   }
 
   .landing-inner,
@@ -706,6 +699,7 @@ footer a { color: var(--text-secondary); }
   }
 
   main {
+    padding-top: 4.25rem;
     gap: 4.25rem;
   }
 
