@@ -36,6 +36,7 @@ html.dark-mode {
 
 html.dark-mode .landing-field {
   background:
+    radial-gradient(30rem 24rem at var(--cursor-x) var(--cursor-y), rgba(167, 191, 215, 0.18), rgba(103, 72, 61, 0.14) 38%, rgba(20, 19, 17, 0) 68%),
     radial-gradient(42rem 34rem at 54% 51%, rgba(20, 19, 17, 0.5), rgba(20, 19, 17, 0) 61%),
     conic-gradient(from 228deg at 54% 51%, rgba(167, 191, 215, 0) 0deg, rgba(167, 191, 215, 0.26) 14deg, rgba(167, 191, 215, 0) 25deg, rgba(184, 151, 104, 0.24) 44deg, rgba(167, 191, 215, 0) 57deg, rgba(167, 191, 215, 0.18) 78deg, rgba(167, 191, 215, 0) 94deg, rgba(151, 103, 87, 0.22) 113deg, rgba(167, 191, 215, 0) 132deg, rgba(167, 191, 215, 0.2) 163deg, rgba(167, 191, 215, 0) 181deg, rgba(184, 151, 104, 0.22) 208deg, rgba(167, 191, 215, 0) 226deg, rgba(167, 191, 215, 0.2) 257deg, rgba(167, 191, 215, 0) 283deg, rgba(151, 103, 87, 0.19) 312deg, rgba(167, 191, 215, 0) 360deg),
     linear-gradient(132deg, rgba(167, 191, 215, 0.16) 0 22%, rgba(20, 19, 17, 0.34) 22% 71%, rgba(106, 67, 58, 0.23) 71% 100%),
@@ -172,6 +173,8 @@ p { margin-bottom: 16px; }
 ul { list-style: none; }
 
 .landing {
+  --cursor-x: 54%;
+  --cursor-y: 51%;
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -187,11 +190,13 @@ ul { list-style: none; }
   inset: 0;
   z-index: 0;
   background:
-    radial-gradient(42rem 34rem at 54% 51%, rgba(252, 252, 251, 0.74), rgba(252, 252, 251, 0) 61%),
+    radial-gradient(30rem 24rem at var(--cursor-x) var(--cursor-y), rgba(252, 252, 251, 0.58), rgba(18, 58, 99, 0.16) 38%, rgba(252, 252, 251, 0) 68%),
+    radial-gradient(42rem 34rem at 54% 51%, rgba(252, 252, 251, 0.68), rgba(252, 252, 251, 0) 61%),
     conic-gradient(from 228deg at 54% 51%, rgba(12, 42, 72, 0) 0deg, rgba(18, 58, 99, 0.34) 14deg, rgba(12, 42, 72, 0) 25deg, rgba(214, 181, 119, 0.36) 44deg, rgba(12, 42, 72, 0) 57deg, rgba(18, 58, 99, 0.24) 78deg, rgba(12, 42, 72, 0) 94deg, rgba(205, 142, 114, 0.26) 113deg, rgba(12, 42, 72, 0) 132deg, rgba(18, 58, 99, 0.28) 163deg, rgba(12, 42, 72, 0) 181deg, rgba(214, 181, 119, 0.3) 208deg, rgba(12, 42, 72, 0) 226deg, rgba(18, 58, 99, 0.3) 257deg, rgba(12, 42, 72, 0) 283deg, rgba(205, 142, 114, 0.24) 312deg, rgba(12, 42, 72, 0) 360deg),
     linear-gradient(132deg, rgba(18, 58, 99, 0.2) 0 22%, rgba(252, 252, 251, 0.38) 22% 71%, rgba(200, 111, 82, 0.21) 71% 100%),
     linear-gradient(145deg, #eef1ed 0%, #d9dfd9 45%, #f0e2c5 100%);
   filter: saturate(0.88);
+  transition: filter 0.25s ease;
 }
 
 .landing-field::before,

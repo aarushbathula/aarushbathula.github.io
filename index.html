@@ -26,7 +26,7 @@
       document.documentElement.classList.add("dark-mode");
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260501-landing" />
+  <link rel="stylesheet" href="styles.css?v=20260501-lively" />
 </head>
 
 <body>
@@ -51,6 +51,7 @@
         <p class="contacts">
           <span>&copy; 2026</span>
           <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a>
+          <a href="https://www.linkedin.com/in/aarushbathula" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/aarushbathula" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
         <button id="theme-toggle" aria-label="Toggle theme">●</button>
@@ -176,6 +177,7 @@
     // Theme toggle
     const toggle = document.getElementById("theme-toggle");
     const root = document.documentElement;
+    const landing = document.querySelector(".landing");
     const progressBar = document.getElementById("scroll-progress-bar");
 
     if (savedTheme === "dark-mode" || (!savedTheme && prefersDark)) {
@@ -205,6 +207,25 @@
     updateScrollProgress();
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
+
+    if (landing && window.matchMedia("(pointer: fine)").matches) {
+      let pendingPointerFrame = null;
+
+      landing.addEventListener("pointermove", (event) => {
+        if (pendingPointerFrame) {
+          cancelAnimationFrame(pendingPointerFrame);
+        }
+
+        pendingPointerFrame = requestAnimationFrame(() => {
+          const rect = landing.getBoundingClientRect();
+          const x = ((event.clientX - rect.left) / rect.width) * 100;
+          const y = ((event.clientY - rect.top) / rect.height) * 100;
+
+          landing.style.setProperty("--cursor-x", `${Math.min(Math.max(x, 0), 100)}%`);
+          landing.style.setProperty("--cursor-y", `${Math.min(Math.max(y, 0), 100)}%`);
+        });
+      });
+    }
 
   </script>
 </body>
