@@ -171,6 +171,16 @@ ul { list-style: none; }
   background: var(--landing-bg);
 }
 
+.landing:has(.landing-copy:hover) {
+  --dot-active: rgba(18, 58, 99, 0.2);
+  --halo: rgba(18, 58, 99, 0.025);
+}
+
+html.dark-mode .landing:has(.landing-copy:hover) {
+  --dot-active: rgba(167, 191, 215, 0.2);
+  --halo: rgba(167, 191, 215, 0.035);
+}
+
 .landing::after {
   content: "";
   position: absolute;
@@ -329,23 +339,6 @@ ul { list-style: none; }
 
 .landing-copy {
   position: relative;
-}
-
-.landing-copy::before {
-  content: "";
-  position: absolute;
-  inset: -2.2rem -3.4rem;
-  z-index: -1;
-  pointer-events: none;
-  background:
-    radial-gradient(
-      ellipse at 34% 48%,
-      color-mix(in srgb, var(--bg) 98%, transparent) 0%,
-      color-mix(in srgb, var(--bg) 90%, transparent) 36%,
-      color-mix(in srgb, var(--bg) 56%, transparent) 62%,
-      transparent 82%
-    );
-  filter: blur(0.5px);
 }
 
 .landing-copy > * {
