@@ -35,37 +35,37 @@
       <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
     </div>
   </div>
+  <button class="scroll-top" id="scroll-top" type="button" aria-label="Scroll to top" title="Scroll to top">↑</button>
   <header class="landing">
     <div class="landing-field" aria-hidden="true"></div>
     <div class="landing-inner">
       <div class="intro landing-copy">
         <h1>Aarush Bathula</h1>
-        <p class="lede">Economics at the <a href="https://warwick.ac.uk/fac/soc/economics/" target="_blank" rel="noopener noreferrer">University of Warwick</a><br />Housing, urban economics, applied econometrics</p>
+        <p class="lede">Economics at the <a href="https://warwick.ac.uk/fac/soc/economics/" target="_blank" rel="noopener noreferrer">University of Warwick</a><br />Housing, urban economics, and applied econometrics</p>
         <div class="landing-actions">
           <a class="landing-button landing-button-secondary" href="#research">See More</a>
-          <a class="landing-button landing-button-primary" href="assets/cv/cv.pdf">CV</a>
+          <a class="landing-button landing-button-primary" href="assets/cv/cv.pdf" type="application/pdf">CV</a>
         </div>
       </div>
 
       <div class="landing-footer landing-copy">
         <p class="contacts">
-          <span>&copy; 2026</span>
           <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a>
           <a href="https://www.linkedin.com/in/aarushbathula" target="_blank" rel="noopener noreferrer">LinkedIn</a>
           <a href="https://github.com/aarushbathula" target="_blank" rel="noopener noreferrer">GitHub</a>
         </p>
-        <button id="theme-toggle" aria-label="Toggle theme">●</button>
       </div>
     </div>
+    <button id="theme-toggle" aria-label="Switch to dark theme" aria-pressed="false" title="Switch to dark theme"></button>
   </header>
 
   <main>
-    <section id="research">
-      <h2>Research</h2>
+    <section id="research" class="research-section" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research</h2>
 
-      <h3>Work In Progress</h3>
-      <div class="entry-list">
-        <article class="entry">
+      <h3 id="work-in-progress-heading">Work In Progress</h3>
+      <div class="entry-list working-paper-index" role="list" aria-labelledby="work-in-progress-heading">
+        <article class="entry research-entry working-paper-entry" role="listitem" data-entry-type="working-paper" data-entry-number="WP 1">
           <div class="entry-header">
             <span class="entry-title">Housing Frictions, Spatial Misallocation, and Long-Run Growth</span>
             <span class="entry-meta">2025-present. MATLAB. Dynare.</span>
@@ -75,51 +75,51 @@
         </article>
       </div>
 
-      <h3>Selected Papers</h3>
-      <div class="compact-list">
-        <article class="compact-item">
+      <h3 id="selected-papers-heading">Selected Papers</h3>
+      <div class="compact-list paper-index citation-index" role="list" aria-labelledby="selected-papers-heading">
+        <article class="compact-item research-entry paper-index-item" role="listitem" data-entry-type="selected-paper" data-citation-number="1" data-citation-label="[1]">
           <div class="compact-item-main">
-            <div class="compact-item-title"><a href="assets/papers/sibling-gender/paper.pdf">Sibling Composition and Academic Self-Perception</a></div>
+            <div class="compact-item-title">Sibling Composition and Academic Self-Perception</div>
             <div class="compact-item-meta">2025. Stata. Ranked 1st of 90 students in the cohort (78%).</div>
           </div>
           <p>Studies academic self-perception using quasi-random variation in sibling sex composition, with ordered response models and robustness analysis.</p>
-          <div class="inline-links"><a href="assets/papers/sibling-gender/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish" target="_blank" rel="noopener noreferrer">code</a></div>
+          <div class="inline-links"><a href="assets/papers/sibling-gender/paper.pdf" type="application/pdf">pdf</a><a href="https://github.com/aarushbathula/ec338-hbsc-belgium-flemish" target="_blank" rel="noopener noreferrer">code</a></div>
         </article>
 
-        <article class="compact-item">
+        <article class="compact-item research-entry paper-index-item" role="listitem" data-entry-type="selected-paper" data-citation-number="2" data-citation-label="[2]">
           <div class="compact-item-main">
-            <div class="compact-item-title"><a href="assets/papers/migrant-matching/paper.pdf">Country of Origin and Occupational Sorting in the United Kingdom</a></div>
+            <div class="compact-item-title">Country of Origin and Occupational Sorting in the United Kingdom</div>
             <div class="compact-item-meta">2025. Stata. Ranked in the top 5% of the cohort (78%).</div>
           </div>
           <p>Uses UK Census microdata to estimate country-of-origin effects on occupational skill placement, with a second-stage analysis of origin-country characteristics.</p>
-          <div class="inline-links"><a href="assets/papers/migrant-matching/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec226-migration-skills-uk" target="_blank" rel="noopener noreferrer">code</a></div>
+          <div class="inline-links"><a href="assets/papers/migrant-matching/paper.pdf" type="application/pdf">pdf</a><a href="https://github.com/aarushbathula/ec226-migration-skills-uk" target="_blank" rel="noopener noreferrer">code</a></div>
         </article>
 
-        <article class="compact-item">
+        <article class="compact-item research-entry paper-index-item" role="listitem" data-entry-type="selected-paper" data-citation-number="3" data-citation-label="[3]">
           <div class="compact-item-main">
-            <div class="compact-item-title"><a href="assets/papers/spain-reform/paper.pdf">Gender Quotas and Female Political Representation in Spanish Municipal Elections</a></div>
-            <div class="compact-item-meta">2025. Stata. Ranked highly within the cohort (74%).</div>
+            <div class="compact-item-title">Gender Quotas and Female Political Representation in Spanish Municipal Elections</div>
+            <div class="compact-item-meta">2025. Stata. 74%.</div>
           </div>
           <p>Studies the effect of municipal gender quotas using difference-in-differences, event-study, regression discontinuity, and instrumental-variables designs.</p>
-          <div class="inline-links"><a href="assets/papers/spain-reform/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec338-spain-reform" target="_blank" rel="noopener noreferrer">code</a></div>
+          <div class="inline-links"><a href="assets/papers/spain-reform/paper.pdf" type="application/pdf">pdf</a><a href="https://github.com/aarushbathula/ec338-spain-reform" target="_blank" rel="noopener noreferrer">code</a></div>
         </article>
 
-        <article class="compact-item">
+        <article class="compact-item research-entry paper-index-item" role="listitem" data-entry-type="selected-paper" data-citation-number="4" data-citation-label="[4]">
           <div class="compact-item-main">
-            <div class="compact-item-title"><a href="assets/papers/mental-health-bmi/paper.pdf">Psychotropic Medication and Body Mass Index</a></div>
+            <div class="compact-item-title">Psychotropic Medication and Body Mass Index</div>
             <div class="compact-item-meta">2024. R. Ranked 1st of 558 students in the cohort (88%).</div>
           </div>
           <p>Estimates associations between prescribed psychotropic medication and body mass index using Health Survey for England microdata.</p>
-          <div class="inline-links"><a href="assets/papers/mental-health-bmi/paper.pdf">pdf</a><a href="https://github.com/aarushbathula/ec124-meds-bmi" target="_blank" rel="noopener noreferrer">code</a></div>
+          <div class="inline-links"><a href="assets/papers/mental-health-bmi/paper.pdf" type="application/pdf">pdf</a><a href="https://github.com/aarushbathula/ec124-meds-bmi" target="_blank" rel="noopener noreferrer">code</a></div>
         </article>
 
-        <article class="compact-item">
+        <article class="compact-item research-entry paper-index-item" role="listitem" data-entry-type="selected-paper" data-citation-number="5" data-citation-label="[5]">
           <div class="compact-item-main">
-            <div class="compact-item-title"><a href="assets/papers/growth-theory/paper.pdf">Technology Diffusion and Convergence in Sub-Saharan Africa</a></div>
-            <div class="compact-item-meta">2025. Theory. Ranked well within the cohort (72%).</div>
+            <div class="compact-item-title">Technology Diffusion and Convergence in Sub-Saharan Africa</div>
+            <div class="compact-item-meta">2025. Theory. 72%.</div>
           </div>
           <p>Develops a growth-theoretic framework for technology diffusion and convergence under absorptive-capacity constraints.</p>
-          <div class="inline-links"><a href="assets/papers/growth-theory/paper.pdf">pdf</a></div>
+          <div class="inline-links"><a href="assets/papers/growth-theory/paper.pdf" type="application/pdf">pdf</a></div>
         </article>
       </div>
 
@@ -127,12 +127,24 @@
 
     <section id="preparation">
       <h2>Training</h2>
-      <div class="section-notes">
-        <p class="section-note">Research software and workflow: Stata, MATLAB, Dynare, R, Python, LaTeX, Quarto, Git/GitHub.</p>
-        <p class="section-note">Methods: numerical optimisation, dynamic programming, fixed-point algorithms, and quantitative simulation.</p>
-        <p class="section-note">Selected Modules: EC221 Mathematical Economics* (MWG/Kreps); EC338 Microeconometrics*; EC343 Topics in Applied Economics* (discrimination, economics of education, peer effects, health economics); EC243 Economic Growth; EC349 Data Science for Economists.</p>
-        <p class="section-note">* Indicates study undertaken beyond the standard undergraduate level.</p>
-      </div>
+      <dl class="training-list">
+        <div class="training-item">
+          <dt>Software</dt>
+          <dd>Stata, MATLAB, Dynare, R, Python, LaTeX, Quarto, Git/GitHub.</dd>
+        </div>
+        <div class="training-item">
+          <dt>Methods</dt>
+          <dd>Numerical optimisation, dynamic programming, fixed-point algorithms, and quantitative simulation.</dd>
+        </div>
+        <div class="training-item">
+          <dt>Selected Modules</dt>
+          <dd>EC221 Mathematical Economics* (MWG/Kreps); EC338 Microeconometrics*; EC343 Topics in Applied Economics*; EC243 Economic Growth; EC349 Data Science for Economists.</dd>
+        </div>
+        <div class="training-item training-item-note">
+          <dt>Note</dt>
+          <dd>* Indicates study undertaken beyond the standard undergraduate level.</dd>
+        </div>
+      </dl>
     </section>
 
     <section id="references">
@@ -164,10 +176,27 @@
         </div>
       </div>
     </section>
+
   </main>
 
+  <details class="personal-note">
+    <summary>A less formal note</summary>
+    <div class="personal-note-content">
+      <p>Most of this page is the academic version. A little less formally, I am usually thinking about:</p>
+      <ul class="personal-note-list">
+        <li>squeezing optimal amounts of micro and macronutrients into my meals, and solving the best Tesco meal deal</li>
+        <li>over-organising my workspace and life generally (cf. the full inventory of my material belongings)</li>
+        <li>history, politics, and biographies of people with unusually interesting lives and questionable decision trees</li>
+        <li>needlessly elaborate statistical analysis of sports I watch, just for my teams to lose miserably once again</li>
+        <li>mathematical models of urbanisation on Coruscant, including optimal underworld regulation policy</li>
+        <li>the daily dilemma of choosing which white T-shirt to wear (with an appropriate F-91W colourway)</li>
+      </ul>
+    </div>
+  </details>
+
   <footer>
-    <p>Last updated April 2026</p>
+    <p>&copy; <time id="copyright-year"></time> Aarush Bathula</p>
+    <p>Last updated <time id="last-updated"></time></p>
     <p class="footer-source">
       <a href="https://github.com/aarushbathula/aarushbathula.github.io" target="_blank" rel="noopener noreferrer">View source</a>
     </p>
@@ -178,35 +207,124 @@
     const toggle = document.getElementById("theme-toggle");
     const root = document.documentElement;
     const landing = document.querySelector(".landing");
+    const progress = document.querySelector(".scroll-progress");
     const progressBar = document.getElementById("scroll-progress-bar");
+    const scrollTop = document.getElementById("scroll-top");
+    const copyrightYear = document.getElementById("copyright-year");
+    const lastUpdated = document.getElementById("last-updated");
+
+    function updateDateEnvironment() {
+      const now = new Date();
+      const modified = new Date(document.lastModified);
+      const lastModified = Number.isNaN(modified.getTime()) ? now : modified;
+      const year = now.getFullYear().toString();
+      const lastModifiedLabel = new Intl.DateTimeFormat("en-GB", {
+        month: "long",
+        year: "numeric"
+      }).format(lastModified);
+
+      if (copyrightYear) {
+        copyrightYear.dateTime = year;
+        copyrightYear.textContent = year;
+      }
+
+      if (lastUpdated) {
+        lastUpdated.dateTime = lastModified.toISOString().slice(0, 10);
+        lastUpdated.textContent = lastModifiedLabel;
+      }
+    }
+
+    function scheduleDateEnvironmentUpdate() {
+      const now = new Date();
+      const tomorrow = new Date(now);
+      tomorrow.setHours(24, 0, 0, 0);
+
+      window.setTimeout(() => {
+        updateDateEnvironment();
+        scheduleDateEnvironmentUpdate();
+      }, tomorrow.getTime() - now.getTime());
+    }
+
+    function syncThemeToggle() {
+      const isDark = root.classList.contains("dark-mode");
+      const toggleLabel = isDark ? "Switch to light theme" : "Switch to dark theme";
+      if (!toggle) return;
+      toggle.setAttribute("aria-pressed", isDark.toString());
+      toggle.setAttribute("aria-label", toggleLabel);
+      toggle.title = toggleLabel;
+    }
 
     if (savedTheme === "dark-mode" || (!savedTheme && prefersDark)) {
       root.classList.add("dark-mode");
-      toggle.textContent = "○";
-    } else {
-      toggle.textContent = "●";
     }
 
-    toggle.addEventListener("click", () => {
-      root.classList.toggle("dark-mode");
-      if (root.classList.contains("dark-mode")) {
-        localStorage.setItem("theme", "dark-mode");
-        toggle.textContent = "○";
-      } else {
-        localStorage.setItem("theme", "light-mode");
-        toggle.textContent = "●";
-      }
-    });
+    if (toggle) {
+      syncThemeToggle();
+
+      toggle.addEventListener("click", () => {
+        root.classList.toggle("dark-mode");
+        if (root.classList.contains("dark-mode")) {
+          localStorage.setItem("theme", "dark-mode");
+        } else {
+          localStorage.setItem("theme", "light-mode");
+        }
+        syncThemeToggle();
+      });
+    }
+
+    updateDateEnvironment();
+    scheduleDateEnvironmentUpdate();
 
     function updateScrollProgress() {
-      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0;
+      if (!progressBar) return;
+
+      const progressStart = landing ? landing.offsetTop + landing.offsetHeight - 12 : 0;
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight - progressStart;
+      const progress = scrollableHeight > 0 ? (window.scrollY - progressStart) / scrollableHeight : 0;
       progressBar.style.transform = `scaleY(${Math.min(Math.max(progress, 0), 1)})`;
     }
 
+    function updateScrollProgressVisibility() {
+      if (!progress || !landing) return;
+
+      const revealPoint = landing.offsetTop + landing.offsetHeight - 12;
+      progress.classList.toggle("is-visible", window.scrollY >= revealPoint);
+      if (scrollTop) {
+        scrollTop.classList.toggle("is-visible", window.scrollY >= revealPoint);
+      }
+    }
+
+    function updateLocationHash() {
+      if (!landing || window.location.hash !== "#research") return;
+
+      const revealPoint = landing.offsetTop + landing.offsetHeight - 12;
+      if (window.scrollY < revealPoint) {
+        history.replaceState(null, "", `${window.location.pathname}${window.location.search}`);
+      }
+    }
+
     updateScrollProgress();
-    window.addEventListener("scroll", updateScrollProgress, { passive: true });
-    window.addEventListener("resize", updateScrollProgress);
+    updateScrollProgressVisibility();
+    updateLocationHash();
+
+    window.addEventListener("scroll", () => {
+      updateScrollProgress();
+      updateScrollProgressVisibility();
+      updateLocationHash();
+    }, { passive: true });
+
+    window.addEventListener("resize", () => {
+      updateScrollProgress();
+      updateScrollProgressVisibility();
+      updateLocationHash();
+    });
+
+    if (scrollTop) {
+      scrollTop.addEventListener("click", () => {
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+      });
+    }
 
     if (
       landing &&
