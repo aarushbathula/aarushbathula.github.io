@@ -26,7 +26,7 @@
       document.documentElement.classList.add("dark-mode");
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260501-dotwave" />
+  <link rel="stylesheet" href="styles.css?v=20260501-mobilegrid" />
 </head>
 
 <body>
@@ -38,7 +38,7 @@
   <header class="landing">
     <div class="landing-field" aria-hidden="true"></div>
     <div class="landing-inner">
-      <div class="intro">
+      <div class="intro landing-copy">
         <h1>Aarush Bathula</h1>
         <p class="lede">Economics at the <a href="https://warwick.ac.uk/fac/soc/economics/" target="_blank" rel="noopener noreferrer">University of Warwick</a><br />Housing, urban economics, applied econometrics</p>
         <div class="landing-actions">
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="landing-footer">
+      <div class="landing-footer landing-copy">
         <p class="contacts">
           <span>&copy; 2026</span>
           <a href="mailto:aarush.bathula@warwick.ac.uk" target="_blank" rel="noopener noreferrer">Email</a>
@@ -208,7 +208,11 @@
     window.addEventListener("scroll", updateScrollProgress, { passive: true });
     window.addEventListener("resize", updateScrollProgress);
 
-    if (landing && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      landing &&
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
       const pointer = { currentX: 54, currentY: 51, targetX: 54, targetY: 51 };
       let pointerFrame = null;
 
@@ -236,9 +240,7 @@
         }
       }
 
-      if (window.matchMedia("(pointer: fine)").matches) {
-        landing.addEventListener("pointermove", setPointerTarget);
-      }
+      landing.addEventListener("pointermove", setPointerTarget);
 
       landing.addEventListener("pointerdown", (event) => {
         setPointerTarget(event);
