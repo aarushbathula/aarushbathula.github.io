@@ -9,7 +9,7 @@
     name="description"
     content="Aarush Bathula is an incoming MPhil student in Economics at the University of Oxford and is interested in housing and urban economics, applied econometrics, and causal inference."
   />
-  <meta name="theme-color" content="#FFFFFF" />
+  <meta name="theme-color" content="#E7E4DA" />
   <meta name="color-scheme" content="light dark" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Aarush Bathula | Economics, Oxford" />
@@ -26,7 +26,7 @@
       document.documentElement.classList.add("dark-mode");
     }
   </script>
-  <link rel="stylesheet" href="styles.css?v=20260817-oxford" />
+  <link rel="stylesheet" href="styles.css?v=20260904-mono" />
 </head>
 
 <body>
@@ -37,7 +37,6 @@
   </div>
   <button class="scroll-top" id="scroll-top" type="button" aria-label="Scroll to top" title="Scroll to top">↑</button>
   <header class="landing">
-    <div class="landing-field" aria-hidden="true"></div>
     <div class="landing-inner">
       <div class="intro landing-copy">
         <h1>Aarush Bathula</h1>
@@ -184,21 +183,6 @@
 
   </main>
 
-  <details class="personal-note">
-    <summary>A less formal note</summary>
-    <div class="personal-note-content">
-      <p>Most of this page is the academic version. A little less formally, I am usually thinking about:</p>
-      <ul class="personal-note-list">
-        <li>squeezing optimal amounts of micro and macronutrients into my meals, and solving the best Tesco meal deal</li>
-        <li>over-organising my workspace and life generally (cf. the full inventory of my material belongings)</li>
-        <li>history, politics, and biographies of people with unusually interesting lives and questionable decision trees</li>
-        <li>needlessly elaborate statistical analysis of sports I watch, just for my teams to lose miserably once again</li>
-        <li>mathematical models of urbanisation on Coruscant, including optimal underworld regulation policy</li>
-        <li>the daily dilemma of choosing which white T-shirt to wear (with an appropriate F-91W colourway)</li>
-      </ul>
-    </div>
-  </details>
-
   <footer>
     <p>&copy; <time id="copyright-year"></time> Aarush Bathula</p>
     <p>Last updated <time id="last-updated"></time></p>
@@ -330,69 +314,6 @@
         window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
       });
     }
-
-    if (
-      landing &&
-      window.matchMedia("(pointer: fine)").matches &&
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches
-    ) {
-      const copyBlocks = Array.from(landing.querySelectorAll(".landing-copy"));
-      const pointer = { currentX: 54, currentY: 51, targetX: 54, targetY: 51, currentStrength: 1, targetStrength: 1 };
-      let pointerFrame = null;
-
-      function getDistanceFromCopy(clientX, clientY) {
-        return copyBlocks.reduce((nearestDistance, copyBlock) => {
-          const rect = copyBlock.getBoundingClientRect();
-          const dx = Math.max(rect.left - clientX, 0, clientX - rect.right);
-          const dy = Math.max(rect.top - clientY, 0, clientY - rect.bottom);
-
-          return Math.min(nearestDistance, Math.hypot(dx, dy));
-        }, Infinity);
-      }
-
-      function getDotStrength(distance) {
-        const quietDistance = 18;
-        const fullDistance = 170;
-        const progress = Math.min(Math.max((distance - quietDistance) / (fullDistance - quietDistance), 0), 1);
-        const easedProgress = progress * progress * (3 - 2 * progress);
-
-        return 0.28 + easedProgress * 0.72;
-      }
-
-      function setPointerTarget(event) {
-        const rect = landing.getBoundingClientRect();
-        pointer.targetX = Math.min(Math.max(((event.clientX - rect.left) / rect.width) * 100, 0), 100);
-        pointer.targetY = Math.min(Math.max(((event.clientY - rect.top) / rect.height) * 100, 0), 100);
-        pointer.targetStrength = getDotStrength(getDistanceFromCopy(event.clientX, event.clientY));
-
-        if (!pointerFrame) {
-          pointerFrame = requestAnimationFrame(updatePointerGlow);
-        }
-      }
-
-      function updatePointerGlow() {
-        pointer.currentX += (pointer.targetX - pointer.currentX) * 0.16;
-        pointer.currentY += (pointer.targetY - pointer.currentY) * 0.16;
-
-        landing.style.setProperty("--cursor-x", `${pointer.currentX}%`);
-        landing.style.setProperty("--cursor-y", `${pointer.currentY}%`);
-        pointer.currentStrength += (pointer.targetStrength - pointer.currentStrength) * 0.22;
-        landing.style.setProperty("--dot-strength", pointer.currentStrength.toFixed(3));
-
-        if (
-          Math.abs(pointer.targetX - pointer.currentX) > 0.03 ||
-          Math.abs(pointer.targetY - pointer.currentY) > 0.03 ||
-          Math.abs(pointer.targetStrength - pointer.currentStrength) > 0.003
-        ) {
-          pointerFrame = requestAnimationFrame(updatePointerGlow);
-        } else {
-          pointerFrame = null;
-        }
-      }
-
-      landing.addEventListener("pointermove", setPointerTarget);
-    }
-
   </script>
 </body>
 </html>
