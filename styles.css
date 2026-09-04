@@ -148,6 +148,7 @@ ul { list-style: none; }
   display: grid;
   gap: 0.9rem;
   max-width: var(--measure);
+  min-width: 0;
 }
 
 #theme-toggle {
@@ -201,7 +202,8 @@ ul { list-style: none; }
 }
 
 .lede {
-  max-width: var(--measure);
+  max-width: 100%;
+  min-width: 0;
   font-size: 19px;
   line-height: 1.8;
 }
@@ -210,6 +212,7 @@ ul { list-style: none; }
   display: flex;
   align-items: baseline;
   flex-wrap: wrap;
+  min-width: 0;
   gap: 0.9rem;
   font-family: var(--meta-font);
   color: var(--text-secondary);
@@ -245,7 +248,7 @@ section {
   scroll-margin-top: 3rem;
 }
 
-section::before {
+section:not(:first-child)::before {
   content: "";
   width: min(13rem, 42vw);
   height: 1px;
